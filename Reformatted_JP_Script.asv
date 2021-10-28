@@ -21,10 +21,10 @@ Mach_val = Mach(velocity, temp);
 %Main Wing Calcs -->
 Swing = wingSpan*wingChord;
 ReWing = Reynolds(density,velocity,dynamicViscosity,wingChord);
-cfWing = FrictionCoefficient(ReWing,Mac_val);
+cfWing = FrictionCoefficient(ReWing,Mach_val);
 FFWing = FormFactor(wingXOverC,wingTOverC,wingSweepAngle,Mach_val);
 wingSWetted = (1.977+0.52*wingTOverC)*Swing; %(m^2)
-cd_o_Wing = cfWing*FFWing8(wingSWetted/Swing)*Qwing;
+cd_o_Wing = cfWing*FFWing*(wingSWetted/Swing)*Qwing;
 
 %Fuselage Calcs -->
 f = fuselageLength/(sqrt(4/pi)*pi);
@@ -35,10 +35,10 @@ cfFuse = FrictionCoefficient(ReFuse,Mach_val);
 cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/2.15);
 
 %Vert tail sizing calcs -->
-[svt] = TailVertCoefficient(cvt,lvt,b,Swing);
+[svt] = TailVertCoefficient(CVT,LVT,wingSpan,Swing);
 
 %Horz tail sizing calcs -->
-Cavg = Swing/b;
+Cavg = Swing/wingSpan;
 [sht] = TailHorizCoefficient(cht,lht,Cavg,Swing);
 
 %Vertical Stabilizer calcs -->
@@ -91,8 +91,89 @@ alpha3D_SLF = (CLift/a3D)+alat0;
 
 %Range calculations -->
 CLoCD_max = 1/(4*K*dragBuildUp);
-CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5))/(4*dragBuildUp);
+CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp);
 
 endurance = (E_battery*n_prop*n_motor*((density*Swing)^0.5)*CLoCD_3half_max)/((2^(0.5))*(W_total^(1.5)))/60;
-range = (((E_battery*n_motor*n_prop)/W_total)*CL)
+range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
+V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
+V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
+%Formatted output:
+%Values of Interest:
+F = figure(1);
+T = table()
+
+%Displaying values of interest
+fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_SLF) %3Dlift equation
+fprintf('Aspect Ratio = %g\n',AR)
+fprintf('Planform Area = %g m^2\n',Swing)
+fprintf('Mach_val = %g\n',Mach_val)
+fprintf('K = %g\n',K)
+fprintf('SVT is %g\n',svt)
+fprintf('SHT is %g\n',sht)
+fprintf('CD0 for the wing is %g\n',cdowing)
+fprintf('CD0 for the fuse is %g\n',cdofuse)
+fprintf('CD0 for the vertical stabilizer is %g\n',cdovert)
+fprintf('CD0 for the horizontal stabilizer is %g\n',cdohorz)
+fprintf('CD0 for the front 2 landing gear struts is %g\n',cdolandm)
+fprintf('CD0 for the back landing gear is %g\n',cdogearback)
+fprintf('CD0 for the landing gear wheels is %g\n',cdowheels)
+fprintf('CD0 for the whole plane is %g\n\n',dragbuildup)
+
+%Part D  
+fprintf('The empty weight of our aircraft is %g Newtons \n',weightempty) %Part D
+fprintf('The payload weight of our aircraft is %g Newtons \n',weightpayload) %Part D
+fprintf('The battery weight of our aircraft is %g Newtons \n',weightbattery) %Part D
+fprintf('The fractional empty weight is %g \n',frac_weightempty) %Part D
+fprintf('The fractional payload weight is %g \n',frac_weightpayload) %Part D
+fprintf('The fractional battery weight is %g \n',frac_weightbattery) %Part D
+fprintf('The Cl max is %g \n',Clmax) %Part D
+fprintf('The CL value for our aircraft is %g at steady level flight. \n',CLift) %Part D
+fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_at_SLF,CLift) %Part D
+
+%Part E
+fprintf('The endurance is %g minutes \n',endurance)
+fprintf('The range is %g kilometers \n',range)
+fprintf('The velocity to achieve max range is %g m/s \n',V_maxrange)
+fprintf('The stall velocity is %g m/s \n',V_stall)
+%Functions used in the program ---->
+
+function [Re] = Reynolds(density,velocity,mu,length)
+    %Reynolds Number (density, velocity, dynamic viscosity, and length in %metric)
+    Re=(density*velocity*length)/mu;
+end
+
+function [M] = Mach(velocity,Temp)
+    %Gives the mach number from the velocity (m/s) and Temp (K)
+    gamma = 1.4; %unitless
+    R = 287; %J/(mol*K)
+    a = sqrt(gamma*R*Temp); %speed of sound in m/s
+    M = velocity/a; %Mach number
+end
+
+function [Cf] = FrictionCoefficient(Re,Mach)
+    %calculation for the friction coefficient
+    %   Reynolds, velocity, and temp K in SI
+    Cf = (0.455)/(((log10(Re))^2.58)*(1+0.144*Mach^2)^0.65);
+end
+
+function [FF] = FormFactor(xovercmax,toverc,sweep,Mach)
+    %Function for Form Factor
+    %   (x/c)max, t/c, sweep angle(degrees) 
+    FF=(1+((0.6)/xovercmax)*(toverc)+100*toverc^4)*((1.34*Mach^.18)*(cosd(sweep)^0.28));
+end
+
+function [svt] = TailVertCoefficient(cvt,lvt,b,Swing)
+    %Calculation for helping to determine the size of the vertical tail
+    %   Enter a coefficient, length between cg and qc, span, and planform area to
+    %   determine the exposed side of the vertical tail wing
+    svt=(cvt*b*Swing)/(lvt);
+end
+
+
+function [sht] = TailHorizCoefficient(cht,lht,c,Swing)
+    %Calculation for helping to determine the size of the horizontal tail
+    %   Enter a coefficient, length between cg and qc, span, and planform area to
+    %   determine the exposed side of the vertical tail wing
+    sht=(cht*c*Swing)/(lht);
+end

@@ -13,7 +13,7 @@ inputs = num2cell(inputs);
 [LVT CVT SHT LHT cht lht] = inputs{6,2:7};
 [quarterChordVertStab chordVertStab vertTOverC vertSweepAngle quarterChordHorzStab chordHorzStab horzToverC horzSweepAngle] = inputs{10,1:8};
 [frontStruts_Sfront frontStruts_dOverq wheel_Sfront wheel_dOverq backStrut_Sfront backStrut_dOverq E_density E_battery] = inputs{14,1:8};
-[alat0 anot W_e W_p n_prop n_motor] = inputs{18,1:7};
+[alat0 anot Cl_max W_e W_p n_prop n_motor] = inputs{18,1:7};
 
 %General Calculations ---->
 Mach_val = Mach(velocity, temp);
@@ -75,7 +75,7 @@ K = 1/(pi*e_o*AR);
 a3D = anot/(1+((57.3*anot)/(pi*0.7*AR)));
 
 %Battery Calculations -->
-batteryWeight = E_battery/E_density; %(kg)
+batteryWeight = (E_battery/E_density)*9.81; %(N)
 
 %Cl & CL calcs -->
 W_total = W_e+W_p+batteryWeight; %(Newtons)
@@ -98,6 +98,44 @@ range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
 V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
 V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
+%Formatted output:
+%Values of Interest:
+%F = figure(1);
+%T = table()
+
+%Displaying values of interest
+fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_SLF) %3Dlift equation
+fprintf('Aspect Ratio = %g\n',AR)
+fprintf('Planform Area = %g m^2\n',Swing)
+fprintf('Mach_val = %g\n',Mach_val)
+fprintf('K = %g\n',K)
+fprintf('SVT is %g\n',svt)
+fprintf('SHT is %g\n',sht)
+fprintf('CD0 for the wing is %g\n',cd_o_Wing)
+fprintf('CD0 for the fuse is %g\n',cd_o_Fuse)
+fprintf('CD0 for the vertical stabilizer is %g\n',cd_o_Vert)
+fprintf('CD0 for the horizontal stabilizer is %g\n',cd_o_Horz)
+fprintf('CD0 for the front 2 landing gear struts is %g\n',cd_o_landF)
+fprintf('CD0 for the back landing gear is %g\n',cd_o_landB)
+fprintf('CD0 for the landing gear wheels is %g\n',cd_o_wheels)
+fprintf('CD0 for the whole plane is %g\n\n',dragBuildUp)
+
+%Part D  
+fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
+fprintf('The payload weight of our aircraft is %g Newtons \n',W_p) %Part D
+fprintf('The battery weight of our aircraft is %g Newtons \n',batteryWeight) %Part D
+fprintf('The fractional empty weight is %g \n',frac_W_e) %Part D
+fprintf('The fractional payload weight is %g \n',frac_W_p) %Part D
+fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
+fprintf('The Cl max is %g \n',Cl_max) %Part D
+fprintf('The CL value for our aircraft is %g at steady level flight. \n',CLift) %Part D
+fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_SLF,CLift) %Part D
+
+%Part E
+fprintf('The endurance is %g minutes \n',endurance)
+fprintf('The range is %g kilometers \n',range)
+fprintf('The velocity to achieve max range is %g m/s \n',V_maxrange)
+fprintf('The stall velocity is %g m/s \n',V_stall)
 %Functions used in the program ---->
 
 function [Re] = Reynolds(density,velocity,mu,length)

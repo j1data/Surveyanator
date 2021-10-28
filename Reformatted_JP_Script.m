@@ -1,9 +1,18 @@
-clear,clc
+clear,clc,clf
 %AerE 261
 %Jr.JPL Blake, Ellie, Jeremy, Justin, Nicole
 %Surveyanator
 %scaling factor 0.28:1 to the bonanza
 %based of Beechcraft Bonanza and Cessna 172
+
+%Input to spreadsheet
+Power_sea = 50000; %kN
+g=9.81; %m/s^2
+R=287; %J/(kg*K)
+Tsea=294; %K
+density_sea=1.225; %kg/m^3
+a=-6.5*10^(-3);
+m=1;
 
 inputs = GetGoogleSpreadsheet('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE');
 inputs = str2double(inputs);
@@ -97,6 +106,33 @@ endurance = (E_battery*n_prop*n_motor*((density*Swing)^0.5)*CLoCD_3half_max)/((2
 range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
 V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
 V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+
+%Part E
+
+altitude= 0:10:11000; %meters
+
+Temp_alt = Tsea+a.*(altitude);
+
+density_alt = density_sea.*(Temp_alt/Tsea).^((-g/(a*R))-1);
+
+v_infin_SLF = (((2*W_total)./(density_alt.*Swing).*(K./(3*dragBuildUp)).^(.5)).^(0.5));
+Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*dragBuildUp+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*Swing));
+Power_avail = Power_sea.*((density_alt./density).^(m));
+Power_excess = Power_avail-Power_req;
+
+plot(altitude,Power_req,'color','r')
+hold on
+plot(altitude,Power_avail,'color','g')
+hold on
+plot(altitude,Power_excess,'color','b')
+hold off
+legend('Power Required','Power Available','Power Excess')
+xlabel('Meters')
+ylabel('Newtons')
+
+
+
+
 
 %Formatted output:
 %Values of Interest:

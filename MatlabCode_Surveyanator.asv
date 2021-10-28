@@ -13,7 +13,7 @@ b = 6; %wing span meters
 velocity = 50; %velocity in m/s
 
 %Mach Calculation
-Mach_val = Mach(velocity,Temp);
+Mach = Mach(velocity,Temp);
 
 
 %Wing Calculations
@@ -25,8 +25,8 @@ wingsweepangle=0;
 Qwing = 1.25; % For a high mounted wing that doesnt fillet with the fuselage
 
 Rewing= Reynolds(density,velocity,mu,cwing);
-cfwing = FrictionCoefficient(Rewing,Mach_val);
-FFwing = FormFactor(wingxovercmax,wingtoverc,wingsweepangle,Mach_val);
+cfwing = FrictionCoefficient(Rewing,Mach);
+FFwing = FormFactor(wingxovercmax,wingtoverc,wingsweepangle,Mach);
 wingswetted = (1.977+0.52*wingtoverc)*Swing; %meters^2 Estimation 
 cdowing = cfwing*FFwing*(wingswetted/Swing)*Qwing;
 
@@ -39,7 +39,7 @@ f = lengthfuse/(sqrt((4/pi)*pi));
 fffuse = .9+(5/f^1.5)+(f/400);
 Refuse=Reynolds(density,velocity,mu,lengthfuse);
 swettedfuse = pi*0.8*lengthfuse; %in meters^2
-cffuse = FrictionCoefficient(Refuse,Mach_val);
+cffuse = FrictionCoefficient(Refuse,Mach);
 cdofuse = cffuse*fffuse*1*(swettedfuse/2.15);
 
 
@@ -68,20 +68,20 @@ verttoverc = 0.12;
 sweepvert=0;
 Revert = Reynolds(density,velocity,mu,cvert);
 
-cfvert = FrictionCoefficient(Revert,Mach_val);
-ffvert = FormFactor(vertxovercmax,verttoverc,sweepvert,Mach_val);
+cfvert = FrictionCoefficient(Revert,Mach);
+ffvert = FormFactor(vertxovercmax,verttoverc,sweepvert,Mach);
 swettedvert = cvt/Swing; %meters^2 %Estimation
 cdovert = cfvert*ffvert*(swettedvert/2.15)*1.05;
 
 %Horizontal Stabilizer
 horizxovercmax = 0.3; % quarter chord length in percent 
-choriz = 1; % chord for horz in meters
+choriz = 1; % chord for vert in meters
 horiztoverc = 0.12;
 sweephoriz = 0;
 Rehoriz = Reynolds(density,velocity,mu,choriz);
 
-cfhoriz = FrictionCoefficient(Rehoriz,Mach_val);
-ffhoriz = FormFactor(horizxovercmax,horiztoverc,sweephoriz,Mach_val);
+cfhoriz = FrictionCoefficient(Rehoriz,Mach);
+ffhoriz = FormFactor(horizxovercmax,horiztoverc,sweephoriz,Mach);
 swettedhoriz = cht/Swing; %meters^2 %Estimation 
 cdohorz = cfhoriz*ffhoriz*(swettedhoriz/2.15)*1.05;
 
@@ -159,7 +159,7 @@ V_stall = ((2*weight_total)/(density*Swing)*((K/(3*dragbuildup))^(.5)))^(.5); %m
 fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_at_SLF) %3Dlift equation
 fprintf('Aspect Ratio = %g\n',AR)
 fprintf('Planform Area = %g m^2\n',Swing)
-fprintf('Mach_val = %g\n',Mach_val)
+fprintf('Mach = %g\n',Mach)
 fprintf('K = %g\n',K)
 fprintf('SVT is %g\n',svt)
 fprintf('SHT is %g\n',sht)

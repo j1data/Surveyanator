@@ -6,7 +6,7 @@ clear,clc,clf
 %based of Beechcraft Bonanza and Cessna 172
 
 %Input to spreadsheet
-Power_sea = 50000; %kN
+Power_sea = 100000; %N
 g=9.81; %m/s^2
 R=287; %J/(kg*K)
 Tsea=294; %K
@@ -120,23 +120,34 @@ Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*dragBuildUp+((2*K*((W_t
 Power_avail = Power_sea.*((density_alt./density).^(m));
 Power_excess = Power_avail-Power_req;
 
-figure()
-plot(Power_req,altitude,'color','r')
-title('Altitude vs Power Required')
-xlabel('Altitude (meters)')
-ylabel('Newtons')
+plot(altitude,Power_req,'color','r')
+hold on
+plot(altitude,Power_avail,'color','g')
+hold on
+plot(altitude,Power_excess,'color','b')
+hold off
+legend('Power Required','Power Available','Power Excess')
+xlabel('Altitude (m)')
+ylabel('Power (Watt)')
+
+ROC = Power_excess./W_total;
+VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5);
+ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max));
+Service_ceiling = 0.508;
 
 figure()
-plot(Power_avail,altitude,'color','g')
-title('Altitude vs Power Available')
-xlabel('Altitude (meters)')
-ylabel('Newtons')
+plot(altitude,ROC,'color','r')
+hold on
+plot(altitude,ROC_Max,'color','k')
+hold on
+yline(Service_ceiling,'color','b')
+hold off
+xlabel('Altitude (m)')
+ylabel('Rate of Climb (m/s)')
+legend('ROC','ROC Max','Service Ceiling')
 
-figure()
-plot(Power_excess,altitude,'color','b')
-title('Altitude vs Power Excess')
-xlabel('Altitude (meters)')
-ylabel('Newtons')
+intersection=find(Service_ceiling==ROC_Max);
+
 
 
 %Formatted output:

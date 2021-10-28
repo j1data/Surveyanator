@@ -6,7 +6,7 @@ clear,clc,clf
 %based of Beechcraft Bonanza and Cessna 172
 
 %Input to spreadsheet
-Power_sea = 50000; %kN
+Power_sea = 100000; %N
 g=9.81; %m/s^2
 R=287; %J/(kg*K)
 Tsea=294; %K
@@ -127,11 +127,24 @@ hold on
 plot(altitude,Power_excess,'color','b')
 hold off
 legend('Power Required','Power Available','Power Excess')
-xlabel('Meters')
-ylabel('Newtons')
+xlabel('Altitude (m)')
+ylabel('Power (Watt)')
 
+ROC = Power_excess./W_total;
+VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5);
+ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max));
+Service_ceiling = 0.508;
 
-
+figure()
+plot(altitude,ROC,'color','r')
+hold on
+plot(altitude,ROC_Max,'color','k')
+hold on
+yline(Service_ceiling,'color','b')
+hold off
+xlabel('Altitude (m)')
+ylabel('Rate of Climb (m/s)')
+legend('ROC','ROC Max','Service Ceiling')
 
 
 %Formatted output:

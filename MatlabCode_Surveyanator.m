@@ -101,7 +101,7 @@ Doverqbackgear = 0.25;
 cdogearback = Doverqbackgear*(sfrontalgearback/Swing);
 
 %Drag buildup lets get it!!!
-dragbuildup = cdowing+cdofuse+cdovert+cdohorz+cdolandm+cdogearback;
+dragbuildup = cdowing+cdofuse+cdovert+cdohorz+cdolandm+cdogearback; %JP-Should wheels be included in this??
 
 %Lift Equation Calculations
 AR=b*cwing;

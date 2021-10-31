@@ -5,24 +5,16 @@ clear,clc,clf
 %scaling factor 0.28:1 to the bonanza
 %based of Beechcraft Bonanza and Cessna 172
 
-%Input to spreadsheet
-Power_sea = 100000; %N
-g=9.81; %m/s^2
-R=287; %J/(kg*K)
-Tsea=294; %K
-density_sea=1.225; %kg/m^3
-a=-6.5*10^(-3);
-m=1;
 
 inputs = GetGoogleSpreadsheet('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE');
 inputs = str2double(inputs);
 inputs = num2cell(inputs);
 %Import Vars from Spreadsheet --->
-[density temp dynamicViscosity wingSpan velocity wingChord wingXOverC wingTOverC wingSweepAngle Qwing fuselageLength] = inputs{2,:};
-[LVT CVT SHT LHT cht lht] = inputs{6,2:7};
-[quarterChordVertStab chordVertStab vertTOverC vertSweepAngle quarterChordHorzStab chordHorzStab horzToverC horzSweepAngle] = inputs{10,1:8};
-[frontStruts_Sfront frontStruts_dOverq wheel_Sfront wheel_dOverq backStrut_Sfront backStrut_dOverq E_density E_battery] = inputs{14,1:8};
-[alat0 anot Cl_max W_e W_p n_prop n_motor] = inputs{18,1:7};
+[density, temp, dynamicViscosity, wingSpan, velocity, wingChord, wingXOverC, wingTOverC, wingSweepAngle, Qwing, fuselageLength] = inputs{2,:};
+[LVT, CVT, SHT, LHT, cht, lht] = inputs{6,2:7};
+[quarterChordVertStab, chordVertStab, vertTOverC, vertSweepAngle, quarterChordHorzStab, chordHorzStab, horzToverC, horzSweepAngle] = inputs{10,1:8};
+[frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
+[alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor] = inputs{18,1:7};
 
 %General Calculations ---->
 Mach_val = Mach(velocity, temp);
@@ -109,16 +101,25 @@ V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
 %Part E
 
-altitude= 0:10:11000; %meters
+%Input to spreadsheet
+Power_Max = 50000*2; %Watt %Max power per engine * 2 engines
+g=9.81; %m/s^2
+R=287; %J/(kg*K)
+Tsea=294; %K
+density_sea=1.225; %kg/m^3
+a=-6.5*10^(-3); %K/m
+m=1;
 
-Temp_alt = Tsea+a.*(altitude);
+altitude= 0:1:10000; %meters
 
-density_alt = density_sea.*(Temp_alt/Tsea).^((-g/(a*R))-1);
+Temp_alt = Tsea+a.*(altitude); %Kelvin
 
-v_infin_SLF = (((2*W_total)./(density_alt.*Swing).*(K./(3*dragBuildUp)).^(.5)).^(0.5));
-Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*dragBuildUp+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*Swing));
-Power_avail = Power_sea.*((density_alt./density).^(m));
-Power_excess = Power_avail-Power_req;
+density_alt = density_sea.*(Temp_alt/Tsea).^((-g/(a*R))-1); %kg/m^3
+
+v_infin_SLF = (((2*W_total)./(density_alt.*Swing).*(K./(3*dragBuildUp)).^(.5)).^(0.5)); %m/s
+Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*dragBuildUp+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*Swing)); %watts
+Power_avail = Power_Max.*((density_alt./density).^(m)); %watts
+Power_excess = Power_avail-Power_req; %watts
 
 plot(altitude,Power_req,'color','r')
 hold on
@@ -129,11 +130,12 @@ hold off
 legend('Power Required','Power Available','Power Excess')
 xlabel('Altitude (m)')
 ylabel('Power (Watt)')
+title('Power vs. Altitude')
 
-ROC = Power_excess./W_total;
-VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5);
-ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max));
-Service_ceiling = 0.508;
+ROC = Power_excess./W_total; %m/s
+VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5); %m/s
+ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max)); %m/s
+Service_ceiling = 100/(60*3.28084); %m/s
 
 figure()
 plot(altitude,ROC,'color','r')
@@ -145,6 +147,12 @@ hold off
 xlabel('Altitude (m)')
 ylabel('Rate of Climb (m/s)')
 legend('ROC','ROC Max','Service Ceiling')
+title('Rate of Climb vs Altitude')
+
+% Finding the altitude where ROC max equals the service ceiling
+Intersections=find(abs(ROC_Max-Service_ceiling)<=(0.0001));
+
+SC=altitude(Intersections); %Service ceiling in meters
 
 
 %Formatted output:
@@ -184,7 +192,11 @@ fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_
 fprintf('The endurance is %g minutes \n',endurance)
 fprintf('The range is %g kilometers \n',range)
 fprintf('The velocity to achieve max range is %g m/s \n',V_maxrange)
-fprintf('The stall velocity is %g m/s \n',V_stall)
+fprintf('The stall velocity is %g m/s \n\n',V_stall)
+
+%Part F
+fprintf('The service ceiling is %g meters \n', SC)
+
 %Functions used in the program ---->
 
 function [Re] = Reynolds(density,velocity,mu,length)
@@ -226,3 +238,4 @@ function [sht] = TailHorizCoefficient(cht,lht,c,Swing)
     %   determine the exposed side of the vertical tail wing
     sht=(cht*c*Swing)/(lht);
 end
+

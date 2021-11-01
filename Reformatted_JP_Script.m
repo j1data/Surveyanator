@@ -15,6 +15,7 @@ inputs = num2cell(inputs);
 [quarterChordVertStab, chordVertStab, vertTOverC, vertSweepAngle, quarterChordHorzStab, chordHorzStab, horzToverC, horzSweepAngle] = inputs{10,1:8};
 [frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
 [alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor] = inputs{18,1:7};
+[Power_Max, g, R, Tsea, density_sea, a, m] = inputs{22,1:8};
 
 %General Calculations ---->
 Mach_val = Mach(velocity, temp);
@@ -102,13 +103,7 @@ V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 %Part E
 
 %Input to spreadsheet
-Power_Max = 50000*2; %Watt %Max power per engine * 2 engines
-g=9.81; %m/s^2
-R=287; %J/(kg*K)
-Tsea=294; %K
-density_sea=1.225; %kg/m^3
-a=-6.5*10^(-3); %K/m
-m=1;
+
 
 altitude= 0:1:10000; %meters
 

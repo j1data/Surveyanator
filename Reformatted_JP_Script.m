@@ -11,11 +11,11 @@ inputs = str2double(inputs);
 inputs = num2cell(inputs);
 %Import Vars from Spreadsheet --->
 [density, temp, dynamicViscosity, wingSpan, velocity, wingChord, wingXOverC, wingTOverC, wingSweepAngle, Qwing, fuselageLength] = inputs{2,:};
-[LVT, CVT, SHT, LHT, cht, lht] = inputs{6,2:7};
+[LVT, CVT, sht, LHT, cht, lht] = inputs{6,2:7};
 [quarterChordVertStab, chordVertStab, vertTOverC, vertSweepAngle, quarterChordHorzStab, chordHorzStab, horzToverC, horzSweepAngle] = inputs{10,1:8};
 [frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
 [alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor] = inputs{18,1:7};
-[Power_Max, g, R, Tsea, density_sea, a, m] = inputs{22,1:8};
+[Power_Max, g, R, Tsea, density_sea, a, m, altitude_max] = inputs{22,1:8};
 
 %General Calculations ---->
 Mach_val = Mach(velocity, temp);
@@ -101,11 +101,7 @@ V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
 V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
 %Part E
-
-%Input to spreadsheet
-
-
-altitude= 0:1:10000; %meters
+altitude= 0:1:altitude_max; %meters
 
 Temp_alt = Tsea+a.*(altitude); %Kelvin
 
@@ -171,8 +167,9 @@ fprintf('CD0 for the front 2 landing gear struts is %g\n',cd_o_landF)
 fprintf('CD0 for the back landing gear is %g\n',cd_o_landB)
 fprintf('CD0 for the landing gear wheels is %g\n',cd_o_wheels)
 fprintf('CD0 for the whole plane is %g\n\n',dragBuildUp)
+output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_Fuse, cd_o_Vert, cd_o_Horz, cd_o_landF, cd_o_landB, cd_o_wheels, dragBuildUp];
 
-%Part D  
+%Part D
 fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
 fprintf('The payload weight of our aircraft is %g Newtons \n',W_p) %Part D
 fprintf('The battery weight of our aircraft is %g Newtons \n',batteryWeight) %Part D
@@ -182,15 +179,25 @@ fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
 fprintf('The Cl max is %g \n',Cl_max) %Part D
 fprintf('The CL value for our aircraft is %g at steady level flight. \n',CLift) %Part D
 fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_SLF,CLift) %Part D
+output_d = [W_e, W_p, batteryWeight, frac_W_e, frac_W_p, frac_W_f, Cl_max, CLift, alpha3D_SLF, CLift];
 
 %Part E
 fprintf('The endurance is %g minutes \n',endurance)
 fprintf('The range is %g kilometers \n',range)
 fprintf('The velocity to achieve max range is %g m/s \n',V_maxrange)
 fprintf('The stall velocity is %g m/s \n\n',V_stall)
+output_e = [endurance, range, V_maxrange, V_stall];
 
 %Part F
 fprintf('The service ceiling is %g meters \n', SC)
+output_f = [SC];
+
+%Comment out if you dont want to update sheets -->
+%RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
+%mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [1 2], output_1.');
+%mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_d.');
+%mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_e.');
+%mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_f.');
 
 %Functions used in the program ---->
 

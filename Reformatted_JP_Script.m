@@ -18,10 +18,10 @@ inputs = num2cell(inputs);
 [Power_Max, g, R, Tsea, density_sea, a, m, altitude_max] = inputs{22,1:8};
 
 %General Calculations ---->
-Mach_val = Mach(velocity, temp);
+Mach_val = Mach(velocity, temp); %meters/second
 
 %Main Wing Calcs -->
-Swing = wingSpan*wingChord;
+Swing = wingSpan*wingChord; %(meters^2)
 ReWing = Reynolds(density,velocity,dynamicViscosity,wingChord);
 cfWing = FrictionCoefficient(ReWing,Mach_val);
 FFWing = FormFactor(wingXOverC,wingTOverC,wingSweepAngle,Mach_val);
@@ -141,7 +141,7 @@ legend('ROC','ROC Max','Service Ceiling')
 title('Rate of Climb vs Altitude')
 
 % Finding the altitude where ROC max equals the service ceiling
-Intersections=find(abs(ROC_Max-Service_ceiling)<=(0.0001));
+Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0001));
 
 SC=altitude(Intersections); %Service ceiling in meters
 

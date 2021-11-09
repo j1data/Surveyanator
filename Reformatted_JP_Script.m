@@ -96,6 +96,7 @@ CLoCD_max = 1/(4*K*dragBuildUp);
 CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp);
 
 endurance = (E_battery*n_prop*n_motor*((density*Swing)^0.5)*CLoCD_3half_max)/((2^(0.5))*(W_total^(1.5)))/60;
+V_endurance = sqrt(((2/density)*(W_total/Swing))*sqrt(K/(3*dragBuildUp)));
 range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
 V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
 V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
@@ -145,7 +146,36 @@ Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0001));
 
 SC=altitude(Intersections); %Service ceiling in meters
 
+%Part G
+%Pull up
+q = (0.5)*(density)*(velocity^2);
+Lift = CLift * wingSpan * q;
+n_Aero = Lift / W_total;
+n_Strut_pos = 3.8;
+n_Strut_neg = -1.52;
 
+[PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (velocity,g,n_Aero);
+[PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (velocity,g,n_Strut_pos);
+
+if (PU_radius_Aero > PU_radius_Strut)
+    PU_radius = PU_radius_Strut;
+    PU_turnRate = PU_turnRate_Strut;
+else
+    PU_radius = PU_radius_Aero;
+    PU_turnRate = PU_turnRate_Aero;
+end
+
+if (LT_radius_Aero > LT_radius_Strut)
+    LT_radius = LT_radius_Strut;
+    LT_turnRate = LT_turnRate_Strut;
+else
+    LT_radius = LT_radius_Aero;
+    LT_turnRate = LT_turnRate_Aero;
+end
+PU_turnRate = PU_turnRate * 57.3;
+LT_turnRate = LT_turnRate * 57.3;
+
+vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 %Formatted output:
 %Values of Interest:
 %F = figure(1);
@@ -173,13 +203,14 @@ output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_
 fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
 fprintf('The payload weight of our aircraft is %g Newtons \n',W_p) %Part D
 fprintf('The battery weight of our aircraft is %g Newtons \n',batteryWeight) %Part D
+fprintf('The total weight of the aircraft is %g Newtons \n', W_total);
 fprintf('The fractional empty weight is %g \n',frac_W_e) %Part D
 fprintf('The fractional payload weight is %g \n',frac_W_p) %Part D
 fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
 fprintf('The Cl max is %g \n',Cl_max) %Part D
 fprintf('The CL value for our aircraft is %g at steady level flight. \n',CLift) %Part D
 fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_SLF,CLift) %Part D
-output_d = [W_e, W_p, batteryWeight, frac_W_e, frac_W_p, frac_W_f, Cl_max, CLift, alpha3D_SLF, CLift];
+output_d = [W_e, W_p, batteryWeight, frac_W_e, frac_W_p, frac_W_f, Cl_max, CLift, alpha3D_SLF, CLift]; %Need to add Total weight to this
 
 %Part E
 fprintf('The endurance is %g minutes \n',endurance)
@@ -189,8 +220,12 @@ fprintf('The stall velocity is %g m/s \n\n',V_stall)
 output_e = [endurance, range, V_maxrange, V_stall];
 
 %Part F
-fprintf('The service ceiling is %g meters \n', SC)
+fprintf('The service ceiling is %g meters \n\n', SC)
 output_f = [SC];
+
+%Part G
+fprintf('The PullUp radius is %g meters\n The PullUp turn rate is %g degree/s \n The Level turning radius is %g meters\n The Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
+fprintf('The manuvering speed is %g m/s \n The Loitering speed is %g m/s \n',vel_manuv, V_endurance);
 
 %Comment out if you dont want to update sheets -->
 % RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
@@ -241,3 +276,11 @@ function [sht] = TailHorizCoefficient(cht,lht,c,Swing)
     sht=(cht*c*Swing)/(lht);
 end
 
+function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = TurningRad_andRate (velocity,g,n)
+    %Pull up 
+    PU_radius = (velocity^2)/(g*(n-1));
+    PU_turnRate = (g*(n-1)) / velocity;
+    %Level Turn
+    LT_radius = (velocity^2)/(g*sqrt(n^2 - 1));
+    LT_turnRate = velocity / LT_radius;
+end

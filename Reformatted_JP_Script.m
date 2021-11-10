@@ -16,6 +16,7 @@ inputs = num2cell(inputs);
 [frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
 [alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor] = inputs{18,1:7};
 [Power_Max, g, R, Tsea, density_sea, a, m, altitude_max] = inputs{22,1:8};
+[n_Strut_pos, n_Strut_neg] = inputs{25,1:2};
 
 %General Calculations ---->
 Mach_val = Mach(velocity, temp); %meters/second
@@ -151,35 +152,9 @@ SC=altitude(Intersections); %Service ceiling in meters
 q = (0.5)*(density)*(velocity^2);
 Lift = CLift * wingSpan * q;
 n_Aero = Lift / W_total;
-n_Strut_pos = 3.8;
-n_Strut_neg = -1.52;
 
-[PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (velocity,g,n_Aero);
-[PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (velocity,g,n_Strut_pos);
-
-if (PU_radius_Aero > PU_radius_Strut)
-    PU_radius = PU_radius_Strut;
-    PU_turnRate = PU_turnRate_Strut;
-else
-    PU_radius = PU_radius_Aero;
-    PU_turnRate = PU_turnRate_Aero;
-end
-
-if (LT_radius_Aero > LT_radius_Strut)
-    LT_radius = LT_radius_Strut;
-    LT_turnRate = LT_turnRate_Strut;
-else
-    LT_radius = LT_radius_Aero;
-    LT_turnRate = LT_turnRate_Aero;
-end
-PU_turnRate = PU_turnRate * 57.3;
-LT_turnRate = LT_turnRate * 57.3;
-
+[PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (velocity,g,n_Aero,n_Strut_pos);
 vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
-%Formatted output:
-%Values of Interest:
-%F = figure(1);
-%T = table()
 
 %Displaying values of interest
 fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_SLF) %3Dlift equation
@@ -224,8 +199,9 @@ fprintf('The service ceiling is %g meters \n\n', SC)
 output_f = [SC];
 
 %Part G
-fprintf('The PullUp radius is %g meters\n The PullUp turn rate is %g degree/s \n The Level turning radius is %g meters\n The Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The manuvering speed is %g m/s \n The Loitering speed is %g m/s \n',vel_manuv, V_endurance);
+fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
+fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
+output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Comment out if you dont want to update sheets -->
 % RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
@@ -233,6 +209,7 @@ fprintf('The manuvering speed is %g m/s \n The Loitering speed is %g m/s \n',vel
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_d.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [27 2], output_e.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [31 2], output_f.');
+% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [32 2], output_g.');
 
 %Functions used in the program ---->
 
@@ -283,4 +260,27 @@ function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = TurningRad_andRate (vel
     %Level Turn
     LT_radius = (velocity^2)/(g*sqrt(n^2 - 1));
     LT_turnRate = velocity / LT_radius;
+end
+
+function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (velocity,g,n_Aero,n_Strut_pos)
+    [PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (velocity,g,n_Aero);
+    [PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (velocity,g,n_Strut_pos);
+    
+    if (PU_radius_Aero > PU_radius_Strut)
+        PU_radius = PU_radius_Strut;
+        PU_turnRate = PU_turnRate_Strut;
+    else
+        PU_radius = PU_radius_Aero;
+        PU_turnRate = PU_turnRate_Aero;
+    end
+    
+    if (LT_radius_Aero > LT_radius_Strut)
+        LT_radius = LT_radius_Strut;
+        LT_turnRate = LT_turnRate_Strut;
+    else
+        LT_radius = LT_radius_Aero;
+        LT_turnRate = LT_turnRate_Aero;
+    end
+    PU_turnRate = PU_turnRate * 57.3;
+    LT_turnRate = LT_turnRate * 57.3;
 end

@@ -72,7 +72,7 @@ cd_o_wheels = wheel_dOverq*(wheel_Sfront/Swing);
 dragBuildUp = cd_o_Wing + cd_o_Fuse + cd_o_Vert + cd_o_Horz + cd_o_landB + cd_o_landB + cd_o_wheels;
 
 %Lift calculations -->
-AR = wingSpan*wingChord;
+AR = (wingSpan^2)/Swing;
 e_o = 1.78*(1-0.045*(AR^0.68))-0.64; %Unitless
 K = 1/(pi*e_o*AR);
 a3D = anot/(1+((57.3*anot)/(pi*0.7*AR)));
@@ -81,8 +81,8 @@ a3D = anot/(1+((57.3*anot)/(pi*0.7*AR)));
 batteryWeight = (E_battery/E_density)*9.81; %(N)
 
 %Cl & CL calcs -->
-W_total = W_e+W_p+batteryWeight; %(Newtons)
-CLift = (W_total)/(0.5*density*(velocity^2)*Swing);
+W_total = W_e + W_p + batteryWeight; %(Newtons)
+CLift = W_total / (0.5 * density * (velocity^2) * Swing);
 
 %Weight Fraction Calcs -->
 frac_W_e = W_e/W_total;
@@ -96,11 +96,12 @@ alpha3D_SLF = (CLift/a3D)+alat0;
 CLoCD_max = 1/(4*K*dragBuildUp);
 CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp);
 
-endurance = (E_battery*n_prop*n_motor*((density*Swing)^0.5)*CLoCD_3half_max)/((2^(0.5))*(W_total^(1.5)))/60;
-V_endurance = sqrt(((2/density)*(W_total/Swing))*sqrt(K/(3*dragBuildUp)));
-range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
-V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
-V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+endurance = (E_battery * n_prop * n_motor * ((density * Swing)^0.5) * CLoCD_3half_max)...
+    / ((2^(0.5)) * (W_total^(1.5))) /60;
+V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * dragBuildUp)));
+range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
+V_maxrange =((2/density) * (W_total/Swing) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
+V_stall = ((2*W_total)/(density*Swing) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
 %Part E
 altitude= 0:1:altitude_max; %meters

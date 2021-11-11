@@ -152,8 +152,9 @@ SC=altitude(Intersections); %Service ceiling in meters
 q = (0.5)*(density)*(velocity^2);
 Lift = CLift * wingSpan * q;
 n_Aero = Lift / W_total;
-
-[PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (velocity,g,n_Aero,n_Strut_pos);
+[PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (V_endurance,g,n_Aero);
+[PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (V_endurance,g,n_Strut_pos);
+[PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut);
 vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 
 %Displaying values of interest
@@ -262,9 +263,7 @@ function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = TurningRad_andRate (vel
     LT_turnRate = velocity / LT_radius;
 end
 
-function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (velocity,g,n_Aero,n_Strut_pos)
-    [PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (velocity,g,n_Aero);
-    [PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (velocity,g,n_Strut_pos);
+function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut)
     
     if (PU_radius_Aero > PU_radius_Strut)
         PU_radius = PU_radius_Strut;

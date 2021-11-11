@@ -144,9 +144,9 @@ legend('ROC','ROC Max','Service Ceiling')
 title('Rate of Climb vs Altitude')
 
 % Finding the altitude where ROC max equals the service ceiling
-Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0001));
-
+Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0002));
 SC=altitude(Intersections); %Service ceiling in meters
+Height_service = mean(SC);
 
 %Part G
 %Pull up
@@ -197,8 +197,8 @@ fprintf('The stall velocity is %g m/s \n\n',V_stall)
 output_e = [endurance, range, V_maxrange, V_stall];
 
 %Part F
-fprintf('The service ceiling is %g meters \n\n', SC)
-output_f = [SC];
+fprintf('The service ceiling is %g meters \n\n', Height_service)
+
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);

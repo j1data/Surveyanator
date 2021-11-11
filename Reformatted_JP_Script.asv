@@ -96,11 +96,12 @@ alpha3D_SLF = (CLift/a3D)+alat0;
 CLoCD_max = 1/(4*K*dragBuildUp);
 CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp);
 
-endurance = (E_battery*n_prop*n_motor*((density*Swing)^0.5)*CLoCD_3half_max)/((2^(0.5))*(W_total^(1.5)))/60;
-V_endurance = sqrt(((2/density)*(W_total/Swing))*sqrt(K/(3*dragBuildUp)));
-range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
-V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
-V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+endurance = (E_battery * n_prop * n_motor * ((density * Swing)^0.5) * CLoCD_3half_max)...
+    / ((2^(0.5)) * (W_total^(1.5))) /60;
+V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * dragBuildUp)));
+range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
+V_maxrange =((2/density) * (W_total/Swing) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
+V_stall = ((2*W_total)/(density*Swing) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
 %Part E
 altitude= 0:1:altitude_max; %meters
@@ -143,7 +144,7 @@ legend('ROC','ROC Max','Service Ceiling')
 title('Rate of Climb vs Altitude')
 
 % Finding the altitude where ROC max equals the service ceiling
-Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0001));
+Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.000));
 
 SC=altitude(Intersections); %Service ceiling in meters
 

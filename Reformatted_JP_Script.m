@@ -126,7 +126,7 @@ xlabel('Altitude (m)')
 ylabel('Power (Watt)')
 title('Power vs. Altitude')
 
-ROC = Power_excess./W_total; %m/s
+ROC = Power_excess./W_total; %m/s %This may be a problem
 VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5); %m/s
 ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max)); %m/s
 Service_ceiling = 100/(60*3.28084); %m/s
@@ -156,6 +156,7 @@ n_Aero = Lift / W_total;
 [PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (V_endurance,g,n_Aero);
 [PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (V_endurance,g,n_Strut_pos);
 [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut);
+
 vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 
 %Displaying values of interest
@@ -202,7 +203,7 @@ output_f = [SC];
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
+fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, velocity);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Comment out if you dont want to update sheets -->

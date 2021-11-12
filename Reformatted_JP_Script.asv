@@ -10,7 +10,7 @@ inputs = GetGoogleSpreadsheet('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE');
 inputs = str2double(inputs);
 inputs = num2cell(inputs);
 %Import Vars from Spreadsheet --->
-[density, temp, dynamicViscosity, wingSpan, velocity, wingChord, wingXOverC, wingTOverC, wingSweepAngle, Qwing, fuselageLength] = inputs{2,:};
+[density, Temp, dynamicViscosity, b, v_infinite, c_wing, wingXOverC, wingTOverC, wingSweepAngle, Qwing, fuselageLength] = inputs{2,:};
 [LVT, CVT, sht, LHT, cht, lht] = inputs{6,2:7};
 [quarterChordVertStab, chordVertStab, vertTOverC, vertSweepAngle, quarterChordHorzStab, chordHorzStab, horzToverC, horzSweepAngle] = inputs{10,1:8};
 [frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
@@ -19,60 +19,60 @@ inputs = num2cell(inputs);
 [n_Strut_pos, n_Strut_neg] = inputs{25,1:2};
 
 %General Calculations ---->
-Mach_val = Mach(velocity, temp); %meters/second
+Mach_val = Mach(v_infinite, Temp); %meters/second
 
 %Main Wing Calcs -->
-Swing = wingSpan*wingChord; %(meters^2)
-ReWing = Reynolds(density,velocity,dynamicViscosity,wingChord);
-cfWing = FrictionCoefficient(ReWing,Mach_val);
-FFWing = FormFactor(wingXOverC,wingTOverC,wingSweepAngle,Mach_val);
-wingSWetted = (1.977+0.52*wingTOverC)*Swing; %(m^2)
-cd_o_Wing = cfWing*FFWing*(wingSWetted/Swing)*Qwing;
+S = b*c_wing; %(meters^2)
+Re_wing = Reynolds(density,v_infinite,dynamicViscosity,c_wing);
+Cf_wing = FrictionCoefficient(Re_wing,Mach_val);
+FF_wing = FormFactor(wingXOverC,wingTOverC,wingSweepAngle,Mach_val);
+Swet_wing = (1.977+0.52*wingTOverC)*S; %(m^2)
+Cd_o_wing = Cf_wing*FF_wing*(Swet_wing/S)*Qwing;
 
 %Fuselage Calcs -->
-f = fuselageLength/(sqrt(4/pi)*pi);
-ffFuse = 0.9 + (5/(f^1.5))+(f/400);
-ReFuse = Reynolds(density,velocity,dynamicViscosity,fuselageLength);
-sWettedFuse = pi*0.8*fuselageLength; %(m^2)
-cfFuse = FrictionCoefficient(ReFuse,Mach_val);
-cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/2.15);
+f = fuselageLength/(sqrt((4/pi)*(pi*(0.3)^2))); %f formula was Corrected
+FF_fuse = 0.9 + (5/(f^1.5))+(f/400);
+Re_fuse = Reynolds(density,v_infinite,dynamicViscosity,fuselageLength);
+Swet_fuse = 2*pi*0.3*fuselageLength + 2*pi*(0.3)^2; %(m^2) %Corrected
+Cf_fuse = FrictionCoefficient(Re_fuse,Mach_val);
+Cd_o_fuse = Cf_fuse*FF_fuse*1*(Swet_fuse/S); %S was 2.15 ??? Corrected
 
 %Vert tail sizing calcs -->
-[svt] = TailVertCoefficient(CVT,LVT,wingSpan,Swing);
+[svt] = TailVertCoefficient(CVT,LVT,b,S);
 
 %Horz tail sizing calcs -->
-Cavg = Swing/wingSpan;
-[sht] = TailHorizCoefficient(cht,lht,Cavg,Swing);
+Cavg = S/b;
+[sht] = TailHorizCoefficient(cht,lht,Cavg,S);
 
 %Vertical Stabilizer calcs -->
-ReVert = Reynolds(density,velocity,dynamicViscosity,chordVertStab);
+ReVert = Reynolds(density,v_infinite,dynamicViscosity,chordVertStab);
 cfVert = FrictionCoefficient(ReVert,Mach_val);
 ffVert = FormFactor(quarterChordVertStab,vertTOverC,vertSweepAngle,Mach_val);
-sWettedVert = CVT/Swing; %(m^2)
+sWettedVert = CVT/S; %(m^2)
 cd_o_Vert = cfVert*ffVert*(sWettedVert/2.15)*1.05;
 
 %Horizontal Stabilizer calcs -->
-ReHoriz = Reynolds(density,velocity,dynamicViscosity,chordHorzStab);
+ReHoriz = Reynolds(density,v_infinite,dynamicViscosity,chordHorzStab);
 
 cfHoriz = FrictionCoefficient(ReHoriz,Mach_val);
 ffHoriz = FormFactor(chordHorzStab,horzToverC,horzSweepAngle,Mach_val);
-sWettedHoriz = cht/Swing; %meters^2
+sWettedHoriz = cht/S; %meters^2
 cd_o_Horz = cfHoriz*ffHoriz*(sWettedHoriz/2.15)*1.05;
 
 %Landing gear struts (front 2) calcs -->
-cd_o_landF = frontStruts_dOverq*(frontStruts_Sfront/Swing);
+cd_o_landF = frontStruts_dOverq*(frontStruts_Sfront/S);
 
 %Landing gear struts (back 1)  calcs -->
-cd_o_landB = backStrut_dOverq*(backStrut_Sfront/Swing);
+cd_o_landB = backStrut_dOverq*(backStrut_Sfront/S);
 
 %Landing Gear Wheels (3 wheels) calcs -->
-cd_o_wheels = wheel_dOverq*(wheel_Sfront/Swing);
+cd_o_wheels = wheel_dOverq*(wheel_Sfront/S);
 
 %Drag buildup calcs -->
-dragBuildUp = cd_o_Wing + cd_o_Fuse + cd_o_Vert + cd_o_Horz + cd_o_landB + cd_o_landB + cd_o_wheels;
+dragBuildUp = Cd_o_wing + Cd_o_fuse + cd_o_Vert + cd_o_Horz + cd_o_landB + cd_o_landB + cd_o_wheels;
 
 %Lift calculations -->
-AR = (wingSpan^2)/Swing;
+AR = (b^2)/S;
 e_o = 1.78*(1-0.045*(AR^0.68))-0.64; %Unitless
 K = 1/(pi*e_o*AR);
 a3D = anot/(1+((57.3*anot)/(pi*0.7*AR)));
@@ -82,7 +82,7 @@ batteryWeight = (E_battery/E_density)*9.81; %(N)
 
 %Cl & CL calcs -->
 W_total = W_e + W_p + batteryWeight; %(Newtons)
-CLift = W_total / (0.5 * density * (velocity^2) * Swing);
+CL_SLF = W_total / (0.5 * density * (v_infinite^2) * S);
 
 %Weight Fraction Calcs -->
 frac_W_e = W_e/W_total;
@@ -90,17 +90,18 @@ frac_W_p = W_p/W_total;
 frac_W_f = batteryWeight/W_total;
 
 %AoA @SLF
-alpha3D_SLF = (CLift/a3D)+alat0;
+alpha3D_SLF = (CL_SLF/a3D)+alat0;
 
 %Range calculations -->
-CLoCD_max = 1/(4*K*dragBuildUp);
-CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp);
+CLoverCD_max = 1/(4*K*dragBuildUp); %what is this equation
+CLoverCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp); %This also needs checking
 
-endurance = (E_battery*n_prop*n_motor*((density*Swing)^0.5)*CLoCD_3half_max)/((2^(0.5))*(W_total^(1.5)))/60;
-V_endurance = sqrt(((2/density)*(W_total/Swing))*sqrt(K/(3*dragBuildUp)));
-range = (((E_battery*n_motor*n_prop)/W_total)*CLoCD_max)/1000; %km
-V_maxrange =((2/density)*(W_total/Swing)*(K/(3*dragBuildUp)^(0.5)))^(.5); %m/s
-V_stall = ((2*W_total)/(density*Swing)*((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+endurance = (E_battery * n_prop * n_motor * sqrt((density * S)) * CLoverCD_3half_max)...
+    / ((2^(0.5)) * (W_total^(1.5))) /60;
+V_endurance = sqrt(((2/density) * (W_total/S)) * sqrt(K/(3 * dragBuildUp)));
+range = (((E_battery * n_motor * n_prop) / W_total) * CLoverCD_max) / 1000; %km
+V_maxrange =((2/density) * (W_total/S) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
+V_stall = ((2*W_total)/(density*S) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
 %Part E
 altitude= 0:1:altitude_max; %meters
@@ -109,8 +110,8 @@ Temp_alt = Tsea+a.*(altitude); %Kelvin
 
 density_alt = density_sea.*(Temp_alt/Tsea).^((-g/(a*R))-1); %kg/m^3
 
-v_infin_SLF = (((2*W_total)./(density_alt.*Swing).*(K./(3*dragBuildUp)).^(.5)).^(0.5)); %m/s
-Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*dragBuildUp+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*Swing)); %watts
+v_infin_SLF = (((2*W_total)./(density_alt.*S).*(K./(3*dragBuildUp)).^(.5)).^(0.5)); %m/s
+Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*S*dragBuildUp+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*S)); %watts
 Power_avail = Power_Max.*((density_alt./density).^(m)); %watts
 Power_excess = Power_avail-Power_req; %watts
 
@@ -125,9 +126,9 @@ xlabel('Altitude (m)')
 ylabel('Power (Watt)')
 title('Power vs. Altitude')
 
-ROC = Power_excess./W_total; %m/s
-VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5); %m/s
-ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max)); %m/s
+ROC = Power_excess./W_total; %m/s %This may be a problem
+VMax_ROC = (((2*W_total)./(density_alt.*S)).*((K/(3*dragBuildUp))^(.5))).^(0.5); %m/s
+ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoverCD_max)); %m/s
 Service_ceiling = 100/(60*3.28084); %m/s
 
 figure()
@@ -149,31 +150,32 @@ SC=altitude(Intersections); %Service ceiling in meters
 
 %Part G
 %Pull up
-q = (0.5)*(density)*(velocity^2);
-Lift = CLift * wingSpan * q;
+q = (0.5)*(density)*(v_infinite^2);
+Lift = CL_SLF * b * q;
 n_Aero = Lift / W_total;
 [PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero] = TurningRad_andRate (V_endurance,g,n_Aero);
 [PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (V_endurance,g,n_Strut_pos);
 [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut);
-vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
+
+vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/S));
 
 %Displaying values of interest
 fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_SLF) %3Dlift equation
 fprintf('Aspect Ratio = %g\n',AR)
-fprintf('Planform Area = %g m^2\n',Swing)
+fprintf('Planform Area = %g m^2\n',S)
 fprintf('Mach_val = %g\n',Mach_val)
 fprintf('K = %g\n',K)
 fprintf('SVT is %g\n',svt)
 fprintf('SHT is %g\n',sht)
-fprintf('CD0 for the wing is %g\n',cd_o_Wing)
-fprintf('CD0 for the fuse is %g\n',cd_o_Fuse)
+fprintf('CD0 for the wing is %g\n',Cd_o_wing)
+fprintf('CD0 for the fuse is %g\n',Cd_o_fuse)
 fprintf('CD0 for the vertical stabilizer is %g\n',cd_o_Vert)
 fprintf('CD0 for the horizontal stabilizer is %g\n',cd_o_Horz)
 fprintf('CD0 for the front 2 landing gear struts is %g\n',cd_o_landF)
 fprintf('CD0 for the back landing gear is %g\n',cd_o_landB)
 fprintf('CD0 for the landing gear wheels is %g\n',cd_o_wheels)
 fprintf('CD0 for the whole plane is %g\n\n',dragBuildUp)
-output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_Fuse, cd_o_Vert, cd_o_Horz, cd_o_landF, cd_o_landB, cd_o_wheels, dragBuildUp];
+output_1 = [a3D, alpha3D_SLF, AR, S, Mach_val, K, svt, sht, Cd_o_wing, Cd_o_fuse, cd_o_Vert, cd_o_Horz, cd_o_landF, cd_o_landB, cd_o_wheels, dragBuildUp];
 
 %Part D
 fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
@@ -184,15 +186,15 @@ fprintf('The fractional empty weight is %g \n',frac_W_e) %Part D
 fprintf('The fractional payload weight is %g \n',frac_W_p) %Part D
 fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
 fprintf('The Cl max is %g \n',Cl_max) %Part D
-fprintf('The CL value for our aircraft is %g at steady level flight. \n',CLift) %Part D
-fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_SLF,CLift) %Part D
-output_d = [W_e, W_p, batteryWeight, frac_W_e, frac_W_p, frac_W_f, Cl_max, CLift, alpha3D_SLF, CLift]; %Need to add Total weight to this
+fprintf('The CL value for our aircraft is %g at steady level flight. \n',CL_SLF) %Part D
+fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_SLF,CL_SLF) %Part D
+output_d = [W_e, W_p, batteryWeight, frac_W_e, frac_W_p, frac_W_f, Cl_max, CL_SLF, alpha3D_SLF, CL_SLF]; %Need to add Total weight to this
 
 %Part E
 fprintf('The endurance is %g minutes \n',endurance)
 fprintf('The range is %g kilometers \n',range)
-fprintf('The velocity to achieve max range is %g m/s \n',V_maxrange)
-fprintf('The stall velocity is %g m/s \n\n',V_stall)
+fprintf('The v_infinite to achieve max range is %g m/s \n',V_maxrange)
+fprintf('The stall v_infinite is %g m/s \n\n',V_stall)
 output_e = [endurance, range, V_maxrange, V_stall];
 
 %Part F
@@ -201,7 +203,7 @@ output_f = [SC];
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
+fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, v_infinite);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Comment out if you dont want to update sheets -->
@@ -214,53 +216,53 @@ output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_enduran
 
 %Functions used in the program ---->
 
-function [Re] = Reynolds(density,velocity,mu,length)
-    %Reynolds Number (density, velocity, dynamic viscosity, and length in %metric)
-    Re=(density*velocity*length)/mu;
+function [Re] = Reynolds(density,v_infinite,mu,length)
+    %Reynolds Number (density, v_infinite, dynamic viscosity, and length in %metric)
+    Re=(density*v_infinite*length)/mu;
 end
 
-function [M] = Mach(velocity,Temp)
-    %Gives the mach number from the velocity (m/s) and Temp (K)
+function [M] = Mach(v_infinite,Temp)
+    %Gives the mach number from the v_infinite (m/s) and Temp (K)
     gamma = 1.4; %unitless
     R = 287; %J/(mol*K)
     a = sqrt(gamma*R*Temp); %speed of sound in m/s
-    M = velocity/a; %Mach number
+    M = v_infinite/a; %Mach number
 end
 
 function [Cf] = FrictionCoefficient(Re,Mach)
     %calculation for the friction coefficient
-    %   Reynolds, velocity, and temp K in SI
-    Cf = (0.455)/(((log10(Re))^2.58)*(1+0.144*Mach^2)^0.65);
+    %   Reynolds, v_infinite, and Temp K in SI
+    Cf = (0.455)/(((log10(Re))^(2.58))*((1+0.144*Mach^2)^0.65));
 end
 
 function [FF] = FormFactor(xovercmax,toverc,sweep,Mach)
     %Function for Form Factor
     %   (x/c)max, t/c, sweep angle(degrees) 
-    FF=(1+((0.6)/xovercmax)*(toverc)+100*toverc^4)*((1.34*Mach^.18)*(cosd(sweep)^0.28));
+    FF=(1+((0.6)/xovercmax)*(toverc)+100*(toverc^4))*((1.34*Mach^(0.18))*(cosd(sweep)^(0.28)));
 end
 
-function [svt] = TailVertCoefficient(cvt,lvt,b,Swing)
+function [svt] = TailVertCoefficient(cvt,lvt,b,S)
     %Calculation for helping to determine the size of the vertical tail
     %   Enter a coefficient, length between cg and qc, span, and planform area to
     %   determine the exposed side of the vertical tail wing
-    svt=(cvt*b*Swing)/(lvt);
+    svt=(cvt*b*S)/(lvt);
 end
 
 
-function [sht] = TailHorizCoefficient(cht,lht,c,Swing)
+function [sht] = TailHorizCoefficient(cht,lht,c,S)
     %Calculation for helping to determine the size of the horizontal tail
     %   Enter a coefficient, length between cg and qc, span, and planform area to
     %   determine the exposed side of the vertical tail wing
-    sht=(cht*c*Swing)/(lht);
+    sht=(cht*c*S)/(lht);
 end
 
-function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = TurningRad_andRate (velocity,g,n)
+function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = TurningRad_andRate (v_infinite,g,n)
     %Pull up 
-    PU_radius = (velocity^2)/(g*(n-1));
-    PU_turnRate = (g*(n-1)) / velocity;
+    PU_radius = (v_infinite^2)/(g*(n-1));
+    PU_turnRate = (g*(n-1)) / v_infinite;
     %Level Turn
-    LT_radius = (velocity^2)/(g*sqrt(n^2 - 1));
-    LT_turnRate = velocity / LT_radius;
+    LT_radius = (v_infinite^2)/(g*sqrt(n^2 - 1));
+    LT_turnRate = v_infinite / LT_radius;
 end
 
 function [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut)

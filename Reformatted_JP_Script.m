@@ -204,7 +204,7 @@ output_f = SC;
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \nThe Cruise speed is %g m/s \n',vel_manuv, v_infinite,v_infinite);
+fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \nThe Cruise speed is %g m/s \n',vel_manuv, 30,v_infinite);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Comment out if you dont want to update sheets -->

@@ -14,7 +14,7 @@ inputs = num2cell(inputs);
 [LVT, CVT, sht, LHT, cht, lht] = inputs{6,2:7};
 [quarterChordVertStab, chordVertStab, vertTOverC, vertSweepAngle, quarterChordHorzStab, chordHorzStab, horzToverC, horzSweepAngle] = inputs{10,1:8};
 [frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
-[alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor] = inputs{18,1:7};
+[alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor, alpha_cl_max] = inputs{18,1:8};
 [Power_Max, g, R, Tsea, density_sea, a, m, altitude_max] = inputs{22,1:8};
 [n_Strut_pos, n_Strut_neg] = inputs{25,1:2};
 
@@ -76,6 +76,7 @@ AR = (b^2)/S;
 e_o = 1.78*(1-0.045*(AR^0.68))-0.64; %Unitless
 K = 1/(pi*e_o*AR);
 a3D = anot/(1+((57.3*anot)/(pi*0.7*AR)));
+CL_stall = a3D*(alpha_cl_max - anot);
 
 %Battery Calculations -->
 batteryWeight = (E_battery/E_density)*9.81; %(N)
@@ -96,12 +97,12 @@ alpha3D_SLF = (CL_SLF/a3D)+alat0;
 CLoverCD_max = 1/(4*K*dragBuildUp); %what is this equation
 CLoverCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp); %This also needs checking
 
-endurance = (E_battery * n_prop * n_motor * sqrt((density * S)) * CLoverCD_3half_max)...
-    / ((2^(0.5)) * (W_total^(1.5))) /60;
+endurance = ((E_battery * n_prop * n_motor * sqrt((density * S))) / (sqrt(2) * (W_total^(3/2)))) * (CLoverCD_3half_max);
 V_endurance = sqrt(((2/density) * (W_total/S)) * sqrt(K/(3 * dragBuildUp)));
 range = (((E_battery * n_motor * n_prop) / W_total) * CLoverCD_max) / 1000; %km
-V_maxrange =((2/density) * (W_total/S) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
-V_stall = ((2*W_total)/(density*S) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+V_maxrange =sqrt((2/density) * (W_total/S) * sqrt(K/(3 * dragBuildUp))); %m/s
+%V_stall = ((2*W_total)/(density*S) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+V_stall = sqrt((2*W_total)/(density * S * CL_stall)); %m/s
 
 %Part E
 altitude= 0:1:altitude_max; %meters
@@ -178,10 +179,10 @@ fprintf('CD0 for the whole plane is %g\n\n',dragBuildUp)
 output_1 = [a3D, alpha3D_SLF, AR, S, Mach_val, K, svt, sht, Cd_o_wing, Cd_o_fuse, cd_o_Vert, cd_o_Horz, cd_o_landF, cd_o_landB, cd_o_wheels, dragBuildUp];
 
 %Part D
-fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
-fprintf('The payload weight of our aircraft is %g Newtons \n',W_p) %Part D
-fprintf('The battery weight of our aircraft is %g Newtons \n',batteryWeight) %Part D
-fprintf('The total weight of the aircraft is %g Newtons \n', W_total);
+fprintf('The empty weight of our aircraft is %g Newtons or %g lbs \n',W_e,W_e**0.2248089) %Part D
+fprintf('The payload weight of our aircraft is %g Newtons or %g lbs \n',W_p,(W_p*0.2248089)) %Part D
+fprintf('The battery weight of our aircraft is %g Newtons or %g lbs \n',batteryWeight,(batteryWeight**0.2248089)) %Part D
+fprintf('The total weight of the aircraft is %g Newtons or %g lbs \n', W_total,(W_total*0.2248089));
 fprintf('The fractional empty weight is %g \n',frac_W_e) %Part D
 fprintf('The fractional payload weight is %g \n',frac_W_p) %Part D
 fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
@@ -191,19 +192,19 @@ fprintf('Alpha at steady level flight is %g degrees at a CL of %g \n\n',alpha3D_
 output_d = [W_e, W_p, batteryWeight, frac_W_e, frac_W_p, frac_W_f, Cl_max, CL_SLF, alpha3D_SLF, CL_SLF]; %Need to add Total weight to this
 
 %Part E
-fprintf('The endurance is %g minutes \n',endurance)
-fprintf('The range is %g kilometers \n',range)
-fprintf('The v_infinite to achieve max range is %g m/s \n',V_maxrange)
-fprintf('The stall v_infinite is %g m/s \n\n',V_stall)
+fprintf('The endurance is %g minutes or %g hours \n',endurance,(endurance/60));
+fprintf('The range is %g kilometers \n',range);
+fprintf('The velocity to achieve max range is %g m/s \n',V_maxrange);
+fprintf('The stall v_infinite is %g m/s \n\n',V_stall);
 output_e = [endurance, range, V_maxrange, V_stall];
 
 %Part F
 fprintf('The service ceiling is %g meters \n\n', SC)
-output_f = [SC];
+output_f = SC;
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, v_infinite);
+fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \nThe Cruise speed is %g m/s \n',vel_manuv, v_infinite,v_infinite);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Comment out if you dont want to update sheets -->

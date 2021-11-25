@@ -144,7 +144,10 @@ legend('ROC','ROC Max','Service Ceiling')
 title('Rate of Climb vs Altitude')
 
 % Finding the altitude where ROC max equals the service ceiling
+%<<<<<<< Updated upstream
 Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0002));
+
+%>>>>>>> Stashed changes
 SC=altitude(Intersections); %Service ceiling in meters
 Height_service = mean(SC);
 
@@ -157,6 +160,46 @@ n_Aero = Lift / W_total;
 [PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (V_endurance,g,n_Strut_pos);
 [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut);
 vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
+
+
+
+%Part H
+Density_runway = 1.225; %kg/m^3 %able to change density based of airport
+mu_r = 0.4 %Hard turf or dry concrete
+%takeoff
+obs_h = 35; %meters
+V_Lo = 1.2*V_stall %m/s
+Thrust_Lo = Power_Max/V_Lo %Newtons %Max thrust
+L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons
+D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(dragBuildUp+K*(Cl_max^2)) %Newtons
+s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*(Thrust_Lo-D_Lo-mu_r*(W_total-L_Lo))) %meters
+
+T_req = Power_req(1)/V_stall %make V_stall at density_runway
+max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer
+Max_theta = asind(ROC_Max(1)/V_Lo)
+R_pullup = (1.44*(V_stall^2))/(0.15*g) %meters
+h_tr = R_pullup-R_pullup*cosd(max_theta) %meters
+s_tr = R_pullup*sind(max_theta) %meters
+h_a = obs_h-h_tr %meters
+s_a = h_a/tand(max_theta) %meters
+
+s_takeoff = s_g+s_tr+s_a %meters
+
+
+%landing
+landobs_h = 50; 
+% h_f = R_pullup-R_pullup*cos(theta_f) %meters
+% s_f = R*sind(theta_f) %meters
+% h_aland = landobs_h-h_f %meters
+% s_aland = h_aland/tand(theta_a) %meters
+
+V_TD = 1.15*V_stall %m/s 
+L_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*Cl_max %Newtons
+D_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*(dragBuildUp+K*(Cl_max^2)) %Newtons
+s_g_land = (1.69*W_total^2)/(g*density_runway*Swing*Cl_max*(D_TD+mu_r*(W_total-L_TD))) %meters
+
+s_landing = s_g_land+s_f+s_aland %meters
+
 
 %Displaying values of interest
 fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_SLF) %3Dlift equation
@@ -180,7 +223,11 @@ output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_
 fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
 fprintf('The payload weight of our aircraft is %g Newtons \n',W_p) %Part D
 fprintf('The battery weight of our aircraft is %g Newtons \n',batteryWeight) %Part D
+%<<<<<<< Updated upstream
 fprintf('The total weight of the aircraft is %g Newtons \n', W_total);
+%=======
+fprintf('The total weight of our aircraft is %g Newtons \n', W_total) %Part D
+%>>>>>>> Stashed changes
 fprintf('The fractional empty weight is %g \n',frac_W_e) %Part D
 fprintf('The fractional payload weight is %g \n',frac_W_p) %Part D
 fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
@@ -205,13 +252,31 @@ fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nT
 fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
+%Part H
+%commeted out since not all calculations are correct/working
+% fprintf('The height of the obstacle for takeoff is %g meters \n',obs_h)
+% fprintf('The total takeoff distance is %g meters \n',s_takeoff)
+% fprintf('The height of the obstacle for landing is %g meters \n',obs_hland)
+% fprintf('The total landing distance is %g meters \n',s_landing)
+% fprintf('The ground distance for takeoff is %g meters  \n',s_g)
+% fprintf('The transition distance for takeoff is %g meters \n',s_tr)
+% fprintf('The air distance for takeoff is %g meters \n',s_a)
+% fprintf('The approach distance for landing is %g meters \n',s_aland)
+% fprintf('The flair distance for landing is %g meters \n',s_f)
+% fprintf('The ground roll distane for landing is %g meters \n',s_gland)
+
 %Comment out if you dont want to update sheets -->
 % RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [1 2], output_1.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_d.');
+%<<<<<<< Updated upstream
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [27 2], output_e.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [31 2], output_f.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [32 2], output_g.');
+%=======
+% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_e.');
+% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_f.');
+%>>>>>>> Stashed changes
 
 %Functions used in the program ---->
 

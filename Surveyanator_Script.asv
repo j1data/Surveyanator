@@ -30,14 +30,15 @@ wingSWetted = (1.977+0.52*wingTOverC)*Swing; %(m^2)
 cd_o_Wing = cfWing*FFWing*(wingSWetted/Swing)*Qwing;
 
 %Fuselage Calcs -->
-fuselageArea = 0.44432 * 0.58674; %[meters^2] %Taken from cad max width and height
-f = fuselageLength/(sqrt((4/pi)*fuselageArea)); 
+fuselageAreaFront = 0.44432 * 0.58674; %[meters^2] %Taken from cad max width and height
+f = fuselageLength/(sqrt((4/pi)*fuselageAreaFront)); 
 ffFuse = 0.9 + (5/(f^1.5))+(f/400);
 ReFuse = Reynolds(density,velocity,dynamicViscosity,fuselageLength);
-%sWettedFuse = pi*0.8*fuselageLength; %(m^2)
-%sWettedFuse = 3
+%sWettedFuse = pi*0.8*fuselageLength; %(m^2) %Not what is shown in CD0-estimate.pdf
+fuselageAreaTop = 0.44432 * 2.33807; %[m^2] Taken from cad general over estimate
+sWettedFuse = 3.4*((fuselageAreaTop + fuselageAreaFront)/2);
 cfFuse = FrictionCoefficient(ReFuse,Mach_val);
-cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/2.15);
+cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/Swing); %Was 2.15 for Swing %Not concurrent with CD0-estimation.pdf
 
 %Vert tail sizing calcs -->
 [svt] = TailVertCoefficient(CVT,LVT,wingSpan,Swing);
@@ -51,7 +52,7 @@ ReVert = Reynolds(density,velocity,dynamicViscosity,chordVertStab);
 cfVert = FrictionCoefficient(ReVert,Mach_val);
 ffVert = FormFactor(quarterChordVertStab,vertTOverC,vertSweepAngle,Mach_val);
 sWettedVert = CVT/Swing; %(m^2)
-cd_o_Vert = cfVert*ffVert*(sWettedVert/2.15)*1.05;
+cd_o_Vert = cfVert*ffVert*(sWettedVert/Swing)*1.05; %Swing was 2.15, not concurrent with CD0-estimateion.pdf
 
 %Horizontal Stabilizer calcs -->
 ReHoriz = Reynolds(density,velocity,dynamicViscosity,chordHorzStab);
@@ -59,7 +60,7 @@ ReHoriz = Reynolds(density,velocity,dynamicViscosity,chordHorzStab);
 cfHoriz = FrictionCoefficient(ReHoriz,Mach_val);
 ffHoriz = FormFactor(chordHorzStab,horzToverC,horzSweepAngle,Mach_val);
 sWettedHoriz = cht/Swing; %meters^2
-cd_o_Horz = cfHoriz*ffHoriz*(sWettedHoriz/2.15)*1.05;
+cd_o_Horz = cfHoriz*ffHoriz*(sWettedHoriz/Swing)*1.05; %Swing was 2.15, not concurrent with CD0-estimateion.pdf
 
 %Landing gear struts (front 2) calcs -->
 cd_o_landF = frontStruts_dOverq*(frontStruts_Sfront/Swing);
@@ -71,7 +72,7 @@ cd_o_landB = backStrut_dOverq*(backStrut_Sfront/Swing);
 cd_o_wheels = wheel_dOverq*(wheel_Sfront/Swing);
 
 %Drag buildup calcs -->
-dragBuildUp = cd_o_Wing + cd_o_Fuse + cd_o_Vert + cd_o_Horz + cd_o_landB + cd_o_landB + cd_o_wheels;
+CD_o = cd_o_Wing + cd_o_Fuse + cd_o_Vert + cd_o_Horz + cd_o_landB + cd_o_landB + cd_o_wheels;
 
 %Lift calculations -->
 AR = (wingSpan^2)/Swing;
@@ -95,15 +96,15 @@ frac_W_f = batteryWeight/W_total;
 alpha3D_SLF = (CLift/a3D)+alat0;
 
 %Range calculations -->
-CLoCD_max = 1/(4*K*dragBuildUp);
-CLoCD_3half_max = (((3*dragBuildUp)/K)^1.5)/(4*dragBuildUp);
+CLoCD_max = 1/(4*K*CD_o);
+CLoCD_3half_max = (((3*CD_o)/K)^1.5)/(4*CD_o);
 
 endurance = (E_battery * n_prop * n_motor * ((density * Swing)^0.5) * CLoCD_3half_max)...
     / ((2^(0.5)) * (W_total^(1.5))) /60;
-V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * dragBuildUp)));
+V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * CD_o)));
 range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
-V_maxrange = ((2/density) * (W_total/Swing) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
-V_stall = ((2*W_total)/(density*Swing) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+V_maxrange = ((2/density) * (W_total/Swing) * (K/(3 * CD_o)^(0.5)))^(.5); %m/s
+V_stall = ((2*W_total)/(density*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s
 
 %Part E
 altitude= 0:1:altitude_max; %meters
@@ -112,8 +113,8 @@ Temp_alt = Tsea+a.*(altitude); %Kelvin
 
 density_alt = density_sea.*(Temp_alt/Tsea).^((-g/(a*R))-1); %kg/m^3
 
-v_infin_SLF = (((2*W_total)./(density_alt.*Swing).*(K./(3*dragBuildUp)).^(.5)).^(0.5)); %m/s
-Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*dragBuildUp+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*Swing)); %watts
+v_infin_SLF = (((2*W_total)./(density_alt.*Swing).*(K./(3*CD_o)).^(.5)).^(0.5)); %m/s
+Power_req = .5.*density_alt.*((v_infin_SLF).^(3)).*Swing*CD_o+((2*K*((W_total)^(2)))./(density_alt.*v_infin_SLF*Swing)); %watts
 Power_avail = Power_Max.*((density_alt./density).^(m)); %watts
 Power_excess = Power_avail-Power_req; %watts
 
@@ -129,7 +130,7 @@ ylabel('Power (Watt)')
 title('Power vs. Altitude')
 
 ROC = Power_excess./W_total; %m/s
-VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*dragBuildUp))^(.5))).^(0.5); %m/s
+VMax_ROC = (((2*W_total)./(density_alt.*Swing)).*((K/(3*CD_o))^(.5))).^(0.5); %m/s
 ROC_Max = ((n_prop.*Power_avail)./(W_total))-VMax_ROC.*((1.155)./(CLoCD_max)); %m/s
 Service_ceiling = 100/(60*3.28084); %m/s
 
@@ -168,13 +169,13 @@ vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 %Part H
 density_runway = 1.225; %kg/m^3 %able to change density based of airport altitude
 mu_r = 0.4 %Hard turf or dry concrete
-V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
+V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s
 %takeoff
 obs_h = 35; %meters
 V_Lo = 1.2*V_stall_runway %m/s
 Thrust_Lo = Power_Max/V_Lo %Newtons %Max thrust
 L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons
-D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(dragBuildUp+K*(Cl_max^2)) %Newtons
+D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+K*(Cl_max^2)) %Newtons
 s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*(Thrust_Lo-D_Lo-mu_r*(W_total-L_Lo))) %meters
 
 T_req = Power_req(1)/V_stall_runway %make V_stall_runway at density_runway
@@ -198,7 +199,7 @@ landobs_h = 50;
 
 V_TD = 1.15*V_stall_runway %m/s 
 L_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*Cl_max %Newtons
-D_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*(dragBuildUp+K*(Cl_max^2)) %Newtons
+D_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*(CD_o+K*(Cl_max^2)) %Newtons
 s_g_land = (1.69*W_total^2)/(g*density_runway*Swing*Cl_max*(D_TD+mu_r*(W_total-L_TD))) %meters
 
 %s_landing = s_g_land+s_f+s_aland %meters
@@ -219,8 +220,8 @@ fprintf('CD0 for the horizontal stabilizer is %g\n',cd_o_Horz)
 fprintf('CD0 for the front 2 landing gear struts is %g\n',cd_o_landF)
 fprintf('CD0 for the back landing gear is %g\n',cd_o_landB)
 fprintf('CD0 for the landing gear wheels is %g\n',cd_o_wheels)
-fprintf('CD0 for the whole plane is %g\n\n',dragBuildUp)
-output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_Fuse, cd_o_Vert, cd_o_Horz, cd_o_landF, cd_o_landB, cd_o_wheels, dragBuildUp];
+fprintf('CD0 for the whole plane is %g\n\n',CD_o)
+output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_Fuse, cd_o_Vert, cd_o_Horz, cd_o_landF, cd_o_landB, cd_o_wheels, CD_o];
 
 %Part D
 fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D

@@ -100,7 +100,7 @@ endurance = (E_battery * n_prop * n_motor * ((density * Swing)^0.5) * CLoCD_3hal
     / ((2^(0.5)) * (W_total^(1.5))) /60;
 V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * dragBuildUp)));
 range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
-V_maxrange =((2/density) * (W_total/Swing) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
+V_maxrange = ((2/density) * (W_total/Swing) * (K/(3 * dragBuildUp)^(0.5)))^(.5); %m/s
 V_stall = ((2*W_total)/(density*Swing) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 
 %Part E
@@ -164,20 +164,21 @@ vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 
 
 %Part H
-Density_runway = 1.225; %kg/m^3 %able to change density based of airport
+density_runway = 1.225; %kg/m^3 %able to change density based of airport altitude
 mu_r = 0.4 %Hard turf or dry concrete
+V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*dragBuildUp))^(.5)))^(.5); %m/s
 %takeoff
 obs_h = 35; %meters
-V_Lo = 1.2*V_stall %m/s
+V_Lo = 1.2*V_stall_runway %m/s
 Thrust_Lo = Power_Max/V_Lo %Newtons %Max thrust
 L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons
 D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(dragBuildUp+K*(Cl_max^2)) %Newtons
 s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*(Thrust_Lo-D_Lo-mu_r*(W_total-L_Lo))) %meters
 
-T_req = Power_req(1)/V_stall %make V_stall at density_runway
+T_req = Power_req(1)/V_stall_runway %make V_stall_runway at density_runway
 max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer
 Max_theta = asind(ROC_Max(1)/V_Lo)
-R_pullup = (1.44*(V_stall^2))/(0.15*g) %meters
+R_pullup = (1.44*(V_stall_runway^2))/(0.15*g) %meters
 h_tr = R_pullup-R_pullup*cosd(max_theta) %meters
 s_tr = R_pullup*sind(max_theta) %meters
 h_a = obs_h-h_tr %meters
@@ -193,12 +194,12 @@ landobs_h = 50;
 % h_aland = landobs_h-h_f %meters
 % s_aland = h_aland/tand(theta_a) %meters
 
-V_TD = 1.15*V_stall %m/s 
+V_TD = 1.15*V_stall_runway %m/s 
 L_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*Cl_max %Newtons
 D_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*(dragBuildUp+K*(Cl_max^2)) %Newtons
 s_g_land = (1.69*W_total^2)/(g*density_runway*Swing*Cl_max*(D_TD+mu_r*(W_total-L_TD))) %meters
 
-s_landing = s_g_land+s_f+s_aland %meters
+%s_landing = s_g_land+s_f+s_aland %meters
 
 
 %Displaying values of interest

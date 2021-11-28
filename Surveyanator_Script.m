@@ -93,17 +93,18 @@ frac_W_p = W_p/W_total;
 frac_W_f = batteryWeight/W_total;
 
 %AoA @SLF
-alpha3D_SLF = (CLift/a3D)+alat0;
+alpha3D_SLF = (CLift/a3D)+alat0; %derived from CL = a(alpha - alpha_L=0)
 
 %Range calculations -->
-CLoCD_max = 1/(4*K*CD_o);
+CLoCD_max = 1/(4*K*CD_o); %Should this be under a squareroot?
 CLoCD_3half_max = (((3*CD_o)/K)^1.5)/(4*CD_o);
 
-endurance = (E_battery * n_prop * n_motor * ((density * Swing)^0.5) * CLoCD_3half_max)...
-    / ((2^(0.5)) * (W_total^(1.5))) /60;
+% endurance = (E_battery * n_prop * n_motor * sqrt(density * Swing)) * CLoCD_3half_max)...
+%     / ((2^(0.5)) * (W_total^(1.5))) /60;
+endurance = (((E_battery * n_prop * n_motor * sqrt(density * Swing)) / (sqrt(2) * (W_total^(1.5))))* CLoCD_3half_max )/60; %in seconds /60 --> min
 V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * CD_o)));
 range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
-V_maxrange = ((2/density) * (W_total/Swing) * (K/(3 * CD_o)^(0.5)))^(.5); %m/s
+V_maxrange = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/CD_o)); %m/s
 V_stall = ((2*W_total)/(density*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s
 
 %Part E

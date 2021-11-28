@@ -171,14 +171,18 @@ vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 %Part H
 density_runway = 1.225; %kg/m^3 %able to change density based of airport altitude
 mu_r = 0.4 %Hard turf or dry concrete
-V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s
+    %V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s 
+V_stall_runway = sqrt((2/density)*(W_total/Swing)*(1/Cl_max)); %m/s %Maybe -JP
+
 %takeoff
 obs_h = 35; %meters
 V_Lo = 1.2*V_stall_runway %m/s
 Thrust_Lo = Power_Max/V_Lo %Newtons %Max thrust
-L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons
-D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+K*(Cl_max^2)) %Newtons
-s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*(Thrust_Lo-D_Lo-mu_r*(W_total-L_Lo))) %meters
+L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons %JP - Cl_max is stall lift value, we need rolling (Cl value at AoA = 0)
+groundHeight = 0.5; %meters %JP - Subject to change, just an estimate
+groundEffect = ((16*groundHeight/wingSpan)^2)/(1+(16*groundHeight/wingSpan)^2);
+D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+groundEffect*K*(Cl_max^2)) %Newtons
+s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*Swing*(Thrust_Lo - D_Lo - mu_r*(W_total-L_Lo))) %meters
 
 T_req = Power_req(1)/V_stall_runway %make V_stall_runway at density_runway
 max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer

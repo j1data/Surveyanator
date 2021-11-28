@@ -99,13 +99,14 @@ alpha3D_SLF = (CLift/a3D)+alat0; %derived from CL = a(alpha - alpha_L=0)
 CLoCD_max = 1/(4*K*CD_o); %Should this be under a squareroot?
 CLoCD_3half_max = (((3*CD_o)/K)^1.5)/(4*CD_o);
 
-% endurance = (E_battery * n_prop * n_motor * sqrt(density * Swing)) * CLoCD_3half_max)...
-%     / ((2^(0.5)) * (W_total^(1.5))) /60;
+    % endurance = (E_battery * n_prop * n_motor * sqrt(density * Swing)) * CLoCD_3half_max)...
+    %     / ((2^(0.5)) * (W_total^(1.5))) /60;
 endurance = (((E_battery * n_prop * n_motor * sqrt(density * Swing)) / (sqrt(2) * (W_total^(1.5))))* CLoCD_3half_max )/60; %in seconds /60 --> min
 V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * CD_o)));
 range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
-V_maxrange = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * CD_o))); %m/s
-V_stall = ((2*W_total)/(density*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s
+V_maxrange = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/CD_o)); %m/s
+    %V_stall = ((2*W_total)/(density*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s This is Velocity for min power required for SLF
+V_stall = sqrt((2/density)*(W_total/Swing)*(1/Cl_max));
 
 %Part E
 altitude= 0:1:altitude_max; %meters
@@ -170,14 +171,16 @@ vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 %Part H
 density_runway = 1.225; %kg/m^3 %able to change density based of airport altitude
 mu_r = 0.4 %Hard turf or dry concrete
-V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s
+    %V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s 
+V_stall_runway = sqrt((2/density)*(W_total/Swing)*(1/Cl_max)); %m/s %Maybe -JP
+
 %takeoff
 obs_h = 35; %meters
 V_Lo = 1.2*V_stall_runway %m/s
 Thrust_Lo = Power_Max/V_Lo %Newtons %Max thrust
-L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons
-D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+K*(Cl_max^2)) %Newtons
-s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*(Thrust_Lo-D_Lo-mu_r*(W_total-L_Lo))) %meters
+L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons %JP - Cl_max is stall lift value, we need rolling (Cl value at AoA = 0)
+D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+grK*(Cl_max^2)) %Newtons
+s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*Swing*(Thrust_Lo - D_Lo - mu_r*(W_total-L_Lo))) %meters
 
 T_req = Power_req(1)/V_stall_runway %make V_stall_runway at density_runway
 max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer

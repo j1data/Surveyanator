@@ -30,11 +30,12 @@ wingSWetted = (1.977+0.52*wingTOverC)*Swing; %(m^2)
 cd_o_Wing = cfWing*FFWing*(wingSWetted/Swing)*Qwing;
 
 %Fuselage Calcs -->
-fuselageRadius = 0.44432 / 2; %meters %Taken from cad max Dia
-f = fuselageLength/(sqrt((4/pi)*(pi*fuselageRadius^2))); %Under the squareroot should be (4/pi)*(Area) (area = pi*r^2)
+fuselageArea = 0.44432 * 0.58674; %[meters^2] %Taken from cad max width and height
+f = fuselageLength/(sqrt((4/pi)*fuselageArea)); 
 ffFuse = 0.9 + (5/(f^1.5))+(f/400);
 ReFuse = Reynolds(density,velocity,dynamicViscosity,fuselageLength);
-sWettedFuse = pi*0.8*fuselageLength; %(m^2)
+%sWettedFuse = pi*0.8*fuselageLength; %(m^2)
+%sWettedFuse = 3
 cfFuse = FrictionCoefficient(ReFuse,Mach_val);
 cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/2.15);
 

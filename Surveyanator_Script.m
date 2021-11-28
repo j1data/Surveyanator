@@ -185,8 +185,9 @@ D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+groundEffect*K*(Cl_max^2)) 
 s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*Swing*(Thrust_Lo - D_Lo - mu_r*(W_total-L_Lo))) %meters
 
 T_req = Power_req(1)/V_stall_runway %make V_stall_runway at density_runway
-max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer
-Max_theta = asind(ROC_Max(1)/V_Lo)
+max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer 
+Max_theta = asind(ROC_Max(1)/V_Lo) %JP - cant climb at an angle greater than 15.9 without stall
+max_theta = 15.8; %min angle to get over obsticle
 R_pullup = (1.44*(V_stall_runway^2))/(0.15*g) %meters
 h_tr = R_pullup-R_pullup*cosd(max_theta) %meters
 s_tr = R_pullup*sind(max_theta) %meters

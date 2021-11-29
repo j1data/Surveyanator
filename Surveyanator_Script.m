@@ -34,11 +34,10 @@ fuselageAreaFront = 0.44432 * 0.58674; %[meters^2] %Taken from cad max width and
 f = fuselageLength/(sqrt((4/pi)*fuselageAreaFront)); 
 ffFuse = 0.9 + (5/(f^1.5))+(f/400);
 ReFuse = Reynolds(density,velocity,dynamicViscosity,fuselageLength);
-%sWettedFuse = pi*0.8*fuselageLength; %(m^2) %Not what is shown in CD0-estimate.pdf
 fuselageAreaTop = 0.44432 * 2.33807; %[m^2] Taken from cad general over estimate
 sWettedFuse = 3.4*((fuselageAreaTop + fuselageAreaFront)/2);
 cfFuse = FrictionCoefficient(ReFuse,Mach_val);
-cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/Swing); %Was 2.15 for Swing %Not concurrent with CD0-estimation.pdf
+cd_o_Fuse = cfFuse*ffFuse*1*(sWettedFuse/Swing);
 
 %Vert tail sizing calcs -->
 [svt] = TailVertCoefficient(CVT,LVT,wingSpan,Swing);
@@ -96,16 +95,12 @@ frac_W_f = batteryWeight/W_total;
 alpha3D_SLF = (CLift/a3D)+alat0; %derived from CL = a(alpha - alpha_L=0)
 
 %Range calculations -->
-CLoCD_max = 1/(4*K*CD_o); %Should this be under a squareroot?
-CLoCD_3half_max = (((3*CD_o)/K)^1.5)/(4*CD_o);
-
-    % endurance = (E_battery * n_prop * n_motor * sqrt(density * Swing)) * CLoCD_3half_max)...
-    %     / ((2^(0.5)) * (W_total^(1.5))) /60;
+CLoCD_max = sqrt(1/(4*K*CD_o)); %Should this be under a squareroot?
+CLoCD_3half_max = 0.25*(((3)/(K*CD_o^(1/3)))^(3/4));
 endurance = (((E_battery * n_prop * n_motor * sqrt(density * Swing)) / (sqrt(2) * (W_total^(1.5))))* CLoCD_3half_max )/60; %in seconds /60 --> min
 V_endurance = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/(3 * CD_o)));
 range = (((E_battery * n_motor * n_prop) / W_total) * CLoCD_max) / 1000; %km
 V_maxrange = sqrt(((2/density) * (W_total/Swing)) * sqrt(K/CD_o)); %m/s
-    %V_stall = ((2*W_total)/(density*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s This is Velocity for min power required for SLF
 V_stall = sqrt((2/density)*(W_total/Swing)*(1/Cl_max));
 
 %Part E
@@ -169,47 +164,45 @@ vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
 
 
 %Part H
+Cl_at0 = 0.6;
 density_runway = 1.225; %kg/m^3 %able to change density based of airport altitude
-mu_r = 0.4 %Hard turf or dry concrete
-    %V_stall_runway = ((2*W_total)/(density_runway*Swing) * ((K/(3*CD_o))^(.5)))^(.5); %m/s 
-V_stall_runway = sqrt((2/density)*(W_total/Swing)*(1/Cl_max)); %m/s %Maybe -JP
+mu_r = 0.4; %Hard turf or dry concrete
+V_stall_runway = sqrt((2/density)*(W_total/Swing)*(1/Cl_max)); %m/s
 
 %takeoff
 obs_h = 35; %meters
-V_Lo = 1.2*V_stall_runway %m/s
-Thrust_Lo = Power_Max/V_Lo %Newtons %Max thrust
-L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_max %Newtons %JP - Cl_max is stall lift value, we need rolling (Cl value at AoA = 0)
+V_Lo = 1.2*V_stall_runway; %m/s
+Thrust_Lo = Power_Max/V_Lo; %Newtons %Max thrust
+L_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*Cl_at0; %Newtons 
 groundHeight = 0.5; %meters %JP - Subject to change, just an estimate
 groundEffect = ((16*groundHeight/wingSpan)^2)/(1+(16*groundHeight/wingSpan)^2);
-D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+groundEffect*K*(Cl_max^2)) %Newtons
-s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*Swing*(Thrust_Lo - D_Lo - mu_r*(W_total-L_Lo))) %meters
+D_Lo = 0.5*density_runway*((0.7*V_Lo)^2)*Swing*(CD_o+groundEffect*K*(Cl_at0^2)); %Newtons
+s_g = (1.44*W_total^2)/(g*density_runway*Cl_max*Swing*(Thrust_Lo - D_Lo - mu_r*(W_total-L_Lo))); %meters
 
-T_req = Power_req(1)/V_stall_runway %make V_stall_runway at density_runway
-max_theta = asind((Thrust_Lo-T_req)/W_total) %tried finding max theta 2 ways could not get a real answer 
-Max_theta = asind(ROC_Max(1)/V_Lo) %JP - cant climb at an angle greater than 15.9 without stall
-max_theta = 15.8; %min angle to get over obsticle
-R_pullup = (1.44*(V_stall_runway^2))/(0.15*g) %meters
-h_tr = R_pullup-R_pullup*cosd(max_theta) %meters
-s_tr = R_pullup*sind(max_theta) %meters
-h_a = obs_h-h_tr %meters
-s_a = h_a/tand(max_theta) %meters
+max_theta = 15.8; %degs %min angle to get over obsticle
+R_pullup = (1.44*(V_stall_runway^2))/(0.15*g); %meters
+h_tr = R_pullup-R_pullup*cosd(max_theta); %meters
+s_tr = R_pullup*sind(max_theta); %meters
+h_a = obs_h-h_tr; %meters
+s_a = h_a/tand(max_theta); %meters
 
-s_takeoff = s_g+s_tr+s_a %meters
+s_takeoff = s_g+s_tr+s_a; %meters
 
 
 %landing
-landobs_h = 50; 
-% h_f = R_pullup-R_pullup*cos(theta_f) %meters
-% s_f = R*sind(theta_f) %meters
-% h_aland = landobs_h-h_f %meters
-% s_aland = h_aland/tand(theta_a) %meters
+landobs_h = 50; %meters
+theta_f = 3; %deg
+h_f = R_pullup-R_pullup*cosd(theta_f); %meters
+s_f = R*sind(theta_f); %meters
+h_aland = landobs_h-h_f; %meters
+s_aland = h_aland/tand(theta_f); %meters
 
-V_TD = 1.15*V_stall_runway %m/s 
-L_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*Cl_max %Newtons
-D_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*(CD_o+K*(Cl_max^2)) %Newtons
-s_g_land = (1.69*W_total^2)/(g*density_runway*Swing*Cl_max*(D_TD+mu_r*(W_total-L_TD))) %meters
+V_TD = 1.15*V_stall_runway; %m/s 
+L_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*Cl_at0; %Newtons
+D_TD = 0.5*density_runway*((0.7*V_TD)^2)*Swing*(CD_o+K*(Cl_at0^2)); %Newtons
+s_gland = (1.69*W_total^2)/(g*density_runway*Swing*Cl_max*(D_TD+mu_r*(W_total-L_TD))); %meters
 
-%s_landing = s_g_land+s_f+s_aland %meters
+s_landing = s_gland+s_f+s_aland; %meters
 
 
 %Displaying values of interest
@@ -234,11 +227,8 @@ output_1 = [a3D, alpha3D_SLF, AR, Swing, Mach_val, K, svt, sht, cd_o_Wing, cd_o_
 fprintf('The empty weight of our aircraft is %g Newtons \n',W_e) %Part D
 fprintf('The payload weight of our aircraft is %g Newtons \n',W_p) %Part D
 fprintf('The battery weight of our aircraft is %g Newtons \n',batteryWeight) %Part D
-%<<<<<<< Updated upstream
 fprintf('The total weight of the aircraft is %g Newtons \n', W_total);
-%=======
 fprintf('The total weight of our aircraft is %g Newtons \n', W_total) %Part D
-%>>>>>>> Stashed changes
 fprintf('The fractional empty weight is %g \n',frac_W_e) %Part D
 fprintf('The fractional payload weight is %g \n',frac_W_p) %Part D
 fprintf('The fractional battery weight is %g \n',frac_W_f) %Part D
@@ -264,17 +254,16 @@ fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Part H
-%commeted out since not all calculations are correct/working
-% fprintf('The height of the obstacle for takeoff is %g meters \n',obs_h)
-% fprintf('The total takeoff distance is %g meters \n',s_takeoff)
-% fprintf('The height of the obstacle for landing is %g meters \n',obs_hland)
-% fprintf('The total landing distance is %g meters \n',s_landing)
-% fprintf('The ground distance for takeoff is %g meters  \n',s_g)
-% fprintf('The transition distance for takeoff is %g meters \n',s_tr)
-% fprintf('The air distance for takeoff is %g meters \n',s_a)
-% fprintf('The approach distance for landing is %g meters \n',s_aland)
-% fprintf('The flair distance for landing is %g meters \n',s_f)
-% fprintf('The ground roll distane for landing is %g meters \n',s_gland)
+fprintf('\n\nThe height of the obstacle for takeoff is %g meters \n',obs_h)
+fprintf('The total takeoff distance is %g meters \n',s_takeoff)
+fprintf('The height of the obstacle for landing is %g meters \n',landobs_h)
+fprintf('The total landing distance is %g meters \n',s_landing)
+fprintf('The ground distance for takeoff is %g meters  \n',s_g)
+fprintf('The transition distance for takeoff is %g meters \n',s_tr)
+fprintf('The air distance for takeoff is %g meters \n',s_a)
+fprintf('The approach distance for landing is %g meters \n',s_aland)
+fprintf('The flair distance for landing is %g meters \n',s_f)
+fprintf('The ground roll distane for landing is %g meters \n',s_gland)
 
 %Comment out if you dont want to update sheets -->
 % RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets

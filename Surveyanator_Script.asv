@@ -144,10 +144,8 @@ legend('ROC','ROC Max','Service Ceiling')
 title('Rate of Climb vs Altitude')
 
 % Finding the altitude where ROC max equals the service ceiling
-%<<<<<<< Updated upstream
-Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.0002));
+Intersections=find(abs(ROC_Max - Service_ceiling)<=(0.002));
 
-%>>>>>>> Stashed changes
 SC=altitude(Intersections); %Service ceiling in meters
 Height_service = mean(SC);
 
@@ -204,6 +202,11 @@ s_gland = (1.69*W_total^2)/(g*density_runway*Swing*Cl_max*(D_TD+mu_r*(W_total-L_
 
 s_landing = s_gland+s_f+s_aland; %meters
 
+%Presentation
+Wingload = W_total/Swing;
+LoverD = CLift/(CD_o+K*(CLift^2));
+ToverW = 
+
 
 %Displaying values of interest
 fprintf('CL = %g*(alpha-(%g))\n',a3D,alpha3D_SLF) %3Dlift equation
@@ -211,7 +214,10 @@ fprintf('Aspect Ratio = %g\n',AR)
 fprintf('Planform Area = %g m^2\n',Swing)
 fprintf('Mach_val = %g\n',Mach_val)
 fprintf('K = %g\n',K)
-fprintf('SVT is %g\n',svt)
+fprintf('Wing loading is %g \n',Wingload)
+fprintf('Lift over drag in SLF is %g \n',LoverD)
+
+fprintf('\nSVT is %g\n',svt)
 fprintf('SHT is %g\n',sht)
 fprintf('CD0 for the wing is %g\n',cd_o_Wing)
 fprintf('CD0 for the fuse is %g\n',cd_o_Fuse)
@@ -269,14 +275,11 @@ fprintf('The ground roll distane for landing is %g meters \n',s_gland)
 % RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [1 2], output_1.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_d.');
-%<<<<<<< Updated upstream
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [27 2], output_e.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [31 2], output_f.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [32 2], output_g.');
-%=======
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_e.');
 % mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_f.');
-%>>>>>>> Stashed changes
 
 %Functions used in the program ---->
 

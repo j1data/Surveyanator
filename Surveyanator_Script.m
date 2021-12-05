@@ -189,7 +189,7 @@ s_takeoff = s_g+s_tr+s_a; %meters
 
 %landing
 landobs_h = 50; %meters
-theta_f = 3; %deg
+theta_f = 4; %deg
 h_f = R_pullup-R_pullup*cosd(theta_f); %meters
 s_f = R*sind(theta_f); %meters
 h_aland = landobs_h-h_f; %meters

@@ -11,7 +11,7 @@ inputs = str2double(inputs);
 inputs = num2cell(inputs);
 %Import Vars from Spreadsheet --->
 [density, temp, dynamicViscosity, wingSpan, velocity, wingChord, wingXOverC, wingTOverC, wingSweepAngle, Qwing, fuselageLength] = inputs{2,:};
-[LVT, CVT, sht, LHT, cht, lht] = inputs{6,2:7};
+[LVT, CVT, LHT, cht, lht] = inputs{6,2:7};
 [quarterChordVertStab, chordVertStab, vertTOverC, vertSweepAngle, quarterChordHorzStab, chordHorzStab, horzToverC, horzSweepAngle] = inputs{10,1:8};
 [frontStruts_Sfront, frontStruts_dOverq, wheel_Sfront, wheel_dOverq, backStrut_Sfront, backStrut_dOverq, E_density, E_battery] = inputs{14,1:8};
 [alat0, anot, Cl_max, W_e, W_p, n_prop, n_motor] = inputs{18,1:7};
@@ -256,7 +256,7 @@ fprintf('The service ceiling is %g meters \n\n', Height_service)
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The manuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
+fprintf('The maneuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Part H
@@ -269,17 +269,17 @@ fprintf('The transition distance for takeoff is %g meters \n',s_tr)
 fprintf('The air distance for takeoff is %g meters \n',s_a)
 fprintf('The approach distance for landing is %g meters \n',s_aland)
 fprintf('The flair distance for landing is %g meters \n',s_f)
-fprintf('The ground roll distane for landing is %g meters \n',s_gland)
+fprintf('The ground roll distance for landing is %g meters \n',s_gland)
 
 %Comment out if you dont want to update sheets -->
-% RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [1 2], output_1.');
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_d.');
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [27 2], output_e.');
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [31 2], output_f.');
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [32 2], output_g.');
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_e.');
-% mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_f.');
+RunOnce('652376701551-hi93rj35iv5hd7f5cu36p8e4ocetgkob.apps.googleusercontent.com', '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'); %You must do the google access thing every time you want it to update the sheets
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [1 2], output_1.');
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_d.');
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [27 2], output_e.');
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [31 2], output_f.');
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [32 2], output_g.');
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_e.');
+mat2sheets('1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE', '1015352879', [17 2], output_f.');
 
 %Functions used in the program ---->
 

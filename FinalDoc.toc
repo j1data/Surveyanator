@@ -1,0 +1,10 @@
+\babel@toc {english}{}\relax 
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}Requirements}{1}{}%
+\contentsline {section}{\numberline {3}Methodology}{1}{}%
+\contentsline {section}{\numberline {4}Results}{1}{}%
+\contentsline {section}{\numberline {5}Discussion}{1}{}%
+\contentsline {section}{\numberline {6}Conclusion}{1}{}%
+\contentsline {section}{\numberline {7}References}{1}{}%
+\contentsline {section}{\numberline {8}Code}{1}{}%
+\contentsline {section}{\numberline {9}Output}{10}{}%

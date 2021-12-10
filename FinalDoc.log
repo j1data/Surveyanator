@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.15)  9 DEC 2021 17:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.15)  9 DEC 2021 18:04
 entering extended mode
 **./FinalDoc.tex
 (FinalDoc.tex
@@ -430,122 +430,125 @@ ad.png>] (FinalDoc.toc)
  [2
 
 ]
-Overfull \hbox (152.34502pt too wide) in paragraph at lines 126--129
+Overfull \hbox (152.34502pt too wide) in paragraph at lines 156--159
 \OT1/cmr/m/n/12 \How to Change a Flat Tire." Bridge-stone Tires, 29 Nov. 2021, 
 https://www.bridgestonetire.com/learn/maintenance/how-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--129
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--129
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 126--129
+Underfull \hbox (badness 10000) in paragraph at lines 156--159
 
- []
-
-
-Overfull \hbox (46.71051pt too wide) in paragraph at lines 133--133
- \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ
-417U7gUv60qco82aeOLdE/ 
  []
 
 [1
 
-] [2] [3]
-Overfull \hbox (187.19951pt too wide) in paragraph at lines 249--250
+]
+Overfull \hbox (46.71051pt too wide) in paragraph at lines 163--163
+ \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ
+417U7gUv60qco82aeOLdE/ 
+ []
+
+[2] [3]
+Overfull \hbox (187.19951pt too wide) in paragraph at lines 279--280
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[4]
-Overfull \hbox (330.9167pt too wide) in paragraph at lines 294--295
+[4] [5]
+Overfull \hbox (330.9167pt too wide) in paragraph at lines 324--325
 [][][][][][][][][][][][][][][][][][][]  
  []
 
-[5]
-Overfull \hbox (3.2415pt too wide) in paragraph at lines 336--338
+[6]
+Overfull \hbox (3.2415pt too wide) in paragraph at lines 366--368
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[6] [7]
-Overfull \hbox (23.48232pt too wide) in paragraph at lines 410--411
+[7]
+Overfull \hbox (23.48232pt too wide) in paragraph at lines 440--441
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [8]
-Overfull \hbox (29.231pt too wide) in paragraph at lines 443--444
+Overfull \hbox (29.231pt too wide) in paragraph at lines 473--474
 [][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
 [9]
-Overfull \hbox (325.16801pt too wide) in paragraph at lines 470--472
+Overfull \hbox (325.16801pt too wide) in paragraph at lines 500--502
 [][][][][][][][][][][][][][][][][][]  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 494--549
+Underfull \hbox (badness 10000) in paragraph at lines 524--579
 
  []
 
-[10] [11] (FinalDoc.aux) ) 
+[10] [11] [12] (FinalDoc.aux) ) 
 Here is how much of TeX's memory you used:
  7960 strings out of 478893
  124114 string characters out of 2849020
- 779952 words of memory out of 3000000
+ 761952 words of memory out of 3000000
  25738 multiletter control sequences out of 15000+600000
  408818 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,6n,79p,265b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/j1dat/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/j1dat/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/j1da
-t/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C
-:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr17.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmr8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/j1dat/AppData/Local/Pro
-grams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FinalDoc.pdf (13 pages, 175515 bytes).
+ 69i,6n,79p,257b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/j1dat/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/j1dat/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users
+/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.p
+fb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmmi8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fo
+nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/j1dat/AppData/Local/Programs/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/j1dat/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/j1dat/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/
+Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb>
+Output written on FinalDoc.pdf (14 pages, 202082 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
+ 106 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,10 @@
+\babel@toc {english}{}
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}Requirements}{1}{}%
+\contentsline {section}{\numberline {3}Methodology}{2}{}%
+\contentsline {section}{\numberline {4}Results}{6}{}%
+\contentsline {section}{\numberline {5}Discussion}{6}{}%
+\contentsline {section}{\numberline {6}Conclusion}{6}{}%
+\contentsline {section}{\numberline {7}References}{6}{}%
+\contentsline {section}{\numberline {8}Code}{6}{}%
+\contentsline {section}{\numberline {9}Output}{17}{}%

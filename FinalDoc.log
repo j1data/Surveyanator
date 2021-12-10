@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 11:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 11:15
 entering extended mode
 **f:/Documents/Projects/Surveyanator/FinalDoc.tex
 (f:/Documents/Projects/Surveyanator/FinalDoc.tex
@@ -380,7 +380,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: ./Figures//TakeOff.PNG Graphic file (type png)
 <use ./Figures//TakeOff.PNG>
 Package pdftex.def Info: ./Figures//TakeOff.PNG  used on input line 365.
-(pdftex.def)             Requested size: 234.8775pt x 84.99425pt.
+(pdftex.def)             Requested size: 352.31625pt x 127.4969pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -388,7 +388,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: ./Figures//Landing.PNG Graphic file (type png)
 <use ./Figures//Landing.PNG>
 Package pdftex.def Info: ./Figures//Landing.PNG  used on input line 370.
-(pdftex.def)             Requested size: 234.8775pt x 85.08838pt.
+(pdftex.def)             Requested size: 352.31625pt x 127.63396pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -396,7 +396,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: ./Figures//Mission.PNG Graphic file (type png)
 <use ./Figures//Mission.PNG>
 Package pdftex.def Info: ./Figures//Mission.PNG  used on input line 375.
-(pdftex.def)             Requested size: 234.8775pt x 55.52777pt.
+(pdftex.def)             Requested size: 352.31625pt x 83.29677pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -436,7 +436,11 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [8
 
- <./Figures//ClAlpha.png> <./Figures//ClCdAlpha.png> <./Figures//CdCl.png>] [9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//TakeOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Holding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG> <./Figures//Top.PNG>] [11
+ <./Figures//ClAlpha.png> <./Figures//ClCdAlpha.png> <./Figures//CdCl.png>]
+
+LaTeX Warning: Text page 9 contains only floats.
+
+[9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//TakeOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Holding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG> <./Figures//Top.PNG>] [11
 
 ] [12
 
@@ -554,7 +558,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  69i,6n,79p,285b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FinalDoc.pdf (28 pages, 783311 bytes).
+Output written on FinalDoc.pdf (28 pages, 783309 bytes).
 PDF statistics:
  188 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

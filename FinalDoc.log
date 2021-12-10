@@ -1,11 +1,12 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 11:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 16:37
 entering extended mode
-**f:/Documents/Projects/Surveyanator/FinalDoc.tex
-(f:/Documents/Projects/Surveyanator/FinalDoc.tex
-LaTeX2e <2021-06-01>
-L3 programming layer <2021-06-01> (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+**./FinalDoc.tex
+(FinalDoc.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27>
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
-(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.clo
 File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count182
@@ -19,14 +20,19 @@ File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.s
+ty
 Package: geometry 2020/01/02 v5.9 Page Geometry
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
 \Gm@cnth=\count190
@@ -41,9 +47,14 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen145
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks17
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.c
+fg))
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/blindtext\blindtext
+.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 \c@blindtext=\count193
@@ -64,9 +75,10 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@blind@randommax=\count274
 \c@blind@pangramcount=\count275
 \c@blind@pangrammax=\count276
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/sectsty\sectsty.sty
-Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
-
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/sectsty\sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
+les
 
 LaTeX Warning: Command \underbar  has changed.
                Check if current package is valid.
@@ -75,26 +87,39 @@ LaTeX Warning: Command \underbar  has changed.
 LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.s
+ty
 Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.s
+ty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphi
+cs.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex
+.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.st
+y
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \captionmargin=\dimen149
 \captionmargin@=\dimen150
@@ -121,7 +146,9 @@ Package caption Info: Standard document class detected.
 \c@lotdepth=\count285
 \sf@top=\skip52
 \sf@bottom=\skip53
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.s
+ty
 \lst@mode=\count286
 \lst@gtempboxa=\box50
 \lst@token=\toks18
@@ -134,40 +161,51 @@ Package caption Info: Standard document class detected.
 \lst@newlines=\count290
 \lst@lineno=\count291
 \lst@maxwidth=\dimen160
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.st
+y
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count292
 \lst@skipnumbers=\count293
 \lst@framebox=\box51
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.c
+fg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.sty
 Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color.
+cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks19
 \inpenc@posthook=\toks20
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2021/04/20 v2.17j AMS math features
 \@mathmargin=\skip54
-
 For additional information on amsmath, use the `?' option.
-(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
 \ex@=\dimen161
-)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+))
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen162
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+) (C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.st
+y
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count294
@@ -207,14 +245,18 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
-Package: babel 2021/06/02 3.60 The Babel package
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
-File: babel.def 2021/06/02 3.60 Babel common definitions
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.sty
+Package: babel 2021/07/22 3.63 The Babel package
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def
+File: babel.def 2021/07/22 3.63 Babel common definitions
 \babel@savecnt=\count306
 \U@D=\dimen170
-\l@unhyphenated=\language79
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
+\l@unhyphenated=\language83
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.de
+f)
 \bbl@readstream=\read2
 )
 \bbl@dirlevel=\count307
@@ -222,46 +264,129 @@ File: babel.def 2021/06/02 3.60 Babel common definitions
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-english\engli
+sh.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 105.
+(babel)             (\language77). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language73). Reported on input line 108.
-)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+(babel)             (\language77). Reported on input line 108.
+))
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\setspace.s
+ty
 Package: setspace 2011/12/19 v6.7a set line spacing
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count308
+\mult@box=\box54
+\multicol@leftmargin=\dimen171
+\c@unbalance=\count309
+\c@collectmore=\count310
+\doublecol@number=\count311
+\multicoltolerance=\count312
+\multicolpretolerance=\count313
+\full@width=\dimen172
+\page@free=\dimen173
+\premulticols=\dimen174
+\postmulticols=\dimen175
+\multicolsep=\skip57
+\multicolbaselineskip=\skip58
+\partial@page=\box55
+\last@line=\box56
+\maxbalancingoverflow=\dimen176
+\mult@rightbox=\box57
+\mult@grightbox=\box58
+\mult@gfirstbox=\box59
+\mult@firstbox=\box60
+\@tempa=\box61
+\@tempa=\box62
+\@tempa=\box63
+\@tempa=\box64
+\@tempa=\box65
+\@tempa=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\c@minrows=\count314
+\c@columnbadness=\count315
+\c@finalcolumnbadness=\count316
+\last@try=\dimen177
+\multicolovershoot=\dimen178
+\multicolundershoot=\dimen179
+\mult@nat@firstbox=\box98
+\colbreak@box=\box99
+\mc@col@check@num=\count317
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.s
+ty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
-File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count308
-\l__pdf_internal_box=\box54
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backend
+-pdftex.def
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count318
+\l__pdf_internal_box=\box100
 )
 
 LaTeX Warning: Unused global option(s):
     [A4paper].
 
-(FinalDoc.aux)
+(FinalDoc.aux
+
+LaTeX Warning: Label `fig:f15' multiply defined.
+
+)
 \openout1 = `FinalDoc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
-LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -297,38 +422,46 @@ LaTeX Font Info:    ... okay on input line 56.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
+f.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count309
-\scratchdimen=\dimen171
-\scratchbox=\box55
-\nofMPsegments=\count310
-\nofMParguments=\count311
+\scratchcounter=\count319
+\scratchdimen=\dimen180
+\scratchbox=\box101
+\nofMPsegments=\count320
+\nofMParguments=\count321
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count312
-\MPscratchDim=\dimen172
-\MPnumerator=\count313
-\makeMPintoPDFobject=\count314
+\MPscratchCnt=\count322
+\MPscratchDim=\dimen181
+\MPnumerator=\count323
+\makeMPintoPDFobject=\count324
 \everyMPtoPDFconversion=\toks27
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+)
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstop
+df-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\epstopdf-s
+ys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count315
+\c@lstlisting=\count325
 <./Figures//IsoCad.png, id=1, 370.38374pt x 235.63031pt>
 File: ./Figures//IsoCad.png Graphic file (type png)
 <use ./Figures//IsoCad.png>
-Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 70.
+Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 71.
 (pdftex.def)             Requested size: 469.75502pt x 298.85167pt.
  [1
 
-{C:/Users/PC/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./Figures//IsoCad.png>] (FinalDoc.toc)
+{C:/Users/j1dat/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./Figures//IsoC
+ad.png>] (FinalDoc.toc)
 \tf@toc=\write3
 \openout3 = `FinalDoc.toc'.
 
@@ -342,95 +475,130 @@ Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 70.
 
 ] [2
 
-] [3
+]
+Underfull \hbox (badness 10000) in paragraph at lines 109--118
 
-] [4
+ []
 
-] [5] [6] [7]
-<./Figures//ClAlpha.png, id=45, 234.1247pt x 298.86656pt>
+[3
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 119--125
+
+ []
+
+[4] [5] [6
+
+] [7]
+<./Figures//ClAlpha.png, id=52, 234.1247pt x 298.86656pt>
 File: ./Figures//ClAlpha.png Graphic file (type png)
 <use ./Figures//ClAlpha.png>
-Package pdftex.def Info: ./Figures//ClAlpha.png  used on input line 348.
+Package pdftex.def Info: ./Figures//ClAlpha.png  used on input line 375.
 (pdftex.def)             Requested size: 183.20416pt x 233.87654pt.
-<./Figures//ClCdAlpha.png, id=46, 234.1247pt x 308.65312pt>
+<./Figures//ClCdAlpha.png, id=53, 234.1247pt x 308.65312pt>
 File: ./Figures//ClCdAlpha.png Graphic file (type png)
 <use ./Figures//ClCdAlpha.png>
-Package pdftex.def Info: ./Figures//ClCdAlpha.png  used on input line 349.
+Package pdftex.def Info: ./Figures//ClCdAlpha.png  used on input line 376.
 (pdftex.def)             Requested size: 176.15813pt x 232.24751pt.
-<./Figures//CdCl.png, id=47, 412.54124pt x 307.1475pt>
+<./Figures//CdCl.png, id=54, 412.54124pt x 307.1475pt>
 File: ./Figures//CdCl.png Graphic file (type png)
 <use ./Figures//CdCl.png>
-Package pdftex.def Info: ./Figures//CdCl.png  used on input line 354.
+Package pdftex.def Info: ./Figures//CdCl.png  used on input line 381.
 (pdftex.def)             Requested size: 281.85587pt x 209.8511pt.
-<./Figures//PowerVAltitude.png, id=48, 403.5075pt x 316.18124pt>
+<./Figures//PowerVAltitude.png, id=55, 403.5075pt x 316.18124pt>
 File: ./Figures//PowerVAltitude.png Graphic file (type png)
 <use ./Figures//PowerVAltitude.png>
-Package pdftex.def Info: ./Figures//PowerVAltitude.png  used on input line 359.
+Package pdftex.def Info: ./Figures//PowerVAltitude.png  used on input line 386.
+
 (pdftex.def)             Requested size: 176.15813pt x 138.03465pt.
-<./Figures//RateofClimb.PNG, id=49, 405.01312pt x 317.68687pt>
+<./Figures//RateofClimb.PNG, id=56, 405.01312pt x 317.68687pt>
 File: ./Figures//RateofClimb.PNG Graphic file (type png)
 <use ./Figures//RateofClimb.PNG>
-Package pdftex.def Info: ./Figures//RateofClimb.PNG  used on input line 360.
+Package pdftex.def Info: ./Figures//RateofClimb.PNG  used on input line 387.
 (pdftex.def)             Requested size: 176.15813pt x 138.17812pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//TakeOff.PNG, id=50, 501.37312pt x 181.42781pt>
+<./Figures//TakeOff.PNG, id=57, 501.37312pt x 181.42781pt>
 File: ./Figures//TakeOff.PNG Graphic file (type png)
 <use ./Figures//TakeOff.PNG>
-Package pdftex.def Info: ./Figures//TakeOff.PNG  used on input line 365.
+Package pdftex.def Info: ./Figures//TakeOff.PNG  used on input line 392.
 (pdftex.def)             Requested size: 352.31625pt x 127.4969pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Landing.PNG, id=51, 502.87875pt x 182.18062pt>
+<./Figures//Landing.PNG, id=58, 502.87875pt x 182.18062pt>
 File: ./Figures//Landing.PNG Graphic file (type png)
 <use ./Figures//Landing.PNG>
-Package pdftex.def Info: ./Figures//Landing.PNG  used on input line 370.
+Package pdftex.def Info: ./Figures//Landing.PNG  used on input line 397.
 (pdftex.def)             Requested size: 352.31625pt x 127.63396pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Mission.PNG, id=52, 942.52126pt x 222.8325pt>
+<./Figures//Mission.PNG, id=59, 942.52126pt x 222.8325pt>
 File: ./Figures//Mission.PNG Graphic file (type png)
 <use ./Figures//Mission.PNG>
-Package pdftex.def Info: ./Figures//Mission.PNG  used on input line 375.
+Package pdftex.def Info: ./Figures//Mission.PNG  used on input line 402.
 (pdftex.def)             Requested size: 352.31625pt x 83.29677pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Holding.PNG, id=53, 352.31625pt x 254.45062pt>
+<./Figures//Holding.PNG, id=60, 352.31625pt x 254.45062pt>
 File: ./Figures//Holding.PNG Graphic file (type png)
 <use ./Figures//Holding.PNG>
-Package pdftex.def Info: ./Figures//Holding.PNG  used on input line 380.
+Package pdftex.def Info: ./Figures//Holding.PNG  used on input line 407.
 (pdftex.def)             Requested size: 234.8775pt x 169.63461pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//IsoCad.PNG, id=54, 370.38374pt x 235.63031pt>
+<./Figures//IsoCad.PNG, id=61, 370.38374pt x 235.63031pt>
 File: ./Figures//IsoCad.PNG Graphic file (type png)
 <use ./Figures//IsoCad.PNG>
-Package pdftex.def Info: ./Figures//IsoCad.PNG  used on input line 385.
+Package pdftex.def Info: ./Figures//IsoCad.PNG  used on input line 412.
 (pdftex.def)             Requested size: 187.89914pt x 119.53706pt.
-<./Figures//side.PNG, id=55, 346.29375pt x 131.74219pt>
+<./Figures//side.PNG, id=62, 346.29375pt x 131.74219pt>
 File: ./Figures//side.PNG Graphic file (type png)
 <use ./Figures//side.PNG>
-Package pdftex.def Info: ./Figures//side.PNG  used on input line 386.
+Package pdftex.def Info: ./Figures//side.PNG  used on input line 413.
 (pdftex.def)             Requested size: 187.89914pt x 71.48546pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<./Figures//Front.PNG, id=56, 460.72125pt x 76.78688pt>
+<./Figures//Front.PNG, id=63, 460.72125pt x 76.78688pt>
 File: ./Figures//Front.PNG Graphic file (type png)
 <use ./Figures//Front.PNG>
-Package pdftex.def Info: ./Figures//Front.PNG  used on input line 391.
+Package pdftex.def Info: ./Figures//Front.PNG  used on input line 418.
 (pdftex.def)             Requested size: 281.85587pt x 46.97583pt.
-<./Figures//Top.PNG, id=57, 136.25906pt x 201.75375pt>
+<./Figures//Top.PNG, id=64, 136.25906pt x 201.75375pt>
 File: ./Figures//Top.PNG Graphic file (type png)
 <use ./Figures//Top.PNG>
-Package pdftex.def Info: ./Figures//Top.PNG  used on input line 392.
+Package pdftex.def Info: ./Figures//Top.PNG  used on input line 419.
 (pdftex.def)             Requested size: 93.94957pt x 139.10556pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//VN.JPG, id=65, 963.6pt x 370.38374pt>
+File: ./Figures//VN.JPG Graphic file (type jpg)
+<use ./Figures//VN.JPG>
+Package pdftex.def Info: ./Figures//VN.JPG  used on input line 424.
+(pdftex.def)             Requested size: 281.85587pt x 108.33539pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//beechcraft.JPG, id=66, 828.09375pt x 406.51875pt>
+File: ./Figures//beechcraft.JPG Graphic file (type jpg)
+<use ./Figures//beechcraft.JPG>
+Package pdftex.def Info: ./Figures//beechcraft.JPG  used on input line 429.
+(pdftex.def)             Requested size: 281.85587pt x 138.36961pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//cessna.JPG, id=67, 301.125pt x 200.75pt>
+File: ./Figures//cessna.JPG Graphic file (type jpg)
+<use ./Figures//cessna.JPG>
+Package pdftex.def Info: ./Figures//cessna.JPG  used on input line 434.
+(pdftex.def)             Requested size: 281.85587pt x 187.92084pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -440,127 +608,183 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: Text page 9 contains only floats.
 
-[9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//TakeOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Holding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG> <./Figures//Top.PNG>] [11
+[9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//Tak
+eOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Ho
+lding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG>
+ <./Figures//Top.PNG>] [11 <./Figures//VN.JPG> <./Figures//beechcraft.JPG> <./F
+igures//cessna.JPG>] [12
 
-] [12
-
-]
-Underfull \hbox (badness 1540) in paragraph at lines 402--405
-\OT1/cmr/m/n/12 for Aero-nau-ti-cal Equip-ment, https://www.aeroexpo.online/prod/mgm-compro/product-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--405
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--405
-\OT1/cmr/m/n/12 http://www.aeroelectric.comReference[]DocsCessnacessna-miscC172[]Performance-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--405
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 402--405
-
- []
-
-[13
+] [13
 
 ]
-Overfull \hbox (46.71051pt too wide) in paragraph at lines 408--408
- \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/ 
+Underfull \hbox (badness 1540) in paragraph at lines 452--457
+\OT1/cmr/m/n/12 for Aero-nau-ti-cal Equip-ment, https://www.aeroexpo.online/pro
+d/mgm-compro/product-
  []
 
-<./Figures//Inputs.PNG, id=90, 1315.16344pt x 440.39531pt>
-File: ./Figures//Inputs.PNG Graphic file (type png)
-<use ./Figures//Inputs.PNG>
-Package pdftex.def Info: ./Figures//Inputs.PNG  used on input line 411.
-(pdftex.def)             Requested size: 469.75502pt x 157.29901pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+\OT1/cmr/m/n/12 http://www.aeroelectric.comReference[]DocsCessnacessna-miscC172
+[]Performance-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+
+ []
+
+
+Underfull \hbox (badness 2103) in paragraph at lines 452--457
+\OT1/cmr/m/n/12 In-ter-na-tional News, 27 July 2016, https://www.ainonline.com/
+aviation-news/general-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+\OT1/cmr/m/n/12 \Cessna 172." Wikipedia, Wiki-me-dia Foun-da-tion, 1 Dec. 2021,
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 452--457
+
+ []
+
 [14
 
- <./Figures//Inputs.PNG>] [15] [16]
-Overfull \hbox (187.19951pt too wide) in paragraph at lines 529--530
+]
+Overfull \hbox (46.71051pt too wide) in paragraph at lines 460--460
+ \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ
+417U7gUv60qco82aeOLdE/ 
+ []
+
+<./Figures//Inputs.PNG, id=103, 1315.16344pt x 440.39531pt>
+File: ./Figures//Inputs.PNG Graphic file (type png)
+<use ./Figures//Inputs.PNG>
+Package pdftex.def Info: ./Figures//Inputs.PNG  used on input line 463.
+(pdftex.def)             Requested size: 469.75502pt x 157.29901pt.
+[15
+
+ <./Figures//Inputs.PNG>] [16] [17]
+Overfull \hbox (187.19951pt too wide) in paragraph at lines 581--582
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[17] [18]
-Overfull \hbox (330.9167pt too wide) in paragraph at lines 574--575
+[18] [19]
+Overfull \hbox (330.9167pt too wide) in paragraph at lines 626--627
 [][][][][][][][][][][][][][][][][][][]  
  []
 
-[19]
-Overfull \hbox (3.2415pt too wide) in paragraph at lines 616--618
+[20]
+Overfull \hbox (3.2415pt too wide) in paragraph at lines 668--670
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[20] [21]
-Overfull \hbox (23.48232pt too wide) in paragraph at lines 690--691
+[21] [22]
+Overfull \hbox (23.48232pt too wide) in paragraph at lines 742--743
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[22]
-Overfull \hbox (29.231pt too wide) in paragraph at lines 723--724
+[23]
+Overfull \hbox (29.231pt too wide) in paragraph at lines 775--776
 [][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[23]
-Overfull \hbox (325.16801pt too wide) in paragraph at lines 750--752
+[24]
+Overfull \hbox (325.16801pt too wide) in paragraph at lines 802--804
 [][][][][][][][][][][][][][][][][][]  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 774--829
+Underfull \hbox (badness 10000) in paragraph at lines 826--881
 
  []
 
-[24] [25] [26] (FinalDoc.aux) ) 
+[25] [26] [27] (FinalDoc.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 7516 strings out of 478864
- 113616 string characters out of 2850081
- 757020 words of memory out of 3000000
- 25351 multiletter control sequences out of 15000+600000
- 408818 words of font info for 46 fonts, out of 8000000 for 9000
+ 7818 strings out of 478893
+ 121753 string characters out of 2849020
+ 758741 words of memory out of 3000000
+ 25599 multiletter control sequences out of 15000+600000
+ 409272 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,6n,79p,285b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FinalDoc.pdf (28 pages, 783309 bytes).
+ 69i,6n,79p,2197b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cmextra/cmex8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/j1dat/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/j1dat/AppDat
+a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/
+j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pf
+b><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmmi8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
+lic/amsfonts/cm/cmr10.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/j1dat/AppData/Local/Programs/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/j1dat/AppData/Local
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/j1dat/Ap
+pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Use
+rs/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
+pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
+ts/cm/cmr8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/j1dat/AppData/Local/Programs/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/j1dat/AppData/Loc
+al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/j1dat
+/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:
+/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mtt10.pfb>
+Output written on FinalDoc.pdf (29 pages, 985947 bytes).
 PDF statistics:
- 188 PDF objects out of 1000 (max. 8388607)
+ 229 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 

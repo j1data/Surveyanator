@@ -11,6 +11,7 @@
 \usepackage{amsmath}
 \usepackage[english]{babel}
 \usepackage{setspace}
+\usepackage{multicol}
 \sectionfont{\fontsize{12}{15}\selectfont}
 \subsectionfont{\fontsize{10}{15}\selectfont}
 \graphicspath{ {./Figures/} }
@@ -93,18 +94,41 @@
 	\clearpage
 	\pagenumbering{arabic}
 	\section{Introduction}
-	\indent 
+	\hspace{.15 in} The goal of the project is to design an aircraft and predict its performance based on the methods we will be using in AerE 261. The mission is for a craft to survey a given area for threats to human health and/or life. Unmanned aerial vehicles are capable of surveying areas and better mitigating threats. These drones are also capable of observing threats more efficiently than people. The craft will take off from a viable runway far enough away from the affected area. The mission for this aircraft is to take off from makeshift runways and survey land that is inaccessible or hazardous for ground surveying. After take-off, the aircraft would need to be able to ascend to various heights to cruise to the desired destination, then loiter around the desired survey area or areas. While loitering, the aircraft would be documenting areas of land and then flying to other regions to do the same process. All of this would be able to be done autonomously and controlled remotely. After collecting the data, the plane would return to its take-off location to land and return the data. \\
+	\indent The Surveyanator will be designed for flying above areas of land or water for geographical, disaster, and search and rescue purposes. It would need to carry various equipment on board, such as photography, radar, Lidar, range finders, and thermal imaging. This craft would serve to aid in search and rescue missions as well as reconnaissance and surveillance.
+	
 
 	\clearpage
 	\section{Requirements}
-	\indent 
+	\hspace{.15 in} When starting the design process we set some performance goals that would allow the Surveyanator to complete its mission. To start we wanted to be able to have a range of 100 km to allow for the plane to cruise to the area of interest, survey the area, and return to the launch area. We also wanted the plane to be able to carry different types of equipment. For example cameras, thermal imaging cameras, and other surveying equipment. We estimated that the plane would need to be able to carry at least 20 kg in the payload. The aircraft also needs to have a time in the flight of at least 60 minutes and is capable of operating at a minimum altitude of 1500 meters above the target area. The takeoff and landing distances of the aircraft must also be less than 1000 meters so that its capable of using a variety of airstrips \\
+	\indent In addition to the requirements above it also needs to have the ability to take high-altitude photos of disaster areas. Travel at variable speeds for loitering and cruising velocities, specifically low speeds for the sake of taking pictures. 
+	
 
 	\clearpage
 	\section{Methodology}
-	\indent 
+	\hspace{.15 in}The design process our team used followed similarly the phases of the design process presented in AerE 261. Using equations derived in class we solved for values about our plane. Our first step was calculating the 2D drag coefficient. Using the mach speed formula (EQ 1\&2) and Reynold’s number formula (EQ 3)we got values to plug into XFLR5 to calculate the 2D drag coefficient for our airfoil, 2D lift slope, alpha at lift equal to 0, and coefficient of lift max. The 2D lift slope, alpha when lift equals zero, and the coefficient of lift was estimated from figure 2. The 2D drag coefficient was estimated from figure 3. \\
+	\indent The next thing that we calculated was the 3D drag coefficient. We used the method described in Daniel Raymer’s book “Aircraft Design, A Conceptual Approach” (Raymer, 2012). Using the formulas from the book we were able to calculate the 3D drag coefficients for the wing, fuselage, vertical stabilizer, horizontal stabilizer, and landing gear. This gave us a value of 0.0189 for a whole plane. \\
+	\indent After calculating the 3D coefficient of drag we calculated the wing planform area (EQ 4), aspect ratio, (EQ 5) Oswald efficiency (EQ 6), K (EQ 7), and 3D lift slope (EQ 8).\\
+	\indent After those calculations, we used the energy needed for the mission to determine the battery weight (EQ 9). Using the calculated weight of the battery we added up the weights (EQ 10) to get similar weight fractions as the Beechcraft Bonanza (EQ 11). Then when changing energy to change the weight of the battery, the weights of the payload, empty weight till the point it was reasonable values and matched the requirements of our plane. One requirement that we had was being able to have a payload of 23 kg. Once we had the total weight of the aircraft we calculated the coefficient of lift at steady level flight (EQ 12). After calculating the coefficient lift needed at steady level flight we could calculate the angle of attack needed for steady level flight (EQ 13). \\
+	\indent Now to find the range of our aircraft we started off with finding the $(\frac{C_L}{C_D})_{max}$ (EQ 14) as well as $(\frac{{C_L}^{3/2}}{C_D})_{max}$ (EQ 15). Then using the values above we calculated the endurance (EQ 16), velocity at endurance (EQ 17), range (EQ 18), velocity at max range (EQ 19), and velocity at stall (EQ 20). \\
+	\indent Then using a temp vs altitude formula (EQ 21) and density vs altitude (EQ 22), we were able to use the values to calculate the velocity at steady level flight (EQ 23), the power required (EQ 24), the power available (EQ 25), and the power excess (EQ 26), at each altitude. Then we could graph Power vs Altitude shown in figure 4. After calculating the values above we then could calculate the rate of climb (EQ 27), velocity of max rate of climb (EQ 28), the rate of climb max (EQ 29). We then graphed the calculated values to show the rate of climb vs altitude shown in figure 4. We also did a unit conversion of 100 ft per second to meters per second, graphed the service ceiling speed on figure 4 as a horizontal line, and calculated the intersection of the rate of climb max and the service ceiling. \\
+	\indent We next calculated the lift at sea level for steady level flight (EQ 30 \& 31). Using the lift calculated we calculated the aerodynamic load limit (EQ 32). For the structural load limits we used values similar to the Cessna 172 of 3.8 g and -1.52 g.  Then using the load limits we calculated pull up radius (EQ 33), pull up turn rate (EQ 34), level turn radius (EQ 35), level turn rate (EQ 36), all for both the aerodynamic limit and structural limit. Then we outputed the highest radius and slowest turning rate for pull up and level turn. This is because the highest radius and slowest turn rate would be using the lowest loading factor. We used the values calculated to make a V-n diagram shown in figure 11. \\
+	\indent For takeoff we assumed an obstacle height of 35 meter and for landing a height of 50 meters. For the ground distance for take off we used the ground effect formula (EQ 37), and the ground distance for takeoff (EQ 38). Then using max angle of attack we found the pull up radius at a given airports density. Then we calculated transition height (EQ 39), transition distance (EQ 40), height of the air distance (EQ 41), the air distance (EQ 42), and added all the distances together. This then gave us the total takeoff distance at a given airport. The takeoff distances are shown in figure 5. \\
+	\indent For landing calculations we assumed a four degree approach angle. We solved for the flare height (EQ 43) to solve for the height of the approach (EQ 44). Next we solved for the flare distance (EQ 45) and the approach distance (EQ 46).  Next we calculated the ground distance, (EQ 47) then assuming that there was no rolling distance we added  the approach, flare, and ground distances to solve for the landing distance. The landing distances are shown in figure 6. \\
+	
+	\hspace{.15 in} Most of the assumptions made were ideas presented in class or subjects found when researching aircrafts with similar design and performance. We started by assuming to use the NASA LRN 1015 airfoil for our wings in reference to the RQ-4 Global Hawk unmanned aircraft system. This assumption was made because the military surveillance aircraft has the same mission as the surveyanator. In assuming dimensions for our craft we based the design of the Surveyanator off of the Beechcraft Bonanza shown in figure 9 and figure 10. We made this assumption because it has done similar missions in the past and has the same general form factor. We used a scaling factor of 0.28 at the start of our design process to get physical dimensions. For our weight we decided to scale our aircraft, with the same scaling factor, off of the Cessna 172 Skyhawk because its weight balance made more sense for our mission. Additionally we assumed to leave 23 kg for payload mass because that being 20 percent of our weight fraction makes   sense for our design and 23 kg is enough mass for our surveillance equipment. These were the original assumptions made for weight and design dimensions. These values changed as we performed more calculations and as we learned more in class about aircraft performance, to make sure our mission would be a success. \\
+	\indent When we first started the design process we started by scaling everything by a factor of 0.28 based on the Beechcraft Bonanza. This included the weight and size. Once we calculated some of the values like range, endurance, and power required we changed the scaled values to better fit our performance requirements. Each time we entered new equations we tried to change values of our craft to fit our missions. \\
+	\indent Once we had our weight, we calculated our CL with that weight and found that our Cl,max was not plausible. To fix this we increased our wingspan (b) to increase our wing planform area (S), to therefore lower our CL value to make sure it is a plausible CL that is well within our Cl,max. Our flight speed remained significantly subsonic and we assumed that our structural weight estimate would allow for the increase in material weight. \\
+	\indent Another iteration we made was when we calculated the service ceiling we found that it was a meter off the ground. To fix this we changed the weight estimates while also keeping similar weight fractions. We also found that we extremely overestimated the weight of the surveying equipment. We ended up allotting 26 kg for equipment which gives plenty of room for equipment. \\
+	\indent For our propulsion system we assumed that the Aeroexpo electric motor with a high energy dense battery pack would work for our craft because this motor is used in known aircrafts that are currently in production and it fits the thrust requirements. \\
+	\indent For our structural load factor we assumed the positive structural load factor of 3.8 and a negative structural load factor of -1.52. These values were given by the company Aeroelectric in reference to the Cessna 172 Skyhawk of which our aircraft design is based.\\
 
 	\clearpage
+	\begin{multicols*}{2}
+			
+	
 	\section{Equations}
+	\scriptsize
 		\begin{equation} \label{eq1} 
 			M = \frac{V_\infty }{a_\infty} \\ 
 		\end{equation}
@@ -268,8 +292,8 @@
 		\begin{equation}
 			Pull\_Up_{radius} = \frac{V_\infty^2}{g*(n-1)} \\
 		\end{equation}
-		\hrule
-		\vspace{0.1 in}
+	\end{multicols*}
+	\footnotesize
 		\begin{equation}
 			Pull\_Up_{rate} = \frac{g*(n-1)}{V_\infty} \\
 		\end{equation}
@@ -341,6 +365,9 @@
 		\end{equation}
 		\hrule
 		\vspace{0.1 in}
+
+	\normalsize
+	
 	\clearpage
 	\section{Results}
 	\begin{figure}[!h]
@@ -392,16 +419,41 @@
 		\includegraphics[width=.2\textwidth]{Top.PNG} \label{fig:f14}
 		\caption{CAD Model Front view (left) \& Top view (right)}
 	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{VN.JPG} \label{fig:f17}
+		\caption{V-N Diagram}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{beechcraft.JPG} \label{fig:f15}
+		\caption{Beechcraft Bonanza}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{cessna.JPG} \label{fig:f16}
+		\caption{Cessna}
+	\end{figure}
+	
 	\clearpage
 	\section{Discussion}
+	 \hspace{.15 in}The results we got after a few iterations of flight speed and overall weight of the craft seem reasonable. With an endurance of 105.5 minutes and a range of 168.7 kilometers, our craft is able to complete its mission and is within a reasonable range of other like-sized drones. The takeoff and landing distances are also reasonable values with the craft being able to take off in 193 meters and land in 820 meters, with actual runway use being only 16 and 97 meters respectively. These values easily allow us to complete our mission parameters and are within reason for a craft of our size and weight. The craft flies between 20 and 30 meters per second with a stall velocity of 19.8 meters per second. \\
+	\indent The one value that doesn’t make much sense is our service ceiling. Our script tells us that our service ceiling is 17502 meters which is well above what an electric prop-driven craft should be able to achieve. Our mission altitude is only 1500 meters, so while being able to achieve this easily is good news, a value 11 times higher is suspicious. \\
+	\indent We assumed that we would be flying at a relatively low altitude (1500 meters) and at lower speeds (30 m/s), these assumptions affect nearly every equation used so may have an impact if the craft finds itself flying faster or higher. \\
+	\indent We had some issues as we continued to add new sections to the MatLab script. We had made some assumptions in the beginning while we were still figuring out the individual equations. We also made some mistakes in the early equations which carried through to the later additions giving us numbers far from what they should have been. 
+	We started by using a Beechcraft bonanza model for weight and proportions and scaling it down by a third. We substituted the wing design of a Global Hawk military drone (Figure 12). After a few weeks, we realized our weight was too high for an electric motor to get any usable range or speed. We switched our weight estimate scale down from the Beechcraft Bonanza to the Cessna 172 Skyhawk (Figure 13). This got us closer to our desired range and speed, but we were still too heavy, so we scaled down our payload weight from a couple of hundred pounds to fifty pounds. We thought this would be plenty for a camera or radar system. Cutting this weight also allowed us to use less energy to go the same distance and speed, so we were able to reduce the battery weight as well. After making these changes our numbers started making more sense. 
+	
 	\clearpage
 	\section{Conclusion}
+	\hspace{.15 in}In the age of information, there is no reason why there cannot be detailed surveillance over any area. Our objective was to create an aircraft for search and rescue, surveillance, and reconnaissance missions. We achieved our goals by creating an unmanned aerial vehicle that has thermal, Lidar, range finders, and visible light capture capabilities. Our aircraft is capable of landing and taking off from makeshift runways to access dangerous air space where sending pilots is too risky.  The aircraft is able to reach the desired altitudes for cruising at various heights. This allows the aircraft to cruise to its destination and survey an area. While loitering, the aircraft can use the surveillance equipment to complete its mission. Our objective cruise altitude was originally set to 1500 meters to get adequate photographs of disaster areas and we were able to stay true to that target value throughout the design process. During the course of designing the craft, we had to change the concept in order to better suit the mission while still meeting the requirements from the initial design of the aircraft. Some of these changes were to make the craft lighter and decrease the size of the battery in order to increase our flight time. This required us to decrease the cruise velocity to compensate for the reduced power output. Through the various design iterations, we were also able to increase the efficiency of the propulsion system, therefore, increasing our endurance by almost double for more wiggle room in flight to accomplish the mission. The initial range of the aircraft from takeoff to landing had to be shortened in order to remain consistent with the reduced power of the propulsion system. Through the reduction of the propulsion system as well we successfully brought the gross takeoff weight down to approximately 200 lbs. While its intended use is search and rescue and reconnaissance, the Surveyanator is a versatile craft. Our aircraft features state-of-the-art photographic technology for the long-range detection of targets. Our onboard surveillance system is perfect for keeping track of targets around the clock.
 	\clearpage
 	\section{References}
 	\sloppy
 	“Rex-90 - Ulm Electric Motor by MGM Compro: Aeroexpo.” The B2B Marketplace for Aeronautical Equipment, https://www.aeroexpo.online/prod/mgm-compro/product-171210-31063.html. \\ \\
 	http://www.aeroelectric.com\/Reference\_Docs\/Cessna\/cessna-misc\/C172\_Performance-Figures\_\_from\_RSV\_Cessna\_Training\_Manual.pdf \\ \\
-	Raymer, D. P. (2012). Determination of CD,0 Using the Component Build Up Method. In Aircraft design: A conceptual approach. essay, AIAA. \\
+	Raymer, D. P. (2012). Determination of CD,0 Using the Component Build Up Method. In Aircraft design: A conceptual approach. essay, AIAA. \\ \\
+	Phelps, Mark. “Beechcraft Honors U.S. Bonanza Society with Custom G36.” Aviation International News, 27 July 2016, https://www.ainonline.com/aviation-news/general-aviation/2016-07-27/beechcraft-honors-us-bonanza-society-custom-g36. \\ \\
+	“Cessna 172.” Wikipedia, Wikimedia Foundation, 1 Dec. 2021, https://en.wikipedia.org/wiki/Cessna\_172. \\
 	\clearpage
 	\section{Code}
 	\begin{center}

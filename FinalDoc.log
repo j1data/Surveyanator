@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  9 DEC 2021 21:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  9 DEC 2021 22:02
 entering extended mode
 **f:/Documents/Projects/Surveyanator/FinalDoc.tex
 (f:/Documents/Projects/Surveyanator/FinalDoc.tex
@@ -232,7 +232,9 @@ Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
 (babel)             (\language73). Reported on input line 108.
-)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
+)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 ) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
@@ -246,20 +248,20 @@ LaTeX Warning: Unused global option(s):
 (FinalDoc.aux)
 \openout1 = `FinalDoc.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
-LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -310,28 +312,7 @@ LaTeX Font Info:    ... okay on input line 54.
 \everyMPtoPDFconversion=\toks27
 ) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
- (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
@@ -343,7 +324,7 @@ Package caption Info: End \AtBeginDocument code.
 <./Figures//IsoCad.png, id=1, 370.38374pt x 235.63031pt>
 File: ./Figures//IsoCad.png Graphic file (type png)
 <use ./Figures//IsoCad.png>
-Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 68.
+Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 70.
 (pdftex.def)             Requested size: 469.75502pt x 298.85167pt.
  [1
 
@@ -359,109 +340,104 @@ Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 68.
 
 ] [1
 
-] [2]
-Overfull \hbox (152.34502pt too wide) in paragraph at lines 299--302
-\OT1/cmr/m/n/12 \How to Change a Flat Tire." Bridge-stone Tires, 29 Nov. 2021, https://www.bridgestonetire.com/learn/maintenance/how-
+] [2] [3] [4] [5]
+Overfull \hbox (38.26193pt too wide) in paragraph at lines 316--317
+\OT1/cmr/m/n/12 nau-ti-cal Equip-ment, https://www.aeroexpo.online/prod/mgm-compro/product-171210-31063.html. 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--302
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 299--302
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 299--302
+Underfull \hbox (badness 10000) in paragraph at lines 316--317
 
  []
 
 
-Overfull \hbox (46.71051pt too wide) in paragraph at lines 306--306
+Overfull \hbox (46.71051pt too wide) in paragraph at lines 322--322
  \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/ 
  []
 
-[3] [4] [5]
-Overfull \hbox (187.19951pt too wide) in paragraph at lines 422--423
+[6] [7] [8] [9]
+Overfull \hbox (187.19951pt too wide) in paragraph at lines 438--439
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[6]
-Overfull \hbox (330.9167pt too wide) in paragraph at lines 467--468
+[10]
+Overfull \hbox (330.9167pt too wide) in paragraph at lines 483--484
 [][][][][][][][][][][][][][][][][][][]  
  []
 
-[7]
-Overfull \hbox (3.2415pt too wide) in paragraph at lines 509--511
+[11]
+Overfull \hbox (3.2415pt too wide) in paragraph at lines 525--527
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[8] [9]
-Overfull \hbox (23.48232pt too wide) in paragraph at lines 583--584
+[12] [13]
+Overfull \hbox (23.48232pt too wide) in paragraph at lines 599--600
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[10]
-Overfull \hbox (29.231pt too wide) in paragraph at lines 616--617
+[14] [15]
+Overfull \hbox (29.231pt too wide) in paragraph at lines 632--633
 [][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[11]
-Overfull \hbox (325.16801pt too wide) in paragraph at lines 643--645
+
+Overfull \hbox (325.16801pt too wide) in paragraph at lines 659--661
 [][][][][][][][][][][][][][][][][][]  
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 667--722
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
 
  []
 
-[12] [13] (FinalDoc.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 683--738
+
+ []
+
+[17] [18] (FinalDoc.aux) ) 
 Here is how much of TeX's memory you used:
- 7811 strings out of 478864
- 118427 string characters out of 2850081
- 772161 words of memory out of 3000000
- 25636 multiletter control sequences out of 15000+600000
+ 7390 strings out of 478864
+ 110750 string characters out of 2850081
+ 757020 words of memory out of 3000000
+ 25239 multiletter control sequences out of 15000+600000
  408818 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,6n,79p,285b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,6n,79p,1164b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FinalDoc.pdf (15 pages, 234211 bytes).
+Output written on FinalDoc.pdf (20 pages, 247174 bytes).
 PDF statistics:
- 119 PDF objects out of 1000 (max. 8388607)
+ 135 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

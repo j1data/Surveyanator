@@ -10,10 +10,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage[english]{babel}
+\usepackage{setspace}
 \sectionfont{\fontsize{12}{15}\selectfont}
 \subsectionfont{\fontsize{10}{15}\selectfont}
 \graphicspath{ {./Figures/} }
 \makeatletter
+\onehalfspacing
 \renewcommand{\@seccntformat}[1]{%
 	\ifcsname prefix@#1\endcsname
 	\csname prefix@#1\endcsname
@@ -91,8 +93,23 @@
 	\clearpage
 	\pagenumbering{arabic}
 	\section{Introduction}
+	\indent The goal of the project is to design an aircraft and predict its performance based on the methods we will be using in AerE 261. The mission is for a craft to survey a given area for threats to human health and/or life. Unmanned aerial vehicles are capable of surveying areas and better mitigating threats. These drones are also capable of observing threats more efficiently than people. The craft will take off from a viable runway far enough away from the affected area. The mission for this aircraft is to take off from makeshift runways and survey land that is inaccessible or hazardous for ground surveying. After take-off, the aircraft would need to be able to ascend to various heights to cruise to the desired destination, then loiter around the desired survey area or areas. While loitering, the aircraft would be documenting areas of land and then flying to other regions to do the same process. All of this would be able to be done autonomously and controlled remotely. After collecting the data, the plane would return to its take-off location to land and return the data. \\
+	\indent The Surveyanator will be designed for flying above areas of land or water for geographical, disaster, and search and rescue purposes. It would need to carry various equipment on board, such as photography, radar, Lidar, range finders, and thermal imaging. This craft would serve to aid in search and rescue missions as well as reconnaissance and surveillance.
+
 	\section{Requirements}
+	\indent When starting the design process we set some performance goals that would allow the Surveyanator to complete its mission. To start we wanted to be able to have a range of 100 km to allow for the plane to cruise to the area of interest, survey the area, and return to the launch area. We also wanted the plane to be able to carry different types of equipment. For example cameras, thermal imaging cameras, and other surveying equipment. We estimated that the plane would need to be able to carry at least 20 kg in the payload. The aircraft also needs to have a time in the flight of at least 60 minutes and is capable of operating at a minimum altitude of 1500 meters above the target area. The takeoff and landing distances of the aircraft must also be less than 1000 meters so that its capable of using a variety of airstrips \\
+	\indent Ability to take high-altitude photos of disaster areas. Travel at variable speeds for loitering and cruising velocities, specifically low speeds for the sake of taking pictures.
+
 	\section{Methodology}
+	\indent The design process our team used followed similarly the phases of the design process presented in AerE 261. Using equations derived in class we solved for values about our plane. Our first step was calculating the 2D drag coefficient. Using the mach speed formula ($M = \frac{V_\infty }{a_\infty}$) and reynold's number formula ($Re = \frac{\rho_\infty v_\infty c}{\mu_\infty}$) we got values to plug in to XFLR5 to calculate the 2D drag coefficient for our airfoil, 2D lift slope, alpha at lift equal to 0, and coefficient of lift max. All of these values are used to calculate other necessary values. \\
+	\indent The next thing that we calculated was the 3D drag coefficient. We used the method described in Daniel Raymer's book “Aircraft Design, A Conceptual Approach.” Using the formulas from the book we were able to calculate the 3D drag coefficients for the wing, fuselage, vertical stabilizer, horizontal stabilizer, and landing gear. This gave us a value of 0.0189 for a whole plane. \\
+	\indent After calculating the 3D coefficient of drag we calculated the wing planform area ($s = b * c$), aspect ratio, ($AR = \frac{b^2}{s}$) Oswald efficiency (oswald), K ($k = \frac{1}{\pi e_o AR}$), and 3D lift slope ($a_{3D} = \frac{a_o}{1 + \frac{57.3 a_o}{\pi e AR}}$).\\
+	\indent After those calculations we used the energy needed for the mission to determine the battery weight (battery weight formula). Using the calculated weight of the battery we added up the weights (total weight formula) to get similar weight fractions as the Beechcraft Bonanza (weight fraction formula). Then when changing energy to change the weight of the battery, the weights of the payload, empty weight till the point it was reasonable values and matched the requirements of our plane. One requirement that we had was being able to have a payload of 23 kg. Once we had the total weight of the aircraft we calculated the coefficient of lift at steady level flight (C sub L slf). After calculating the coefficient lift needed at steady level flight we could calculate the angle of attack needed for steady level flight (Angle of attack at SLF). \\
+	\indent Now to find the range of our aircraft we started off with finding the CL over CD max (CL/CD max formula) as well as CL over CD to the 3/2 max ((CL/CD)3/2 max formula). Then using the values above we calculated the endurance (Endurance formula), velocity at endurance (velo at endurance), range (range formula), velocity at max range (velo at max range), and velocity at stall (velo at stall). \\
+	\indent Then using a temp vs altitude formula (temp vs alt) and density vs altitude (density vs altitude formula), we were able to use the values to calculate the velocity at steady level flight (velo at slf), the power required (power required)(EQ21), the power available (power available), and the power excess (power excess), at each altitude. Then we could graph Power vs Altitude shown in figure 3. After calculating the values above we then could calculate the rate of climb (rate of climb), velocity of max rate of climb (velo of max climb), the rate of climb max (rate of climb max). We then graphed the calculated values to show the rate of climb vs altitude shown in figure 3. We also did a unit conversion of 100 ft per second to meters per second, graphed the service ceiling speed on figure 3 as a horizontal line and calculated the intersection of rate of climb max and the service ceiling. \\
+	\indent We next calculated the lift at sea level for steady level flight (lift at slf). Using the lift calculated we calculated the aerodynamic load limit (aerodynamic load limit). For the structural load limits we used values similar to the Cessna 172 of 3.8 g and -1.52 g. Then using the load limits we calculated pull up radius (PU radius), pull up turn rate (PU rate), level turn radius (level turn radius), level turn rate (level turn rate), all for both the aerodynamic limit and structural limit. Then we outputed the highest radius and slowest turning rate for pull up and level turn. This is because the highest radius and slowest turn rate would be using the lowest loading factor. \\
+	\indent For takeoff we assumed an obstacle height of 35 meter and for landing a height of 50 meters. For the ground distance for take off we used the ground effect formula (ground effect), and the ground distance for takeoff (ground distance takeoff). Then using max angle of attack we found the pull up radius at a given airports density. Then we calculated transition height , transition distance , height of the air distance , the air distance , and added all the distances together. This then gave us the total takeoff distance at a given airport.
+	
 	\begin{equation} \label{eq1} 
 		M = \frac{V_\infty }{a_\infty} \\ 
 	\end{equation}
@@ -296,9 +313,8 @@
 	\section{Conclusion}
 
 	\section{References}
-	“How to Change a Flat Tire.” Bridgestone Tires, 29 Nov. 2021, https://www.bridgestonetire.com/learn/maintenance/how-to-change-a-flat-tire/.\\ \\
-	“How to Change a Tire.” The Home Depot, https://www.homedepot.com/c/ah/how-to-change-a-tire/9ba683603be9fa5395fab908e21cabb.\\ \\
-	“How to Change a Tire.” WikiHow, WikiHow, https://www.wikihow.com/Change-a-Tire.\\
+	“Rex-90 - Ulm Electric Motor by MGM Compro: Aeroexpo.” The B2B Marketplace for Aeronautical Equipment, https://www.aeroexpo.online/prod/mgm-compro/product-171210-31063.html. \\ \\
+
 	
 	
 	\section{Code}

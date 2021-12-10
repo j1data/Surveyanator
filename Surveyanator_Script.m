@@ -158,7 +158,7 @@ n_Aero = Lift / W_total;
 [PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut] = TurningRad_andRate (V_endurance,g,n_Strut_pos);
 [PU_radius,PU_turnRate,LT_radius,LT_turnRate] = LoadLimitedTurning (PU_radius_Aero,PU_turnRate_Aero,LT_radius_Aero,LT_turnRate_Aero,PU_radius_Strut,PU_turnRate_Strut,LT_radius_Strut,LT_turnRate_Strut);
 vel_manuv = sqrt(((2*n_Strut_pos)/(density*Cl_max))*(W_total/Swing));
-
+neg_vel_manuv = sqrt(((2*(1.52))/(density*Cl_max))*(W_total/Swing))
 
 
 %Part H
@@ -256,7 +256,7 @@ fprintf('The service ceiling is %g meters \n\n', Height_service)
 
 %Part G
 fprintf('The PullUp radius is %g meters\nThe PullUp turn rate is %g degree/s \nThe Level turning radius is %g meters\nThe Level turning rate is %g degree/s \n',PU_radius,PU_turnRate,LT_radius,LT_turnRate);
-fprintf('The maneuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv, V_endurance);
+fprintf('The positive maneuvering speed is %g m/s \nThe negative maneuvering speed is %g m/s \nThe Loitering speed is %g m/s \n',vel_manuv,neg_vel_manuv, V_endurance);
 output_g = [PU_radius, PU_turnRate, LT_radius, LT_turnRate, vel_manuv, V_endurance];
 
 %Part H

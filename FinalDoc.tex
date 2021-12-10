@@ -93,233 +93,324 @@
 	\clearpage
 	\pagenumbering{arabic}
 	\section{Introduction}
-	\indent The goal of the project is to design an aircraft and predict its performance based on the methods we will be using in AerE 261. The mission is for a craft to survey a given area for threats to human health and/or life. Unmanned aerial vehicles are capable of surveying areas and better mitigating threats. These drones are also capable of observing threats more efficiently than people. The craft will take off from a viable runway far enough away from the affected area. The mission for this aircraft is to take off from makeshift runways and survey land that is inaccessible or hazardous for ground surveying. After take-off, the aircraft would need to be able to ascend to various heights to cruise to the desired destination, then loiter around the desired survey area or areas. While loitering, the aircraft would be documenting areas of land and then flying to other regions to do the same process. All of this would be able to be done autonomously and controlled remotely. After collecting the data, the plane would return to its take-off location to land and return the data. \\
-	\indent The Surveyanator will be designed for flying above areas of land or water for geographical, disaster, and search and rescue purposes. It would need to carry various equipment on board, such as photography, radar, Lidar, range finders, and thermal imaging. This craft would serve to aid in search and rescue missions as well as reconnaissance and surveillance.
+	\indent 
 
+	\clearpage
 	\section{Requirements}
-	\indent When starting the design process we set some performance goals that would allow the Surveyanator to complete its mission. To start we wanted to be able to have a range of 100 km to allow for the plane to cruise to the area of interest, survey the area, and return to the launch area. We also wanted the plane to be able to carry different types of equipment. For example cameras, thermal imaging cameras, and other surveying equipment. We estimated that the plane would need to be able to carry at least 20 kg in the payload. The aircraft also needs to have a time in the flight of at least 60 minutes and is capable of operating at a minimum altitude of 1500 meters above the target area. The takeoff and landing distances of the aircraft must also be less than 1000 meters so that its capable of using a variety of airstrips \\
-	\indent Ability to take high-altitude photos of disaster areas. Travel at variable speeds for loitering and cruising velocities, specifically low speeds for the sake of taking pictures.
+	\indent 
 
+	\clearpage
 	\section{Methodology}
-	\indent The design process our team used followed similarly the phases of the design process presented in AerE 261. Using equations derived in class we solved for values about our plane. Our first step was calculating the 2D drag coefficient. Using the mach speed formula ($M = \frac{V_\infty }{a_\infty}$) and reynold's number formula ($Re = \frac{\rho_\infty v_\infty c}{\mu_\infty}$) we got values to plug in to XFLR5 to calculate the 2D drag coefficient for our airfoil, 2D lift slope, alpha at lift equal to 0, and coefficient of lift max. All of these values are used to calculate other necessary values. \\
-	\indent The next thing that we calculated was the 3D drag coefficient. We used the method described in Daniel Raymer's book “Aircraft Design, A Conceptual Approach.” Using the formulas from the book we were able to calculate the 3D drag coefficients for the wing, fuselage, vertical stabilizer, horizontal stabilizer, and landing gear. This gave us a value of 0.0189 for a whole plane. \\
-	\indent After calculating the 3D coefficient of drag we calculated the wing planform area ($s = b * c$), aspect ratio, ($AR = \frac{b^2}{s}$) Oswald efficiency (oswald), K ($k = \frac{1}{\pi e_o AR}$), and 3D lift slope ($a_{3D} = \frac{a_o}{1 + \frac{57.3 a_o}{\pi e AR}}$).\\
-	\indent After those calculations we used the energy needed for the mission to determine the battery weight (battery weight formula). Using the calculated weight of the battery we added up the weights (total weight formula) to get similar weight fractions as the Beechcraft Bonanza (weight fraction formula). Then when changing energy to change the weight of the battery, the weights of the payload, empty weight till the point it was reasonable values and matched the requirements of our plane. One requirement that we had was being able to have a payload of 23 kg. Once we had the total weight of the aircraft we calculated the coefficient of lift at steady level flight (C sub L slf). After calculating the coefficient lift needed at steady level flight we could calculate the angle of attack needed for steady level flight (Angle of attack at SLF). \\
-	\indent Now to find the range of our aircraft we started off with finding the CL over CD max (CL/CD max formula) as well as CL over CD to the 3/2 max ((CL/CD)3/2 max formula). Then using the values above we calculated the endurance (Endurance formula), velocity at endurance (velo at endurance), range (range formula), velocity at max range (velo at max range), and velocity at stall (velo at stall). \\
-	\indent Then using a temp vs altitude formula (temp vs alt) and density vs altitude (density vs altitude formula), we were able to use the values to calculate the velocity at steady level flight (velo at slf), the power required (power required)(EQ21), the power available (power available), and the power excess (power excess), at each altitude. Then we could graph Power vs Altitude shown in figure 3. After calculating the values above we then could calculate the rate of climb (rate of climb), velocity of max rate of climb (velo of max climb), the rate of climb max (rate of climb max). We then graphed the calculated values to show the rate of climb vs altitude shown in figure 3. We also did a unit conversion of 100 ft per second to meters per second, graphed the service ceiling speed on figure 3 as a horizontal line and calculated the intersection of rate of climb max and the service ceiling. \\
-	\indent We next calculated the lift at sea level for steady level flight (lift at slf). Using the lift calculated we calculated the aerodynamic load limit (aerodynamic load limit). For the structural load limits we used values similar to the Cessna 172 of 3.8 g and -1.52 g. Then using the load limits we calculated pull up radius (PU radius), pull up turn rate (PU rate), level turn radius (level turn radius), level turn rate (level turn rate), all for both the aerodynamic limit and structural limit. Then we outputed the highest radius and slowest turning rate for pull up and level turn. This is because the highest radius and slowest turn rate would be using the lowest loading factor. \\
-	\indent For takeoff we assumed an obstacle height of 35 meter and for landing a height of 50 meters. For the ground distance for take off we used the ground effect formula (ground effect), and the ground distance for takeoff (ground distance takeoff). Then using max angle of attack we found the pull up radius at a given airports density. Then we calculated transition height , transition distance , height of the air distance , the air distance , and added all the distances together. This then gave us the total takeoff distance at a given airport.
-	
-	\begin{equation} \label{eq1} 
-		M = \frac{V_\infty }{a_\infty} \\ 
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		a_\infty = \sqrt{\gamma R T_\infty} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Re = \frac{\rho_\infty v_\infty c}{\mu_\infty} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		s = b * c \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		AR = \frac{b^2}{s} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		k = \frac{1}{\pi e_o AR} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		a_{3D} = \frac{a_o}{1 + \frac{57.3 a_o}{\pi e AR}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		W_{battery} = \frac{E_{battery}}{E_{density}} *9.81 \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		C_L = \frac{W_{total}}{\frac{1}{2} \rho  v_\infty^2  s} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		\alpha_{3D\_SLF} = \frac{C_L}{a_{3D}}+\alpha_{L=0} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		(\frac{C_L}{C_D})_{max} = \sqrt{\frac{1}{4 K C_{D o}}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		(\frac{{C_L}^{1/3}}{C_D})_{max} = \frac{1}{4} (\frac{3}{K C_{D_o}^{1/3}})^{\frac{3}{4}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Endurance = (\frac{E_{battery} n_{prop} n_{motor} \sqrt{\rho s}}{\sqrt{2} W_{total}^{1.5}} (\frac{{C_L}^{1/3}}{C_D})_{max}) \div 60 \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		V_{endurance} = \sqrt{\frac{2}{\rho} * \frac{W_{total}}{s} * \sqrt{\frac{K}{3  CD_o}}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Range = (\frac{(E_{battery} * n_{motor} * n_{prop})}{W_{total}} * (\frac{C_L}{C_D})_{max}) \div 1000 \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		V_{maxrange} = \sqrt{\frac{2}{\rho} * \frac{W_{total}}{s} * \sqrt{\frac{K}{CD_o}}}\\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		V_{stall} = \sqrt{\frac{2}{\rho}*\frac{W_{total}}{s}*\frac{1}{Cl_{max}}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		T_{alt} = T_{sea} + a*altitude \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		\rho_{alt} = \rho_{sea} * {(\frac{T_{alt}}{T_{sea}})}^{\frac{-g}{a*R}-1}\\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		V_{\infty SLF} = \sqrt{\frac{2*W_{total}}{\rho_{alt} * s} * \sqrt{\frac{K}{3CD_o}}}\\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		P_{required} = \frac{1}{2} \rho_{alt} * V_{\infty SLF}^3 * s * CD_o + \frac{2 * K * W_{total}^2}{\rho_{alt}*V_{\infty SLF}*s} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		P_{available} = P_{Max} * {\frac{\rho_{alt}}{\rho}}^m \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		P_{excess} = P_{available} - P_{required} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Rate\_of\_Climb = \frac{P_{excess}}{W_{total}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		V_{Max\_ROC} = \sqrt{{\frac{2*W_{total}}{\rho_{alt}*s}} * \sqrt{\frac{K}{3CD_o}}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		ROC_{Max} = \frac{n_{prop}*P_{available}}{W_{total}} - V_{Max\_ROC} * \frac{1.155}{(\frac{C_L}{C_D})_{max}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		L = C_L * b * q \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		q = \frac{1}{2} \rho * V_\infty^2 \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		n_{aero} = \frac{L}{W_{total}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Pull\_Up_{radius} = \frac{V_\infty^2}{g*(n-1)} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Pull\_Up_{rate} = \frac{g*(n-1)}{V_\infty} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\vspace{0.1 in}
-	\begin{equation}
-		Level\_Turning_{radius} = \frac{V_\infty^2}{g*\sqrt{n^2-1}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Level\_Turning_{rate} = \frac{V_\infty}{Level\_Turning_{radius}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		Ground\_Effect = \frac{{\frac{16 * h}{b}}^2}{1+{\frac{16 * h}{b}}^2} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		s_g = \frac{1.44*W_{total}^2}{g*\rho*Cl_{max}* s * (Thrust_{Lo} - D_{Lo} - \mu_r*(W_{total}-L_{Lo}))} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		h_{tr} = R_{pullup} - R_{pullup} * \cos{\theta_{max}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		s_{tr} = R_{pullup} * \sin{\theta_{max}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		h_a = h_{obsticle} - h_{tr} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
-	\begin{equation}
-		s_a = \frac{h_a}{\tan{\theta_{max}}} \\
-	\end{equation}
-	\hrule
-	\vspace{0.1 in}
+	\indent 
 
-
+	\clearpage
+	\section{Equations}
+		\begin{equation} \label{eq1} 
+			M = \frac{V_\infty }{a_\infty} \\ 
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			a_\infty = \sqrt{\gamma R T_\infty} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Re = \frac{\rho_\infty v_\infty c}{\mu_\infty} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s = b * c \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			AR = \frac{b^2}{s} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			e_o = 1.78(1 - 0.045*AR^{0.68}) - 0.64 \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			k = \frac{1}{\pi e_o AR} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			a_{3D} = \frac{a_o}{1 + \frac{57.3 a_o}{\pi e AR}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			W_{battery} = \frac{E_{battery}}{E_{density}} *9.81 \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			W_{total} = W_{payload} + W_{battery} + W_{empty} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			1 = \frac{W_{payload}}{W_{total}} + \frac{W_{empty}}{W_{total}} + \frac{W_{battery}}{W_{total}}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			C_L = \frac{W_{total}}{\frac{1}{2} \rho  v_\infty^2  s} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			\alpha_{3D\_SLF} = \frac{C_L}{a_{3D}}+\alpha_{L=0} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			(\frac{C_L}{C_D})_{max} = \sqrt{\frac{1}{4 K C_{D o}}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			(\frac{{C_L}^{3/2}}{C_D})_{max} = \frac{1}{4} (\frac{3}{K C_{D_o}^{1/3}})^{\frac{3}{4}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Endurance = (\frac{E_{battery} n_{prop} n_{motor} \sqrt{\rho s}}{\sqrt{2} W_{total}^{1.5}} (\frac{{C_L}^{3/2}}{C_D})_{max}) \div 60 \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			V_{endurance} = \sqrt{\frac{2}{\rho} * \frac{W_{total}}{s} * \sqrt{\frac{K}{3  CD_o}}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Range = (\frac{(E_{battery} * n_{motor} * n_{prop})}{W_{total}} * (\frac{C_L}{C_D})_{max}) \div 1000 \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			V_{maxrange} = \sqrt{\frac{2}{\rho} * \frac{W_{total}}{s} * \sqrt{\frac{K}{CD_o}}}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			V_{stall} = \sqrt{\frac{2}{\rho}*\frac{W_{total}}{s}*\frac{1}{Cl_{max}}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			T_{alt} = T_{sea} + a*altitude \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			\rho_{alt} = \rho_{sea} * {(\frac{T_{alt}}{T_{sea}})}^{\frac{-g}{a*R}-1}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			V_{\infty SLF} = \sqrt{\frac{2*W_{total}}{\rho_{alt} * s} * \sqrt{\frac{K}{3CD_o}}}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			P_{required} = \frac{1}{2} \rho_{alt} * V_{\infty SLF}^3 * s * CD_o + \frac{2 * K * W_{total}^2}{\rho_{alt}*V_{\infty SLF}*s} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			P_{available} = P_{Max} * {\frac{\rho_{alt}}{\rho}}^m \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			P_{excess} = P_{available} - P_{required} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Rate\_of\_Climb = \frac{P_{excess}}{W_{total}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			V_{Max\_ROC} = \sqrt{{\frac{2*W_{total}}{\rho_{alt}*s}} * \sqrt{\frac{K}{3CD_o}}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			ROC_{Max} = \frac{n_{prop}*P_{available}}{W_{total}} - V_{Max\_ROC} * \frac{1.155}{(\frac{C_L}{C_D})_{max}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			L = C_L * b * q \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			q = \frac{1}{2} \rho * V_\infty^2 \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			n_{aero} = \frac{L}{W_{total}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Pull\_Up_{radius} = \frac{V_\infty^2}{g*(n-1)} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Pull\_Up_{rate} = \frac{g*(n-1)}{V_\infty} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\vspace{0.1 in}
+		\begin{equation}
+			Level\_Turning_{radius} = \frac{V_\infty^2}{g*\sqrt{n^2-1}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Level\_Turning_{rate} = \frac{V_\infty}{Level\_Turning_{radius}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			Ground\_Effect = \frac{{\frac{16 * h}{b}}^2}{1+{\frac{16 * h}{b}}^2} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s_g = \frac{1.44*W_{total}^2}{g*\rho*Cl_{max}* s * {(Thrust_{Lo} - D_{Lo} - \mu_r*(W_{total}-L_{Lo}))} |_{v=0.7V_{Lo}}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			h_{tr} = R_{pullup} - R_{pullup} * \cos{\theta_{max}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s_{tr} = R_{pullup} * \sin{\theta_{max}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			h_a = h_{obsticle} - h_{tr} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s_a = \frac{h_a}{\tan{\theta_{max}}} \\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			h_f = R_{pull up} - R_{pull up} * \cos{\theta_f}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			h_{a_{land}} = Obs_{hight} - h_f\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s_f = R * \sin{\theta_f}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s_{a_{land}} = \frac{h_{a_{land}}}{\tan{\theta_f}}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+		\begin{equation}
+			s_{g_{land}} = \frac{1.69*W_{total}^2}{g*\rho*s*Cl_{max}*(D_{TD} + \mu_r * (W_{total} - L_{TD}))|_{v= 0.7V_{Lo}}}\\
+		\end{equation}
+		\hrule
+		\vspace{0.1 in}
+	\clearpage
 	\section{Results}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.39\textwidth]{ClAlpha.png}\hspace{0.02 in} \label{fig:f2}
+		\includegraphics[width=.375\textwidth]{ClCdAlpha.png} \label{fig:f3}
+		\caption{Cl vs Alpha (left) \& $\frac{Cl}{Cd}$ vs Alpha (right)}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{CdCl.png} \label{fig:f4}
+		\caption{Cd vs Cl}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.375\textwidth]{PowerVAltitude.png}\hspace{0.02 in} \label{fig:f5}
+		\includegraphics[width=.375\textwidth]{RateofClimb.PNG} \label{fig:f6}
+		\caption{Power vs Altitude (left) \& Rate of Climb vs Altitude (right)}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.75\textwidth]{TakeOff.PNG} \label{fig:f7}
+		\caption{Takeoff}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.75\textwidth]{Landing.PNG} \label{fig:f8}
+		\caption{Landing}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.75\textwidth]{Mission.PNG} \label{fig:f9}
+		\caption{Mission Overview}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.5\textwidth]{Holding.PNG} \label{fig:f10}
+		\caption{Survey Pattern}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.4\textwidth]{IsoCad.PNG}\hspace{.2 in} \label{fig:f11}
+		\includegraphics[width=.4\textwidth]{side.PNG} \label{fig:f12}
+		\caption{CAD Model Iso view (left) \& Side view (right)}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{Front.PNG} \label{fig:f13}
+		\includegraphics[width=.2\textwidth]{Top.PNG} \label{fig:f14}
+		\caption{CAD Model Front view (left) \& Top view (right)}
+	\end{figure}
+	\clearpage
 	\section{Discussion}
+	\clearpage
 	\section{Conclusion}
-
+	\clearpage
 	\section{References}
+	\sloppy
 	“Rex-90 - Ulm Electric Motor by MGM Compro: Aeroexpo.” The B2B Marketplace for Aeronautical Equipment, https://www.aeroexpo.online/prod/mgm-compro/product-171210-31063.html. \\ \\
-
-	
-	
+	http://www.aeroelectric.com\/Reference\_Docs\/Cessna\/cessna-misc\/C172\_Performance-Figures\_\_from\_RSV\_Cessna\_Training\_Manual.pdf \\ \\
+	Raymer, D. P. (2012). Determination of CD,0 Using the Component Build Up Method. In Aircraft design: A conceptual approach. essay, AIAA. \\
+	\clearpage
 	\section{Code}
 	\begin{center}
 	Link to Inputs Document: https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/\\edit?usp=sharing \\
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\textwidth]{Inputs.PNG} \label{fig:f15}
+		\caption{Google Sheets Inputs}
+	\end{figure}
 	\end{center}
 	\begin{lstlisting}
 		clear,clc,clf

@@ -93,24 +93,15 @@
 	\clearpage
 	\pagenumbering{arabic}
 	\section{Introduction}
-	\indent The goal of the project is to design an aircraft and predict its performance based on the methods we will be using in AerE 261. The mission is for a craft to survey a given area for threats to human health and/or life. Unmanned aerial vehicles are capable of surveying areas and better mitigating threats. These drones are also capable of observing threats more efficiently than people. The craft will take off from a viable runway far enough away from the affected area. The mission for this aircraft is to take off from makeshift runways and survey land that is inaccessible or hazardous for ground surveying. After take-off, the aircraft would need to be able to ascend to various heights to cruise to the desired destination, then loiter around the desired survey area or areas. While loitering, the aircraft would be documenting areas of land and then flying to other regions to do the same process. All of this would be able to be done autonomously and controlled remotely. After collecting the data, the plane would return to its take-off location to land and return the data. \\
-	\indent The Surveyanator will be designed for flying above areas of land or water for geographical, disaster, and search and rescue purposes. It would need to carry various equipment on board, such as photography, radar, Lidar, range finders, and thermal imaging. This craft would serve to aid in search and rescue missions as well as reconnaissance and surveillance.
+	\indent 
 
 	\clearpage
 	\section{Requirements}
-	\indent When starting the design process we set some performance goals that would allow the Surveyanator to complete its mission. To start we wanted to be able to have a range of 100 km to allow for the plane to cruise to the area of interest, survey the area, and return to the launch area. We also wanted the plane to be able to carry different types of equipment. For example cameras, thermal imaging cameras, and other surveying equipment. We estimated that the plane would need to be able to carry at least 20 kg in the payload. The aircraft also needs to have a time in the flight of at least 60 minutes and is capable of operating at a minimum altitude of 1500 meters above the target area. The takeoff and landing distances of the aircraft must also be less than 1000 meters so that its capable of using a variety of airstrips \\
-	\indent Ability to take high-altitude photos of disaster areas. Travel at variable speeds for loitering and cruising velocities, specifically low speeds for the sake of taking pictures.
+	\indent 
 
 	\clearpage
 	\section{Methodology}
-	\indent The design process our team used followed similarly the phases of the design process presented in AerE 261. Using equations derived in class we solved for values about our plane. Our first step was calculating the 2D drag coefficient. Using the mach speed formula (EQ 1\&2) and reynold's number formula (EQ 3)we got values to plug in to XFLR5 to calculate the 2D drag coefficient for our airfoil, 2D lift slope, alpha at lift equal to 0, and coefficient of lift max. The 2D lift slope, alpha when lift equals zero, and the coefficient of lift were estimated from figure 1. The 2D drag coefficient was estimated from figure 2. \\
-	\indent The next thing that we calculated was the 3D drag coefficient. We used the method described in Daniel Raymer's book “Aircraft Design, A Conceptual Approach.” Using the formulas from the book we were able to calculate the 3D drag coefficients for the wing, fuselage, vertical stabilizer, horizontal stabilizer, and landing gear. This gave us a value of 0.0189 for a whole plane. \\
-	\indent After calculating the 3D coefficient of drag we calculated the wing planform area (EQ 4), aspect ratio, (EQ 5) Oswald efficiency (oswald)(EQ 6), K (EQ 7), and 3D lift slope (EQ 8).\\
-	\indent After those calculations we used the energy needed for the mission to determine the battery weight (EQ 9). Using the calculated weight of the battery we added up the weights (EQ 10) to get similar weight fractions as the Beechcraft Bonanza (EQ 11). Then when changing energy to change the weight of the battery, the weights of the payload, empty weight till the point it was reasonable values and matched the requirements of our plane. One requirement that we had was being able to have a payload of 23 kg. Once we had the total weight of the aircraft we calculated the coefficient of lift at steady level flight (EQ 12). After calculating the coefficient lift needed at steady level flight we could calculate the angle of attack needed for steady level flight (EQ 13). \\
-	\indent Now to find the range of our aircraft we started off with finding the CL over CD max (EQ 14) as well as CL over CD to the 3/2 max (EQ 15). Then using the values above we calculated the endurance (EQ 16), velocity at endurance (EQ 17), range (EQ 18), velocity at max range (EQ 19), and velocity at stall (EQ 20). \\
-	\indent Then using a temp vs altitude formula (EQ 21) and density vs altitude (EQ 22), we were able to use the values to calculate the velocity at steady level flight (EQ 23), the power required (EQ 24), the power available (EQ 25), and the power excess (EQ 26), at each altitude. Then we could graph Power vs Altitude shown in figure 3. After calculating the values above we then could calculate the rate of climb (EQ 27), velocity of max rate of climb (EQ 28), the rate of climb max (EQ 29). We then graphed the calculated values to show the rate of climb vs altitude shown in figure 3. We also did a unit conversion of 100 ft per second to meters per second, graphed the service ceiling speed on figure 3 as a horizontal line and calculated the intersection of rate of climb max and the service ceiling. \\
-	\indent We next calculated the lift at sea level for steady level flight (EQ 30). Using the lift calculated we calculated the aerodynamic load limit (EQ 32). For the structural load limits we used values similar to the Cessna 172 of 3.8 g and -1.52 g. Then using the load limits we calculated pull up radius (EQ 33), pull up turn rate (EQ 34), level turn radius (EQ 35), level turn rate (EQ 36), all for both the aerodynamic limit and structural limit. Then we outputed the highest radius and slowest turning rate for pull up and level turn. This is because the highest radius and slowest turn rate would be using the lowest loading factor. \\
-	\indent For takeoff we assumed an obstacle height of 35 meter and for landing a height of 50 meters. For the ground distance for take off we used the ground effect formula (EQ 37), and the ground distance for takeoff (EQ 38). Then using max angle of attack we found the pull up radius at a given airports density. Then we calculated transition height , transition distance , height of the air distance , the air distance , and added all the distances together. This then gave us the total takeoff distance at a given airport.
+	\indent 
 
 	\clearpage
 	\section{Equations}
@@ -352,6 +343,55 @@
 		\vspace{0.1 in}
 	\clearpage
 	\section{Results}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.39\textwidth]{ClAlpha.png}\hspace{0.02 in} \label{fig:f2}
+		\includegraphics[width=.375\textwidth]{ClCdAlpha.png} \label{fig:f3}
+		\caption{Cl vs Alpha (left) \& $\frac{Cl}{Cd}$ vs Alpha (right)}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{CdCl.png} \label{fig:f4}
+		\caption{Cd vs Cl}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.375\textwidth]{PowerVAltitude.png}\hspace{0.02 in} \label{fig:f5}
+		\includegraphics[width=.375\textwidth]{RateofClimb.PNG} \label{fig:f6}
+		\caption{Power vs Altitude (left) \& Rate of Climb vs Altitude (right)}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.5\textwidth]{TakeOff.PNG} \label{fig:f7}
+		\caption{Takeoff}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.5\textwidth]{Landing.PNG} \label{fig:f8}
+		\caption{Landing}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.5\textwidth]{Mission.PNG} \label{fig:f9}
+		\caption{Mission Overview}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.5\textwidth]{Holding.PNG} \label{fig:f10}
+		\caption{Survey Pattern}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.4\textwidth]{IsoCad.PNG}\hspace{.2 in} \label{fig:f11}
+		\includegraphics[width=.4\textwidth]{side.PNG} \label{fig:f12}
+		\caption{CAD Model Iso view (left) \& Side view (right)}
+	\end{figure}
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=.6\textwidth]{Front.PNG} \label{fig:f13}
+		\includegraphics[width=.2\textwidth]{Top.PNG} \label{fig:f14}
+		\caption{CAD Model Front view (left) \& Top view (right)}
+	\end{figure}
 	\clearpage
 	\section{Discussion}
 	\clearpage
@@ -366,6 +406,11 @@
 	\section{Code}
 	\begin{center}
 	Link to Inputs Document: https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/\\edit?usp=sharing \\
+	\begin{figure}[!h]
+		\centering
+		\includegraphics[width=1\textwidth]{Inputs.PNG} \label{fig:f15}
+		\caption{Google Sheets Inputs}
+	\end{figure}
 	\end{center}
 	\begin{lstlisting}
 		clear,clc,clf

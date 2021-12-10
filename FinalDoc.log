@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 10:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 11:12
 entering extended mode
 **f:/Documents/Projects/Surveyanator/FinalDoc.tex
 (f:/Documents/Projects/Surveyanator/FinalDoc.tex
@@ -344,126 +344,219 @@ Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 70.
 
 ] [3
 
-] [4] [5
+] [4
 
-] [6] [7] [8] [9
+] [5] [6] [7]
+<./Figures//ClAlpha.png, id=45, 234.1247pt x 298.86656pt>
+File: ./Figures//ClAlpha.png Graphic file (type png)
+<use ./Figures//ClAlpha.png>
+Package pdftex.def Info: ./Figures//ClAlpha.png  used on input line 348.
+(pdftex.def)             Requested size: 183.20416pt x 233.87654pt.
+<./Figures//ClCdAlpha.png, id=46, 234.1247pt x 308.65312pt>
+File: ./Figures//ClCdAlpha.png Graphic file (type png)
+<use ./Figures//ClCdAlpha.png>
+Package pdftex.def Info: ./Figures//ClCdAlpha.png  used on input line 349.
+(pdftex.def)             Requested size: 176.15813pt x 232.24751pt.
+<./Figures//CdCl.png, id=47, 412.54124pt x 307.1475pt>
+File: ./Figures//CdCl.png Graphic file (type png)
+<use ./Figures//CdCl.png>
+Package pdftex.def Info: ./Figures//CdCl.png  used on input line 354.
+(pdftex.def)             Requested size: 281.85587pt x 209.8511pt.
+<./Figures//PowerVAltitude.png, id=48, 403.5075pt x 316.18124pt>
+File: ./Figures//PowerVAltitude.png Graphic file (type png)
+<use ./Figures//PowerVAltitude.png>
+Package pdftex.def Info: ./Figures//PowerVAltitude.png  used on input line 359.
+(pdftex.def)             Requested size: 176.15813pt x 138.03465pt.
+<./Figures//RateofClimb.PNG, id=49, 405.01312pt x 317.68687pt>
+File: ./Figures//RateofClimb.PNG Graphic file (type png)
+<use ./Figures//RateofClimb.PNG>
+Package pdftex.def Info: ./Figures//RateofClimb.PNG  used on input line 360.
+(pdftex.def)             Requested size: 176.15813pt x 138.17812pt.
 
-] [10
 
-] [11
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//TakeOff.PNG, id=50, 501.37312pt x 181.42781pt>
+File: ./Figures//TakeOff.PNG Graphic file (type png)
+<use ./Figures//TakeOff.PNG>
+Package pdftex.def Info: ./Figures//TakeOff.PNG  used on input line 365.
+(pdftex.def)             Requested size: 234.8775pt x 84.99425pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Landing.PNG, id=51, 502.87875pt x 182.18062pt>
+File: ./Figures//Landing.PNG Graphic file (type png)
+<use ./Figures//Landing.PNG>
+Package pdftex.def Info: ./Figures//Landing.PNG  used on input line 370.
+(pdftex.def)             Requested size: 234.8775pt x 85.08838pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Mission.PNG, id=52, 942.52126pt x 222.8325pt>
+File: ./Figures//Mission.PNG Graphic file (type png)
+<use ./Figures//Mission.PNG>
+Package pdftex.def Info: ./Figures//Mission.PNG  used on input line 375.
+(pdftex.def)             Requested size: 234.8775pt x 55.52777pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Holding.PNG, id=53, 352.31625pt x 254.45062pt>
+File: ./Figures//Holding.PNG Graphic file (type png)
+<use ./Figures//Holding.PNG>
+Package pdftex.def Info: ./Figures//Holding.PNG  used on input line 380.
+(pdftex.def)             Requested size: 234.8775pt x 169.63461pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//IsoCad.PNG, id=54, 370.38374pt x 235.63031pt>
+File: ./Figures//IsoCad.PNG Graphic file (type png)
+<use ./Figures//IsoCad.PNG>
+Package pdftex.def Info: ./Figures//IsoCad.PNG  used on input line 385.
+(pdftex.def)             Requested size: 187.89914pt x 119.53706pt.
+<./Figures//side.PNG, id=55, 346.29375pt x 131.74219pt>
+File: ./Figures//side.PNG Graphic file (type png)
+<use ./Figures//side.PNG>
+Package pdftex.def Info: ./Figures//side.PNG  used on input line 386.
+(pdftex.def)             Requested size: 187.89914pt x 71.48546pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<./Figures//Front.PNG, id=56, 460.72125pt x 76.78688pt>
+File: ./Figures//Front.PNG Graphic file (type png)
+<use ./Figures//Front.PNG>
+Package pdftex.def Info: ./Figures//Front.PNG  used on input line 391.
+(pdftex.def)             Requested size: 281.85587pt x 46.97583pt.
+<./Figures//Top.PNG, id=57, 136.25906pt x 201.75375pt>
+File: ./Figures//Top.PNG Graphic file (type png)
+<use ./Figures//Top.PNG>
+Package pdftex.def Info: ./Figures//Top.PNG  used on input line 392.
+(pdftex.def)             Requested size: 93.94957pt x 139.10556pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8
+
+ <./Figures//ClAlpha.png> <./Figures//ClCdAlpha.png> <./Figures//CdCl.png>] [9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//TakeOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Holding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG> <./Figures//Top.PNG>] [11
+
+] [12
 
 ]
-Underfull \hbox (badness 1540) in paragraph at lines 362--365
+Underfull \hbox (badness 1540) in paragraph at lines 402--405
 \OT1/cmr/m/n/12 for Aero-nau-ti-cal Equip-ment, https://www.aeroexpo.online/prod/mgm-compro/product-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--365
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--365
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
 \OT1/cmr/m/n/12 http://www.aeroelectric.comReference[]DocsCessnacessna-miscC172[]Performance-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--365
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 362--365
+Underfull \hbox (badness 10000) in paragraph at lines 402--405
 
- []
-
-[12
-
-]
-Overfull \hbox (46.71051pt too wide) in paragraph at lines 368--368
- \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/ 
  []
 
 [13
 
-] [14] [15]
-Overfull \hbox (187.19951pt too wide) in paragraph at lines 484--485
+]
+Overfull \hbox (46.71051pt too wide) in paragraph at lines 408--408
+ \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/ 
+ []
+
+<./Figures//Inputs.PNG, id=90, 1315.16344pt x 440.39531pt>
+File: ./Figures//Inputs.PNG Graphic file (type png)
+<use ./Figures//Inputs.PNG>
+Package pdftex.def Info: ./Figures//Inputs.PNG  used on input line 411.
+(pdftex.def)             Requested size: 469.75502pt x 157.29901pt.
+[14
+
+ <./Figures//Inputs.PNG>] [15] [16]
+Overfull \hbox (187.19951pt too wide) in paragraph at lines 529--530
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[16]
-Overfull \hbox (330.9167pt too wide) in paragraph at lines 529--530
+[17] [18]
+Overfull \hbox (330.9167pt too wide) in paragraph at lines 574--575
 [][][][][][][][][][][][][][][][][][][]  
  []
 
-[17]
-Overfull \hbox (3.2415pt too wide) in paragraph at lines 571--573
+[19]
+Overfull \hbox (3.2415pt too wide) in paragraph at lines 616--618
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[18] [19] [20]
-Overfull \hbox (23.48232pt too wide) in paragraph at lines 645--646
+[20] [21]
+Overfull \hbox (23.48232pt too wide) in paragraph at lines 690--691
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[21]
-Overfull \hbox (29.231pt too wide) in paragraph at lines 678--679
+[22]
+Overfull \hbox (29.231pt too wide) in paragraph at lines 723--724
 [][][][][][][][][][][][][][][][][][][][][][][][][]  
  []
 
-[22]
-Overfull \hbox (325.16801pt too wide) in paragraph at lines 705--707
+[23]
+Overfull \hbox (325.16801pt too wide) in paragraph at lines 750--752
 [][][][][][][][][][][][][][][][][][]  
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 729--784
+Underfull \hbox (badness 10000) in paragraph at lines 774--829
 
  []
 
-[23] [24] [25] (FinalDoc.aux) ) 
+[24] [25] [26] (FinalDoc.aux) ) 
 Here is how much of TeX's memory you used:
- 7390 strings out of 478864
- 110750 string characters out of 2850081
- 745020 words of memory out of 3000000
- 25239 multiletter control sequences out of 15000+600000
+ 7516 strings out of 478864
+ 113616 string characters out of 2850081
+ 757020 words of memory out of 3000000
+ 25351 multiletter control sequences out of 15000+600000
  408818 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,6n,79p,1164b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,6n,79p,285b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on FinalDoc.pdf (27 pages, 250362 bytes).
+Output written on FinalDoc.pdf (28 pages, 783311 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
+ 188 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 76 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -158,6 +158,139 @@
 	\end{equation}
 	\hrule
 	\vspace{0.1 in}
+	\begin{equation}
+		V_{endurance} = \sqrt{\frac{2}{\rho} * \frac{W_{total}}{s} * \sqrt{\frac{K}{3  CD_o}}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		Range = (\frac{(E_{battery} * n_{motor} * n_{prop})}{W_{total}} * (\frac{C_L}{C_D})_{max}) \div 1000 \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		V_{maxrange} = \sqrt{\frac{2}{\rho} * \frac{W_{total}}{s} * \sqrt{\frac{K}{CD_o}}}\\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		V_{stall} = \sqrt{\frac{2}{\rho}*\frac{W_{total}}{s}*\frac{1}{Cl_{max}}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		T_{alt} = T_{sea} + a*altitude \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		\rho_{alt} = \rho_{sea} * {(\frac{T_{alt}}{T_{sea}})}^{\frac{-g}{a*R}-1}\\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		V_{\infty SLF} = \sqrt{\frac{2*W_{total}}{\rho_{alt} * s} * \sqrt{\frac{K}{3CD_o}}}\\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		P_{required} = \frac{1}{2} \rho_{alt} * V_{\infty SLF}^3 * s * CD_o + \frac{2 * K * W_{total}^2}{\rho_{alt}*V_{\infty SLF}*s} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		P_{available} = P_{Max} * {\frac{\rho_{alt}}{\rho}}^m \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		P_{excess} = P_{available} - P_{required} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		Rate\_of\_Climb = \frac{P_{excess}}{W_{total}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		V_{Max\_ROC} = \sqrt{{\frac{2*W_{total}}{\rho_{alt}*s}} * \sqrt{\frac{K}{3CD_o}}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		ROC_{Max} = \frac{n_{prop}*P_{available}}{W_{total}} - V_{Max\_ROC} * \frac{1.155}{(\frac{C_L}{C_D})_{max}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		L = C_L * b * q \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		q = \frac{1}{2} \rho * V_\infty^2 \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		n_{aero} = \frac{L}{W_{total}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		Pull\_Up_{radius} = \frac{V_\infty^2}{g*(n-1)} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		Pull\_Up_{rate} = \frac{g*(n-1)}{V_\infty} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\vspace{0.1 in}
+	\begin{equation}
+		Level\_Turning_{radius} = \frac{V_\infty^2}{g*\sqrt{n^2-1}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		Level\_Turning_{rate} = \frac{V_\infty}{Level\_Turning_{radius}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		Ground\_Effect = \frac{{\frac{16 * h}{b}}^2}{1+{\frac{16 * h}{b}}^2} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		s_g = \frac{1.44*W_{total}^2}{g*\rho*Cl_{max}* s * (Thrust_{Lo} - D_{Lo} - \mu_r*(W_{total}-L_{Lo}))} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		h_{tr} = R_{pullup} - R_{pullup} * \cos{\theta_{max}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		s_{tr} = R_{pullup} * \sin{\theta_{max}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		h_a = h_{obsticle} - h_{tr} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+	\begin{equation}
+		s_a = \frac{h_a}{\tan{\theta_{max}}} \\
+	\end{equation}
+	\hrule
+	\vspace{0.1 in}
+
+
 	\section{Results}
 	\section{Discussion}
 	\section{Conclusion}

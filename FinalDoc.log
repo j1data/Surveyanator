@@ -1,12 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 16:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.6) (preloaded format=pdflatex 2021.10.15)  10 DEC 2021 18:16
 entering extended mode
-**./FinalDoc.tex
-(FinalDoc.tex
-LaTeX2e <2021-06-01> patch level 1
-L3 programming layer <2021-08-27>
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\article.cls
+**f:/Documents/Projects/Surveyanator/FinalDoc.tex
+(f:/Documents/Projects/Surveyanator/FinalDoc.tex
+LaTeX2e <2021-06-01>
+L3 programming layer <2021-06-01> (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\size12.clo
+(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
 File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count182
@@ -20,19 +19,14 @@ File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.s
-ty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\keyval.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\ifvtex.sty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/iftex\iftex.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 ))
 \Gm@cnth=\count190
@@ -47,14 +41,9 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@layouthoffset=\dimen145
 \Gm@layoutvoffset=\dimen146
 \Gm@dimlist=\toks17
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/geometry\geometry.c
-fg))
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/blindtext\blindtext
-.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/blindtext\blindtext.sty
 Package: blindtext 2012/01/06 V2.0 blindtext-Package
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\xspace.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/tools\xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
 \c@blindtext=\count193
@@ -75,10 +64,9 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@blind@randommax=\count274
 \c@blind@pangramcount=\count275
 \c@blind@pangrammax=\count276
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/sectsty\sectsty.sty
-Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
-les
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/sectsty\sectsty.sty
+Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading styles
+
 
 LaTeX Warning: Command \underbar  has changed.
                Check if current package is valid.
@@ -87,39 +75,26 @@ LaTeX Warning: Command \underbar  has changed.
 LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphicx.s
-ty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
 Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\graphics.s
-ty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\trig.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\graphi
-cs.cfg
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 107.
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-def\pdftex
-.def
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen147
 \Gin@req@width=\dimen148
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/subfig\subfig.sty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/subfig\subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
 Package: caption 2020/10/26 v3.5g Customizing captions (AR)
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/caption\caption3.st
-y
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
 \captionmargin=\dimen149
 \captionmargin@=\dimen150
@@ -146,9 +121,7 @@ Package caption Info: Standard document class detected.
 \c@lotdepth=\count285
 \sf@top=\skip52
 \sf@bottom=\skip53
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.s
-ty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
 \lst@mode=\count286
 \lst@gtempboxa=\box50
 \lst@token=\toks18
@@ -161,51 +134,40 @@ ty
 \lst@newlines=\count290
 \lst@lineno=\count291
 \lst@maxwidth=\dimen160
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.st
-y
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 \c@lstnumber=\count292
 \lst@skipnumbers=\count293
 \lst@framebox=\box51
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\listings.c
-fg
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
 ))
 Package: listings 2020/03/24 1.8d (Carsten Heinz)
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics\color.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics\color.sty
 Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/graphics-cfg\color.
-cfg
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 149.
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\inputenc.sty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
 Package: inputenc 2021/02/14 v1.3d Input encoding file
 \inpenc@prehook=\toks19
 \inpenc@posthook=\toks20
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsmath.sty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
 Package: amsmath 2021/04/20 v2.17j AMS math features
 \@mathmargin=\skip54
-For additional information on amsmath, use the `?' option.
 
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amstext.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsgen.sty
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks21
 \ex@=\dimen161
-))
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsbsy.sty
+)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen162
-) (C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsmath\amsopn.st
-y
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count294
@@ -245,18 +207,14 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.sty
-Package: babel 2021/07/22 3.63 The Babel package
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\babel.def
-File: babel.def 2021/07/22 3.63 Babel common definitions
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/06/02 3.60 The Babel package
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.def
+File: babel.def 2021/06/02 3.60 Babel common definitions
 \babel@savecnt=\count306
 \U@D=\dimen170
-\l@unhyphenated=\language83
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/generic/babel\txtbabel.de
-f)
+\l@unhyphenated=\language79
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbabel.def)
 \bbl@readstream=\read2
 )
 \bbl@dirlevel=\count307
@@ -264,25 +222,19 @@ f)
 *************************************
 * Local config file bblopts.cfg used
 *
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/arabi\bblopts.cfg
-File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
- babel
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/babel-english\engli
-sh.ldf
+(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of babel
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/babel-english\english.ldf
 Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language77). Reported on input line 105.
+(babel)             (\language73). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language77). Reported on input line 108.
-))
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/setspace\setspace.s
-ty
+(babel)             (\language73). Reported on input line 108.
+)) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\multicol.sty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
 Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \c@tracingmulticols=\count308
 \mult@box=\box54
@@ -351,14 +303,10 @@ Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
 \mult@nat@firstbox=\box98
 \colbreak@box=\box99
 \mc@col@check@num=\count317
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1.s
-ty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backend
--pdftex.def
-File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count318
 \l__pdf_internal_box=\box100
 )
@@ -422,9 +370,7 @@ LaTeX Font Info:    ... okay on input line 57.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
-f.mkii
+(C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count319
 \scratchdimen=\dimen180
@@ -437,15 +383,10 @@ f.mkii
 \MPnumerator=\count323
 \makeMPintoPDFobject=\count324
 \everyMPtoPDFconversion=\toks27
-)
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstop
-df-base.sty
+) (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-
-(C:\Users\j1dat\AppData\Local\Programs\MiKTeX 2.9\tex/latex/00miktex\epstopdf-s
-ys.cfg
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\PC\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package caption Info: Begin \AtBeginDocument code.
@@ -460,8 +401,7 @@ Package pdftex.def Info: ./Figures//IsoCad.png  used on input line 71.
 (pdftex.def)             Requested size: 469.75502pt x 298.85167pt.
  [1
 
-{C:/Users/j1dat/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./Figures//IsoC
-ad.png>] (FinalDoc.toc)
+{C:/Users/PC/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./Figures//IsoCad.png>] (FinalDoc.toc)
 \tf@toc=\write3
 \openout3 = `FinalDoc.toc'.
 
@@ -509,7 +449,6 @@ Package pdftex.def Info: ./Figures//CdCl.png  used on input line 381.
 File: ./Figures//PowerVAltitude.png Graphic file (type png)
 <use ./Figures//PowerVAltitude.png>
 Package pdftex.def Info: ./Figures//PowerVAltitude.png  used on input line 386.
-
 (pdftex.def)             Requested size: 176.15813pt x 138.03465pt.
 <./Figures//RateofClimb.PNG, id=56, 405.01312pt x 317.68687pt>
 File: ./Figures//RateofClimb.PNG Graphic file (type png)
@@ -608,18 +547,13 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 LaTeX Warning: Text page 9 contains only floats.
 
-[9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//Tak
-eOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Ho
-lding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG>
- <./Figures//Top.PNG>] [11 <./Figures//VN.JPG> <./Figures//beechcraft.JPG> <./F
-igures//cessna.JPG>] [12
+[9 <./Figures//PowerVAltitude.png> <./Figures//RateofClimb.PNG> <./Figures//TakeOff.PNG> <./Figures//Landing.PNG> <./Figures//Mission.PNG>] [10 <./Figures//Holding.PNG> <./Figures//IsoCad.PNG> <./Figures//side.PNG> <./Figures//Front.PNG> <./Figures//Top.PNG>] [11 <./Figures//VN.JPG> <./Figures//beechcraft.JPG> <./Figures//cessna.JPG>] [12
 
 ] [13
 
 ]
 Underfull \hbox (badness 1540) in paragraph at lines 452--457
-\OT1/cmr/m/n/12 for Aero-nau-ti-cal Equip-ment, https://www.aeroexpo.online/pro
-d/mgm-compro/product-
+\OT1/cmr/m/n/12 for Aero-nau-ti-cal Equip-ment, https://www.aeroexpo.online/prod/mgm-compro/product-
  []
 
 
@@ -629,8 +563,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 452--457
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 452--457
-\OT1/cmr/m/n/12 http://www.aeroelectric.comReference[]DocsCessnacessna-miscC172
-[]Performance-
+\OT1/cmr/m/n/12 http://www.aeroelectric.comReference[]DocsCessnacessna-miscC172[]Performance-
  []
 
 
@@ -645,8 +578,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 452--457
 
 
 Underfull \hbox (badness 2103) in paragraph at lines 452--457
-\OT1/cmr/m/n/12 In-ter-na-tional News, 27 July 2016, https://www.ainonline.com/
-aviation-news/general-
+\OT1/cmr/m/n/12 In-ter-na-tional News, 27 July 2016, https://www.ainonline.com/aviation-news/general-
  []
 
 
@@ -657,7 +589,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 452--457
 
 Underfull \hbox (badness 10000) in paragraph at lines 452--457
 \OT1/cmr/m/n/12 \Cessna 172." Wikipedia, Wiki-me-dia Foun-da-tion, 1 Dec. 2021,
-
  []
 
 
@@ -669,8 +600,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 452--457
 
 ]
 Overfull \hbox (46.71051pt too wide) in paragraph at lines 460--460
- \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ
-417U7gUv60qco82aeOLdE/ 
+ \OT1/cmr/m/n/12 https://docs.google.com/spreadsheets/d/1mX9oFI3Zd5SyJR2twwYRWJ417U7gUv60qco82aeOLdE/ 
  []
 
 <./Figures//Inputs.PNG, id=103, 1315.16344pt x 440.39531pt>
@@ -751,38 +681,15 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7818 strings out of 478893
- 121753 string characters out of 2849020
- 758741 words of memory out of 3000000
- 25599 multiletter control sequences out of 15000+600000
+ 7669 strings out of 478864
+ 116190 string characters out of 2850081
+ 760850 words of memory out of 3000000
+ 25497 multiletter control sequences out of 15000+600000
  409272 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,6n,79p,2197b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
-<C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cmextra/cmex8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/j1dat/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/j1dat/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/
-j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pf
-b><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmmi8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pub
-lic/amsfonts/cm/cmr10.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/j1dat/AppData/Local/Programs/Mi
-KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/j1dat/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/j1dat/Ap
-pData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Use
-rs/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
-pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy10.pfb><C:/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/f
-onts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/j1dat/AppData/Local/Programs/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/j1dat/AppData/Loc
-al/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/j1dat
-/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:
-/Users/j1dat/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mtt10.pfb>
-Output written on FinalDoc.pdf (29 pages, 985947 bytes).
+ 69i,6n,79p,2227b,2199s stack positions out of 5000i,500n,10000p,200000b,80000s
+<C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/PC/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on FinalDoc.pdf (29 pages, 986180 bytes).
 PDF statistics:
  229 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
